@@ -3,7 +3,8 @@ from __future__ import print_function
 import os
 import torch
 from pandas import read_csv
-from collections import defaultdict, Counter
+import random
+from collections import defaultdict, Counter, defaultdict
 from tokenized import tokenize
 
 class Dictionary(object):
@@ -32,30 +33,56 @@ class Multi_target_tweet(object):
     def tokenize_(self, dict):
         self.idx_tweet = []
         for word in tokenize(self.raw_tweet):
-            dict.add_word(word)
+            if word not in dict.word2idx:
+                word = "_UNK_"
             self.idx_tweet.append(dict.word2idx[word])
+
+
+class Seme_tweet(object):
+    def __init__(self, raw_tweet, target, stance, sentiment, flag):
+        self.raw_tweet = raw_tweet
+        self.target, self.stance = target, stance
+        self.flag = flag
+        self.sentiment = sentiment
+
+    def tokenize_(self, dict):
+        self.idx_tweet = []
+        self.idx_target = []
+        for word in tokenize(self.raw_tweet):
+            if word not in dict.word2idx:
+                word = "_UNK_"
+            self.idx_tweet.append(dict.word2idx[word])
+
+        for word in tokenize(self.target):
+            word = word.lower()
+            if word not in dict.word2idx:
+                word = "_UNK_"
+            self.idx_target.append(dict.word2idx[word])
 
 class Corpus(object):
     def __init__(self, path):
         self.dictionary = Dictionary()
-        self.multi_target_tweets = []
+        self.dictionary.add_word("_padding_")
+        self.dictionary.add_word("_UNK_")
+        self.tweets = []
         self.read_data(path)
+        self.build_dict()
         #self.check_data()
         self.tokenize()
-        pass
-
+        self.pair_names = [["Donald Trump", "Hilary Clinton"],
+                           ["Donald Trump","Ted Cruz"],
+                           ["Hilary Clinton","Bernie Sanders"]]
 
     def read_data(self, path):
         data = read_csv(path, names=["tweet", "target1", "stance1", "target2", "stance2", "flag"], skiprows=[0])
         for twt, t1, s1, t2, s2, flag in zip(data.tweet, data.target1, data.stance1, data.target2, data.stance2, data.flag):
-            self.multi_target_tweets.append(Multi_target_tweet(twt, t1, s1, t2, s2, flag))
-        pass
+            self.tweets.append(Multi_target_tweet(twt.lower(), t1, s1, t2, s2, flag))
 
     def check_data(self):
         count = defaultdict(float)
         count_f_a = defaultdict(lambda :defaultdict(float))
         print("-----------------check-data start------------------")
-        for mul_tweet in self.multi_target_tweets:
+        for mul_tweet in self.tweets:
             key = "-".join([mul_tweet.target1, mul_tweet.target2, mul_tweet.flag])
             key1 = "-".join([mul_tweet.target1, mul_tweet.target2])
             key2 = "-".join([mul_tweet.stance1, mul_tweet.stance2])
@@ -73,22 +100,122 @@ class Corpus(object):
         print("-----------------check-data end------------------")
 
     def tokenize(self):
-        for item in self.multi_target_tweets:
+        for item in self.tweets:
             item.tokenize_(self.dictionary)
+
+    def build_dict(self):
+        word_list = []
+        for tweet in filter(lambda tweet: tweet.flag == "Train", self.tweets):
+            for word in tokenize(tweet.raw_tweet):
+                word_list.append(word)
+        for word, times in Counter(word_list).iteritems():
+            if times >= 2:
+                self.dictionary.add_word(word)
+        return self.dictionary
 
     def analysis(self):
         self.analysis_tweet_len()
 
     def analysis_tweet_len(self):
         print("------- analysis len start-----------")
-        len_list = [len(item.idx_tweet) for item in self.multi_target_tweets]
+        len_list = [len(item.idx_tweet) for item in self.tweets]
         len_count = Counter(len_list)
         for len_, times in len_count.iteritems():
             print("len %d : %d"%(len_, times))
         print("------- analysis len end-----------")
 
+    def analysis_count(self):
+        word_list = []
+        for tweet in filter(lambda tweet: tweet.flag == "Train", self.tweets):
+            for word in tokenize(tweet.raw_tweet):
+                word_list.append(word)
+        tmp = Counter(word_list)
+        return tmp
+
+    def iter_epoch(self, target1, target2, flag, pair_idx, batch_size=30):
+        idx_tweets = []
+        stance1 = []
+        stance2 = []
+        for tweet in self.tweets:
+            if tweet.target1 == target1 and tweet.target2 == target2 and tweet.flag == flag:
+            #if tweet.flag == flag:
+                idx_tweets.append(tweet.idx_tweet)
+                stance1.append(tweet.stance1)
+                stance2.append(tweet.stance2)
+
+        for start_idx in range(len(idx_tweets))[::batch_size]:
+            end_idx = min(start_idx + batch_size, len(idx_tweets))
+            yield idx_tweets[start_idx:end_idx:], stance1[start_idx:end_idx:], stance2[start_idx:end_idx:], pair_idx
+
+    def iter_train_epoch(self, batch_size=64, is_random=True):
+        all_items = []
+        for pair_idx, (target1, target2) in enumerate(self.pair_names):
+            for item in self.iter_epoch(target1, target2, "Train", pair_idx, batch_size):
+                all_items.append(item)
+        if is_random:
+            random.shuffle(all_items)
+        for item in all_items:
+            yield item
+
+class Seme_Corpus(Corpus):
+    def __init__(self, path):
+        super(Seme_Corpus, self).__init__(path)
+        self.targets = [ "Atheism",
+                        "Climate Change is a Real Concern",
+                        "Feminist Movement",
+                        "Hillary Clinton",
+                        "Legalization of Abortion"]
+        self.add_targets_word2dict()
+
+    def add_targets_word2dict(self):
+        for target in self.targets:
+            for word in tokenize(target):
+                self.dictionary.add_word(word.lower())
+
+    def read_semeval_data(self, path, flag):
+        data = read_csv(path, names=["tweet", "target", "stance", "opinion", "sentiment"], skiprows=[0])
+        for tweet, target, stance, sentiment in zip(data.tweet, data.target, data.stance, data.sentiment):
+            self.tweets.append(Seme_tweet(tweet.lower(), target, stance, sentiment, flag))
+
+    def read_data(self, path):
+        self.read_semeval_data(os.path.join(path, "train.csv"), "Train")
+        self.read_semeval_data(os.path.join(path, "test.csv"), "Test")
+
+    def iter_epoch(self, target_idx, flag, batch_size=18):
+        idx_tweets = []
+        idx_targets = []
+        stances = []
+        sentiments = []
+        for tweet in self.tweets:
+            if tweet.target == self.targets[target_idx] and tweet.flag == flag:
+                idx_tweets.append(tweet.idx_tweet)
+                idx_targets.append(tweet.idx_target)
+                stances.append(tweet.stance)
+                sentiments.append(tweet.sentiment)
+
+        for start_idx in range(len(idx_tweets))[::batch_size]:
+            end_idx = min(start_idx + batch_size, len(idx_tweets))
+            yield idx_tweets[start_idx:end_idx:], idx_targets[start_idx:end_idx:], stances[start_idx:end_idx:], sentiments[start_idx:end_idx:], target_idx
+
+    def iter_all_train_target(self, batch_size=30, is_random=True):
+        data = []
+        for target_idx in range(len(self.targets)):
+            for item in self.iter_epoch(target_idx, "Train", batch_size):
+                data.append(item)
+        if is_random is True:
+            random.shuffle(data)
+        for item in data:
+            yield item
+
 
 if __name__ == "__main__":
-    corpus = Corpus("./data/all_data_tweet_text.csv")
-    corpus.analysis()
+    #corpus = Corpus("./data/all_data_tweet_text.csv")
+    semeval_corpus = Seme_Corpus("./data")
+    for idx_tweet, idx_targets, stances, sentiments in semeval_corpus.iter_epoch(0,"Train"):
+        pass
+    # tsum = 0
+    # for idxs, s1, s2 in corpus.iter_epoch("Donald Trump", "Hilary Clinton", "Train", batch_size=100):
+    #     tsum += len(s1)
+    # print(tsum)
+    # corpus.analysis()
     pass
