@@ -3,3 +3,4 @@ reference/
 .idea/
 *.pyc
 test.py
+*~
