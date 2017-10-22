@@ -3,8 +3,6 @@ from __future__ import print_function
 from data_helper import Corpus
 from preprocess import init_embedding, fixed_length, stance2idx, metric
 from config import Config
-from Text_LSTM import Text_LSTM
-from Text_CNN import Text_CNN
 import torch
 from torch.autograd import Variable
 from torch.nn import NLLLoss,CrossEntropyLoss

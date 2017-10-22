@@ -18,7 +18,7 @@ class Text_CNN(torch.nn.Module):
         self.embedding_matrix.weight.requires_grad = True
 
         window_size = 3
-        small_filter = 128
+        small_filter = 50
         sum_filter += small_filter
         self.conv1_seq = torch.nn.Sequential(
             torch.nn.Conv1d(config.embedding_size, small_filter, kernel_size=window_size),

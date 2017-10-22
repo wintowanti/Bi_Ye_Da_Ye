@@ -2,7 +2,7 @@
 from __future__ import print_function
 import torch
 from torch.autograd import Variable
-from torch.nn.functional import softmax, dropout
+from torch.nn.functional import softmax, dropout, relu
 
 class Text_LSTM(torch.nn.Module):
     def __init__(self, config):
@@ -33,7 +33,8 @@ class Text_LSTM(torch.nn.Module):
         output, (hn, cn) = self.bi_lstm(text_em)
         #hn = torch.cat(hn, dim=1)
         hn = hn.view(-1, self.config.hidden_size)
-        #hn = dropout(hn)
+        hn = relu(hn)
+        hn = dropout(hn)
         # if pair_idx == 0:
         #     output1 = self.fc_target1(hn)
         #     output2 = self.fc_target2(hn)

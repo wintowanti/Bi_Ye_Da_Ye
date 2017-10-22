@@ -14,7 +14,7 @@ class Config(object):
     embedding_matrix = None
 
     #lstm
-    hidden_size = 128
+    hidden_size = 64
     class_size = 3
 
 
