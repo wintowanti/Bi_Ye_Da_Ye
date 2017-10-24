@@ -1,0 +1,60 @@
+\ttl@change@i {\@ne }{chapter}{3.8em}{\hspace {-3.8em}\hei }{\thecontentslabel ~~}{}{\titlerule *[4pt]{.}\contentspage }\relax 
+\ttl@change@v {chapter}{}{}{}\relax 
+\ttl@change@i {\@ne }{section}{32pt}{}{\contentslabel {21pt}}{\hspace *{-21pt}}{\titlerule *[0.3pc]{.}\contentspage }\relax 
+\ttl@change@v {section}{}{}{}\relax 
+\ttl@change@i {\@ne }{subsection}{53pt}{}{\contentslabel {30pt}}{\hspace *{-30pt}}{\titlerule *[0.3pc]{.}\contentspage }\relax 
+\ttl@change@v {subsection}{}{}{}\relax 
+\contentsline {chapter}{\fontsize {12pt}{12pt}\selectfont 摘\hskip 1em\relax 要}{I}{section*.2}
+\contentsline {chapter}{\fontsize {12pt}{12pt}\selectfont ABSTRACT}{II}{section*.6}
+\vspace {\baselineskip }
+\contentsline {chapter}{\numberline {第1章\hspace {.3em}}绪论}{1}{section*.10}
+\contentsline {section}{\numberline {1.1}XeLaTeX编译方法的配置}{1}{section*.12}
+\contentsline {section}{\numberline {1.2}模板的使用方法介绍}{3}{section*.14}
+\contentsline {section}{\numberline {1.3}哈尔滨工业大学\nobreakspace {}\LaTeX \nobreakspace {}技术交流\nobreakspace {}QQ 群介绍}{3}{section*.16}
+\contentsline {chapter}{\numberline {第2章\hspace {.3em}}文本立场分析相关技术概述}{4}{section*.18}
+\contentsline {section}{\numberline {2.1}引言}{4}{section*.20}
+\contentsline {subsection}{\numberline {2.1.1}图题及图中说明}{4}{section*.22}
+\contentsline {subsection}{\numberline {2.1.2}插图编排}{4}{section*.24}
+\contentsline {section}{\numberline {2.2}\LaTeX \nobreakspace {}中推荐使用的图片格式}{5}{section*.26}
+\contentsline {section}{\numberline {2.3}单张图片的插入方法}{5}{section*.28}
+\contentsline {section}{\numberline {2.4}具有子图的图片插入方法}{8}{section*.33}
+\contentsline {chapter}{\numberline {第3章\hspace {.3em}}文本立场分析相关技术概述}{11}{section*.40}
+\contentsline {section}{\numberline {3.1}引言}{11}{section*.42}
+\contentsline {subsection}{\numberline {3.1.1}图题及图中说明}{11}{section*.44}
+\contentsline {subsection}{\numberline {3.1.2}插图编排}{11}{section*.46}
+\contentsline {section}{\numberline {3.2}\LaTeX \nobreakspace {}中推荐使用的图片格式}{12}{section*.48}
+\contentsline {section}{\numberline {3.3}单张图片的插入方法}{12}{section*.50}
+\contentsline {section}{\numberline {3.4}具有子图的图片插入方法}{15}{section*.55}
+\contentsline {chapter}{\numberline {第4章\hspace {.3em}}表格的绘制方法}{18}{section*.62}
+\contentsline {section}{\numberline {4.1}研究生院的绘表规范}{18}{section*.64}
+\contentsline {section}{\numberline {4.2}普通表格的绘制方法}{18}{section*.66}
+\contentsline {section}{\numberline {4.3}长表格的绘制方法}{19}{section*.69}
+\contentsline {section}{\numberline {4.4}列宽可调表格的绘制方法}{22}{section*.73}
+\contentsline {subsection}{\numberline {4.4.1}表格内某单元格内容过长的情况}{22}{section*.75}
+\contentsline {subsection}{\numberline {4.4.2}对物理量符号进行注释的情况}{23}{section*.78}
+\contentsline {chapter}{\numberline {第5章\hspace {.3em}}数学公式的输入方法}{25}{section*.80}
+\contentsline {section}{\numberline {5.1}研究生院的公式规范}{25}{section*.82}
+\contentsline {section}{\numberline {5.2}生成\nobreakspace {}\LaTeX \nobreakspace {}数学公式的两种方法}{25}{section*.84}
+\contentsline {subsection}{\numberline {5.2.1}基于\nobreakspace {}MathType\nobreakspace {}软件的数学公式生成方法}{25}{section*.86}
+\contentsline {subsection}{\numberline {5.2.2}基于\nobreakspace {}MATLAB\nobreakspace {}软件的数学公式生成方法}{26}{section*.88}
+\contentsline {section}{\numberline {5.3}数学字体}{27}{section*.90}
+\contentsline {section}{\numberline {5.4}行内公式}{28}{section*.93}
+\contentsline {section}{\numberline {5.5}行间公式}{28}{section*.102}
+\contentsline {section}{\numberline {5.6}可自动调整大小的定界符}{29}{section*.105}
+\contentsline {section}{\numberline {5.7}数学重音符号}{30}{section*.107}
+\contentsline {chapter}{\numberline {第6章\hspace {.3em}}模板的其它说明}{31}{section*.109}
+\contentsline {section}{\numberline {6.1}中英文封面的相关信息}{31}{section*.111}
+\contentsline {section}{\numberline {6.2}\textsc {Bib}\kern -.08em\TeX \nobreakspace {}文献文件的写法}{31}{section*.113}
+\contentsline {section}{\numberline {6.3}参考文献的引用}{33}{section*.116}
+\contentsline {section}{\numberline {6.4}单层罗列环境}{33}{section*.118}
+\contentsline {section}{\numberline {6.5}算法}{34}{section*.121}
+\contentsline {section}{\numberline {6.6}定理定义}{35}{section*.127}
+\contentsline {chapter}{\fontsize {12pt}{12pt}\selectfont 结\hskip 1em\relax 论}{37}{section*.130}
+\contentsline {chapter}{参考文献}{38}{section*.133}
+\contentsline {chapter}{\numberline {附录\nobreakspace {}A A\hspace {.3em}}带章节的附录}{39}{section*.137}
+\contentsline {section}{\numberline {A.1}附录节的内容}{39}{section*.139}
+\contentsline {chapter}{\numberline {附录\nobreakspace {}B B\hspace {.3em}}这个星球上最好的免费Windows软件列表}{40}{section*.143}
+\contentsline {chapter}{\fontsize {12pt}{12pt}\selectfont 攻读硕士学位期间发表的论文及其他成果}{41}{section*.146}
+\contentsline {chapter}{\fontsize {12pt}{12pt}\selectfont 哈尔滨工业大学学位论文原创性声明和使用权限}{42}{section*.150}
+\contentsline {chapter}{\fontsize {12pt}{12pt}\selectfont 致\hskip 1em\relax 谢}{43}{section*.154}
+\contentsfinish 
