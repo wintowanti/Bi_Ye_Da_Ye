@@ -5,59 +5,9 @@ import torch
 from pandas import read_csv
 import random
 from collections import defaultdict, Counter, defaultdict
-from tokenized import tokenize
-
-class Dictionary(object):
-    def __init__(self):
-        self.word2idx = {}
-        self.idx2word = []
-
-    def add_word(self, word):
-        if word not in self.word2idx:
-            self.idx2word.append(word)
-            self.word2idx[word] = len(self.idx2word) - 1
-        return self.word2idx[word]
-
-    def __len__(self):
-        return len(self.idx2word)
-
-class Multi_target_tweet(object):
-    def __init__(self, raw_tweet, target1, stance1, target2, stance2, flag):
-        self.raw_tweet = raw_tweet
-
-        self.target1, self.stance1 = target1, stance1
-        self.target2, self.stance2 = target2, stance2
-
-        self.flag = flag
-
-    def tokenize_(self, dict):
-        self.idx_tweet = []
-        for word in tokenize(self.raw_tweet):
-            if word not in dict.word2idx:
-                word = "_UNK_"
-            self.idx_tweet.append(dict.word2idx[word])
-
-
-class Seme_tweet(object):
-    def __init__(self, raw_tweet, target, stance, sentiment, flag):
-        self.raw_tweet = raw_tweet
-        self.target, self.stance = target, stance
-        self.flag = flag
-        self.sentiment = sentiment
-
-    def tokenize_(self, dict):
-        self.idx_tweet = []
-        self.idx_target = []
-        for word in tokenize(self.raw_tweet):
-            if word not in dict.word2idx:
-                word = "_UNK_"
-            self.idx_tweet.append(dict.word2idx[word])
-
-        for word in tokenize(self.target):
-            word = word.lower()
-            if word not in dict.word2idx:
-                word = "_UNK_"
-            self.idx_target.append(dict.word2idx[word])
+from data_helper.dictionary import Dictionary
+from data_helper.tokenized import tokenize as twitter_tokenize
+from data_helper.twitter import Seme_tweet, Multi_target_tweet
 
 class Corpus(object):
     def __init__(self, path):
@@ -67,8 +17,29 @@ class Corpus(object):
         self.tweets = []
         self.read_data(path)
         self.build_dict()
+        self.idxed_data()
+
+    def read_data(self, path):
+        raise NotImplementedError()
+
+    def idxed_data(self):
+        for item in self.tweets:
+            item.idxed_data_by_dict(self.dictionary)
+
+    def build_dict(self):
+        word_list = []
+        for tweet in filter(lambda tweet: tweet.flag == "Train", self.tweets):
+            for word in tweet.tokenize():
+                word_list.append(word)
+        for word, times in Counter(word_list).iteritems():
+            if times >= 2:
+                self.dictionary.add_word(word)
+        return self.dictionary
+
+class Multi_Target_Corpus(Corpus):
+    def __init__(self, path):
         #self.check_data()
-        self.tokenize()
+        super(Multi_Target_Corpus, self).__init__(path)
         self.pair_names = [["Donald Trump", "Hilary Clinton"],
                            ["Donald Trump","Ted Cruz"],
                            ["Hilary Clinton","Bernie Sanders"]]
@@ -76,7 +47,7 @@ class Corpus(object):
     def read_data(self, path):
         data = read_csv(path, names=["tweet", "target1", "stance1", "target2", "stance2", "flag"], skiprows=[0])
         for twt, t1, s1, t2, s2, flag in zip(data.tweet, data.target1, data.stance1, data.target2, data.stance2, data.flag):
-            self.tweets.append(Multi_target_tweet(twt.lower(), t1, s1, t2, s2, flag))
+            self.tweets.append(Multi_target_tweet(twt, t1, s1, t2, s2, flag))
 
     def check_data(self):
         count = defaultdict(float)
@@ -98,20 +69,6 @@ class Corpus(object):
                 print("key2 %s: %.1f "%(key2, val*100/tsum))
 
         print("-----------------check-data end------------------")
-
-    def tokenize(self):
-        for item in self.tweets:
-            item.tokenize_(self.dictionary)
-
-    def build_dict(self):
-        word_list = []
-        for tweet in filter(lambda tweet: tweet.flag == "Train", self.tweets):
-            for word in tokenize(tweet.raw_tweet):
-                word_list.append(word)
-        for word, times in Counter(word_list).iteritems():
-            if times >= 2:
-                self.dictionary.add_word(word)
-        return self.dictionary
 
     def analysis(self):
         self.analysis_tweet_len()
@@ -165,17 +122,17 @@ class Seme_Corpus(Corpus):
                         "Feminist Movement",
                         "Hillary Clinton",
                         "Legalization of Abortion"]
-        self.add_targets_word2dict()
+        #self.add_targets_word2dict()
 
-    def add_targets_word2dict(self):
-        for target in self.targets:
-            for word in tokenize(target):
-                self.dictionary.add_word(word.lower())
+    # def add_targets_word2dict(self):
+    #     for target in self.targets:
+    #         for word in twitter_tokenize(target):
+    #             self.dictionary.add_word(word.lower())
 
     def read_semeval_data(self, path, flag):
         data = read_csv(path, names=["tweet", "target", "stance", "opinion", "sentiment"], skiprows=[0])
         for tweet, target, stance, sentiment in zip(data.tweet, data.target, data.stance, data.sentiment):
-            self.tweets.append(Seme_tweet(tweet.lower(), target, stance, sentiment, flag))
+            self.tweets.append(Seme_tweet(tweet, target, stance, sentiment, flag))
 
     def read_data(self, path):
         self.read_semeval_data(os.path.join(path, "train.csv"), "Train")
@@ -210,8 +167,8 @@ class Seme_Corpus(Corpus):
 
 if __name__ == "__main__":
     #corpus = Corpus("./data/all_data_tweet_text.csv")
-    semeval_corpus = Seme_Corpus("./data")
-    for idx_tweet, idx_targets, stances, sentiments in semeval_corpus.iter_epoch(0,"Train"):
+    semeval_corpus = Seme_Corpus("../data")
+    for (idx_tweet, idx_targets, stances, sentiments, target_id) in semeval_corpus.iter_epoch(1,"Train"):
         pass
     # tsum = 0
     # for idxs, s1, s2 in corpus.iter_epoch("Donald Trump", "Hilary Clinton", "Train", batch_size=100):
