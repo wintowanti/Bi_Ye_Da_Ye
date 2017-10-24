@@ -1,5 +1,6 @@
 #coding=UTF-8
-from data_helper.tokenized import tokenize as twiiter_tokenize
+from data_helper.tokenized import tokenize as twitter_tokenize
+from data_helper.social_text import Social_Text
 
 class Multi_target_tweet(object):
     def __init__(self, raw_tweet, target1, stance1, target2, stance2, flag):
@@ -18,35 +19,12 @@ class Multi_target_tweet(object):
 
     def tokenize(self):
         #lower the raw twitter to tokenize
-        return twiiter_tokenize(self.raw_tweet.lower())
+        return twitter_tokenize(self.raw_tweet.lower())
 
 
-class Seme_tweet(object):
+class Seme_tweet(Social_Text):
+    tokenize_f = twitter_tokenize
     def __init__(self, raw_tweet, target, stance, sentiment, flag):
-        self.raw_tweet = raw_tweet
-        self.target, self.stance = target, stance
-        self.flag = flag
+        super(Seme_tweet, self).__init__(raw_tweet, target, stance, flag)
         self.sentiment = sentiment
-
-    def idxed_data_by_dict(self, dict):
-        self.idx_tweet = []
-        self.idx_target = []
-        #idxed tweet
-        for word in self.tokenize():
-            if word not in dict.word2idx:
-                word = "_UNK_"
-            self.idx_tweet.append(dict.word2idx[word])
-
-        #idxed target
-        for word in self.tokenize_target():
-            if word not in dict.word2idx:
-                dict.add_word(word)
-            self.idx_target.append(dict.word2idx[word])
-
-    def tokenize(self):
-        #lower the raw twitter to tokenize
-        return twiiter_tokenize(self.raw_tweet.lower())
-
-    def tokenize_target(self):
-        #lower the raw twitter to tokenize
-        return twiiter_tokenize(self.target.lower())
+        #self.tokenize_f = twiiter_tokenize
