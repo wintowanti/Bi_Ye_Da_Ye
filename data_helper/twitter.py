@@ -23,8 +23,7 @@ class Multi_target_tweet(object):
 
 
 class Seme_tweet(Social_Text):
-    tokenize_f = twitter_tokenize
     def __init__(self, raw_tweet, target, stance, sentiment, flag):
+        self.tokenize_f = twitter_tokenize
         super(Seme_tweet, self).__init__(raw_tweet, target, stance, flag)
         self.sentiment = sentiment
-        #self.tokenize_f = twiiter_tokenize

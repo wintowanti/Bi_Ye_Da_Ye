@@ -4,21 +4,21 @@ import torch
 from torch.autograd import Variable
 from torch.nn.functional import softmax, dropout, relu
 
-class Text_LSTM(torch.nn.Module):
+class LSTM_Text_Only(torch.nn.Module):
     def __init__(self, config):
         #torch.manual_seed(13)
-        super(Text_LSTM, self).__init__()
+        super(LSTM_Text_Only, self).__init__()
         self.config = config
 
         self.embedding_matrix = torch.nn.Embedding(config.voc_len, config.embedding_size)
         if config.embedding_matrix is not None:
             self.embedding_matrix.weight.data.copy_(torch.from_numpy(config.embedding_matrix))
         self.embedding_matrix.weight.requires_grad = True
-        self.bi_lstm = torch.nn.LSTM(input_size=config.embedding_size, hidden_size=config.hidden_size, batch_first=True, bidirectional=True)
-        #self.bi_lstm = torch.nn.GRU(input_size=config.embedding_size, hidden_size=config.hidden_size, batch_first=True, bidirectional=False)
+        self.lstm = torch.nn.LSTM(input_size=config.embedding_size, hidden_size=config.hidden_size, batch_first=True,
+                                  bidirectional=False)
 
 
-        config.hidden_size *= 2
+        config.hidden_size *= 1
         self.fc_target1 = torch.nn.Linear(config.hidden_size, config.class_size)
         self.fc_target2 = torch.nn.Linear(config.hidden_size, config.class_size)
         self.fc_target3 = torch.nn.Linear(config.hidden_size, config.class_size)
@@ -30,30 +30,12 @@ class Text_LSTM(torch.nn.Module):
         text = Variable(torch.from_numpy(text))
         batch_size = text.size(0)
         text_em = self.embedding_matrix(text)
-        output, (hn, cn) = self.bi_lstm(text_em)
+        text_em = dropout(text_em, 0.2)
+        output, (hn, cn) = self.lstm(text_em)
         #hn = torch.cat(hn, dim=1)
         hn = hn.view(-1, self.config.hidden_size)
         hn = relu(hn)
         hn = dropout(hn)
-        # if pair_idx == 0:
-        #     output1 = self.fc_target1(hn)
-        #     output2 = self.fc_target2(hn)
-        # elif pair_idx == 1:
-        #     output1 = self.fc_target3(hn)
-        #     output2 = self.fc_target4(hn)
-        # else:
-        #     output1 = self.fc_target5(hn)
-        #     output2 = self.fc_target6(hn)
-
-        # if pair_idx == 0:
-        #     output1 = self.fc_target1(hn)
-        #     output2 = self.fc_target2(hn)
-        # elif pair_idx == 1:
-        #     output1 = self.fc_target1(hn)
-        #     output2 = self.fc_target3(hn)
-        # else:
-        #     output1 = self.fc_target2(hn)
-        #     output2 = self.fc_target4(hn)
         output2 = None
         output1 = self.fc_target1(hn)
         return output1, output2

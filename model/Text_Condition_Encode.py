@@ -15,10 +15,7 @@ class Text_Condition_Encoder(torch.nn.Module):
             self.embedding_matrix.weight.data.copy_(torch.from_numpy(config.embedding_matrix))
         self.embedding_matrix.weight.requires_grad = False
         self.target_lstm = torch.nn.LSTM(input_size=config.embedding_size, hidden_size=config.hidden_size, batch_first=True, bidirectional=False)
-        # for i in range(5):
-        #     lstm =torch.nn.LSTM(input_size=config.embedding_size, hidden_size=config.hidden_size, batch_first=True, bidirectional=False)
-        #     self.tweet_lstms.append(lstm)
-        self.tweet_lstm =torch.nn.LSTM(input_size=config.embedding_size, hidden_size=config.hidden_size, batch_first=True, bidirectional=False)
+        self.text_lstm =torch.nn.LSTM(input_size=config.embedding_size, hidden_size=config.hidden_size, batch_first=True, bidirectional=False)
 
         config.hidden_size *= 1
         self.fc_targets = []
@@ -30,12 +27,12 @@ class Text_Condition_Encoder(torch.nn.Module):
         batch_size = text.size(0)
         target = Variable(torch.from_numpy(target))
 
-        text_em = self.embedding_matrix(text)
-        target_em = self.embedding_matrix(target)
+        text_em = dropout(self.embedding_matrix(text), 0.2)
+        target_em = dropout(self.embedding_matrix(target), 0.2)
 
         output, (hn, cn) = self.target_lstm(target_em)
         zero_hn = Variable(torch.zeros([1, batch_size, self.config.hidden_size]), requires_grad=False)
-        output, (hn, cn) = self.tweet_lstm(text_em, (zero_hn, cn))
+        output, (hn, cn) = self.text_lstm(text_em, (zero_hn, cn))
 
         hn = relu(hn)
         hn = dropout(hn)
