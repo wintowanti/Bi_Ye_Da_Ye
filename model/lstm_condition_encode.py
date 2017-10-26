@@ -5,9 +5,9 @@ from torch.autograd import Variable
 from torch.nn.functional import softmax, dropout, relu
 from torch.nn.init import xavier_normal
 
-class Text_Condition_Encoder(torch.nn.Module):
+class LSTM_Condition_Encoder(torch.nn.Module):
     def __init__(self, config):
-        super(Text_Condition_Encoder, self).__init__()
+        super(LSTM_Condition_Encoder, self).__init__()
         self.config = config
 
         self.embedding_matrix = torch.nn.Embedding(config.voc_len, config.embedding_size)

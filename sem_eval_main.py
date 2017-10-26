@@ -5,8 +5,9 @@ from __future__ import absolute_import
 from data_helper import Corpus, Seme_Corpus
 from preprocess import init_embedding, fixed_length, stance2idx, metric
 from config import Config
-from model import Text_Condition_Encoder, Fast_Text, Text_CNN, LSTM_Text_Only, Text_GRU, Bi_GRU_CNN, Bi_GRU, Attention_Bi_GRU
-from model import Attention_Bi_GRU_CNN, LSTM_Text_Target_Concat, Text_Condition_Encode
+from model import Fast_Text, Text_CNN, LSTM_Text_Only, Text_GRU, Bi_GRU_CNN, Bi_GRU, Attention_Bi_GRU
+from model import Attention_Bi_GRU_CNN, LSTM_Text_Target_Concat, lstm_condition_encode, LSTM_Condition_Bi_Encoder
+from model import LSTM_Bi_Condition_Encoder
 
 import torch
 from torch.autograd import Variable
@@ -104,9 +105,11 @@ def main():
     embedding_matrix = init_embedding(corpus.dictionary.word2idx, Config.embedding_size, Config.embedding_path)
     Config.voc_len = len(corpus.dictionary)
     Config.embedding_matrix = embedding_matrix
+    model = LSTM_Condition_Bi_Encoder(Config)
+    #model = LSTM_Bi_Condition_Encoder(Config)
     #model = Attention_Bi_GRU_CNN(Config)
     #model = Attention_Bi_GRU(Config)
-    model = Bi_GRU_CNN(Config)
+    #model = Bi_GRU_CNN(Config)
     #model = Text_GRU(Config)
     #model = Bi_GRU(Config)
     #model = Attention_Bi_GRU_CNN(Config)
@@ -120,7 +123,7 @@ def main():
     loss_fun = CrossEntropyLoss(size_average=False)
 
     best_micro_F1 = 0.0
-    target_idx = 0
+    target_idx = 4
     for e_i in range(Config.epoch):
         print("\n----------------epoch: %d--------------------"%e_i)
         train(model, Config, loss_fun, optim, target_idx)

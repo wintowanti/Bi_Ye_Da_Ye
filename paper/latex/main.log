@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.10.16)  24 OCT 2017 20:10
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.10.16)  26 OCT 2017 09:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1851,7 +1851,33 @@ Package: xeCJK-listings 2017/05/15 v3.4.8 xeCJK patch file for listings
 \l__xeCJK_listings_max_char_int=\count282
 \l__xeCJK_listings_flag_int=\count283
 )
-(./main.aux (./body/introduction.aux) (./body/chapter2.aux) (./body/figures.aux
+(./main.aux (./body/introduction.aux) (./body/chapter2.aux)
+(./body/chapter3.aux
+
+LaTeX Warning: Label `golfer1' multiply defined.
+
+
+LaTeX Warning: Label `golfer2' multiply defined.
+
+
+LaTeX Warning: Label `golfer3' multiply defined.
+
+
+LaTeX Warning: Label `golfer41' multiply defined.
+
+
+LaTeX Warning: Label `sub@golfer41' multiply defined.
+
+
+LaTeX Warning: Label `golfer42' multiply defined.
+
+
+LaTeX Warning: Label `sub@golfer42' multiply defined.
+
+
+LaTeX Warning: Label `golfer4' multiply defined.
+
+) (./body/figures.aux
 
 LaTeX Warning: Label `golfer1' multiply defined.
 
@@ -2210,7 +2236,7 @@ LaTeX Font Info:    Calculating math sizes for size <15> on input line 80.
 *************************************************
 File: figures/golfer.eps Graphic file (type eps)
 <figures/golfer.eps>
-LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 49.
+LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 44.
  [5] [6]
 File: figures/golfer.eps Graphic file (type eps)
  <figures/golfer.eps>
@@ -2221,68 +2247,89 @@ File: figures/golfer.eps Graphic file (type eps)
 <figures/golfer.eps>
 File: figures/golfer.eps Graphic file (type eps)
  <figures/golfer.eps> [8] [9]) [10]
-\openout2 = `body/figures.aux'.
+\openout2 = `body/chapter3.aux'.
 
- (./body/figures.tex
+ (./body/chapter3.tex
 第3章
 [11
 
 
 
+] [12] [13]
+File: figures/golfer.eps Graphic file (type eps)
+ <figures/golfer.eps> [14] [15]
+File: figures/golfer.eps Graphic file (type eps)
+ <figures/golfer.eps>
+File: figures/golfer.eps Graphic file (type eps)
+
+<figures/golfer.eps> [16]
+File: figures/golfer.eps Graphic file (type eps)
+ <figures/golfer.eps>
+File: figures/golfer.eps Graphic file (type eps)
+ <figures/golfer.eps> [17]
+[18]) [19]
+\openout2 = `body/figures.aux'.
+
+ (./body/figures.tex
+第4章
+[20
+
+
+
 ]
 File: figures/golfer.eps Graphic file (type eps)
- <figures/golfer.eps> [12] [13]
+ <figures/golfer.eps> [21] [22]
 File: figures/golfer.eps Graphic file (type eps)
  <figures/golfer.eps>
 File: figures/golfer.eps Graphic file (type eps)
  <figures/golfer.eps>
-[14]
+[23]
 File: figures/golfer.eps Graphic file (type eps)
  <figures/golfer.eps>
 File: figures/golfer.eps Graphic file (type eps)
- <figures/golfer.eps> [15] [16]) [17]
+ <figures/golfer.eps> [24] [25]) [26]
 \openout2 = `body/tables.aux'.
 
 
 (./body/tables.tex
-第4章
-[18
+第5章
+[27
 
 
 
-] [19] [20] [21]
+] [28] [29] [30]
 Underfull \hbox (badness 3803) in paragraph at lines 166--166
 []|\TU/TimesNewRoman(0)/m/n/10.5 deuce-ace, leash, set, tercet, ternary, ternio
 n,
  []
 
-[22] [23]) [24]
+[31] [32]) [33]
 \openout2 = `body/equations.aux'.
 
  (./body/equations.tex
-第5章
+第6章
 
 LaTeX Font Warning: Font shape `TU/SimSun(0)/bx/n' undefined
 (Font)              using `TU/SimSun(0)/m/n' instead on input line 18.
 
-[25
+[34
 
 
 
-] [26]
+] [35]
 File: figures/latex.eps Graphic file (type eps)
  <figures/latex.eps>
 File: figures/word.eps Graphic file (type eps)
  <figures/word.eps>
 File: figures/pdf.eps Graphic file (type eps)
- <figures/pdf.eps> [27]
+ <figures/pdf.eps> [36]
 Underfull \hbox (badness 2119) in paragraph at lines 113--115
 []\TU/TimesNewRoman(0)/m/n/12 L[]T[]X \TU/SimSun(0)/m/n/12 提 供 的 行 内 公 式 最 简 单、
 |  最 有 效 的 方 法 是 采 用 \TU/TimesNewRoman(0)/m/n/12 T[]X \TU/SimSun(0)/m/n/12 本 来 
 的 标 记
  []
 
-[28]
+[37]
 Underfull \hbox (badness 10000) in paragraph at lines 129--129
 []|\TU/TimesNewRoman(0)/m/n/10.5 \begin{displaymath}......
  []
@@ -2302,7 +2349,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 129--129
 []|\TU/TimesNewRoman(0)/m/n/10.5 \begin{eqnarray} ......
  []
 
-[29]
+[38]
 
 LaTeX Warning: \verb may be unreliable inside tabularx on input line 165.
 
@@ -2316,23 +2363,23 @@ Overfull \hbox (1.96548pt too wide) in paragraph at lines 165--165
 []|[]\TU/lmtt/m/n/10.5 \overleftrightarrow| 
  []
 
-) [30]
+) [39]
 \openout2 = `body/others.aux'.
 
  (./body/others.tex
-第6章
+第7章
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern -0.96002pt
 (hyperref)                removed on input line 19.
 
-[31
+[40
 
 
 
-] [32]
+] [41]
 File: figures/list.eps Graphic file (type eps)
- <figures/list.eps> [33] [34] [35]) [36]
+ <figures/list.eps> [42] [43] [44]) [45]
 \openout2 = `body/conclusion.aux'.
 
  (./body/conclusion.tex
@@ -2341,11 +2388,11 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 12.0pt
 (hyperref)                replaced by space on input line 3.
 
-) [37
+) [46
 
 
 
-] (./main.bbl) [38
+] (./main.bbl) [47
 
 
 ]
@@ -2354,17 +2401,17 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
  (./appendix/appA.tex
 附录\nobreakspace {}A A
 File: figures/golfer.eps Graphic file (type eps)
-<figures/golfer.eps> [39
+<figures/golfer.eps> [48
 
 
 ]
 附录\nobreakspace {}B B
-) [40
+) [49
 
 ]
 \openout2 = `appendix/publications.aux'.
 
- (./appendix/publications.tex) [41
+ (./appendix/publications.tex) [50
 
 
 
@@ -2372,7 +2419,7 @@ File: figures/golfer.eps Graphic file (type eps)
 \openout2 = `appendix/Authorization.aux'.
 
  (./appendix/Authorization.tex)
-[42
+[51
 
 
 
@@ -2385,7 +2432,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 12.0pt
 (hyperref)                replaced by space on input line 3.
 
-) [43
+) [52
 
 
 
@@ -2393,15 +2440,15 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 \tf@thm=\write5
 \openout5 = `main.thm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 73.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 73.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 74.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 74.
  (./main.aux (./body/introduction.aux) (./body/chapter2.aux)
-(./body/figures.aux) (./body/tables.aux) (./body/equations.aux)
-(./body/others.aux) (./body/conclusion.aux) (./appendix/appA.aux)
-(./appendix/publications.aux) (./appendix/Authorization.aux)
-(./appendix/acknowledgements.aux))
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 73.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 73.
+(./body/chapter3.aux) (./body/figures.aux) (./body/tables.aux)
+(./body/equations.aux) (./body/others.aux) (./body/conclusion.aux)
+(./appendix/appA.aux) (./appendix/publications.aux)
+(./appendix/Authorization.aux) (./appendix/acknowledgements.aux))
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 74.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 74.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -2415,12 +2462,12 @@ LaTeX Warning: There were multiply-defined labels.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 33159 strings out of 493005
- 631263 string characters out of 6134595
- 788979 words of memory out of 5000000
- 36616 multiletter control sequences out of 15000+600000
+ 33192 strings out of 493005
+ 632628 string characters out of 6134595
+ 793342 words of memory out of 5000000
+ 36642 multiletter control sequences out of 15000+600000
  25137 words of font info for 168 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 57i,21n,78p,10410b,4943s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 57i,21n,78p,10410b,4994s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (50 pages).
+Output written on main.pdf (59 pages).
