@@ -7,185 +7,230 @@
 
 本章的各节结构如下:3.2节介绍条件编码长短期记忆神经网络模型;3.3节介绍基条件编码长短期记忆在文本立场分析;3.4 节为本章实验和结果分析;最后一节为本章小结。
 
-\BiSubsection{条件编码长短期记忆神经网络模型}{Captions and descriptions of figures}
+\BiSection{条件编码长短期记忆神经网络模型}{Captions and descriptions of figures}
 循环神经网络(Recurrent Neural Networks-RNN)已经在众多自然语言处理任务上取得了巨大成功。不同于传统过得前向反馈神经网络的同层节点无连接层于层之间节点有连接，循环神经网络引入了定向循环，可以处理序列数据。RNN中最大的缺陷是后面时间的节点对于前面节点的感知力下降，当网络深时训练效果下降。LSTM可以解决这一问题，目前LSTM是RNN中使用最广泛最成功的模型。Rocktaschel[???]在2016年在句子之间的文本蕴含识别（Recognizing textual entailment RTE）的研究中提出了条件编码的思想，其论证了在文本含义识别任务上，条件编码比单独编码更能抽取两个句子之间的信息。结合文本立场分析的也有文本和目标需要同时考虑特点，把借鉴条件编码的思想来解决文本立场分析的任务。
+\BiSubsection{基于GloVe的词嵌入模型}{}
+词的表示是自然语音处理中一个基础且十分重要的任务，大量的研究人员投入到词表示的研究中。早期的有词的表示方式为one hot encoding。每个词独占一个维度，每个词向量有一个维度是1，其他维度为0，词向量的维度是所以单词的的长度。One hot编码的特点是假设所有的单词互相独立，这是一个很强的假设，显然在有些任务中并不合适，如词语相似度方面，dog和cat的相似度应当比dog和not高，但是在one hot编码中他们相似性一样。one-hot编码词表示有一些缺点，如容易受位数灾难的困扰，且不能很好地刻画词与词之间的相似性。词嵌入表示模型能很好的改善one-hot编码的缺点，词的嵌入模型用稠密且固定长度的向量表示每一个词，而且相似的词具有相似的词向量表示。基于这点Mikolov[??]2013提出了Word2Vec模型，解决了词向量训练速度慢，效率低的缺点。其利用了CBOW（Continuous Bag-of-words Model）和Skip-Gram的两种语言模型。其中CBOW的思想是利用词语的上下文词的信息来预测该单词。而Skip-Gram则采取一种和CBOW相反的策略，用中间的词的消息来预测上下文的词。GloVe(Global Vectors for Word Representation)是斯坦福大学发表的一种词嵌入模型,GloVe尝试借鉴NNLM和word2vec的优势来弥补旧方法的劣势，取得了不错的效果。该文发表于word2vec之后，其方法内核比较朴实和简单，官方实验中，GloVe是略胜word2v一筹。
 
-\BiSubsubsection{长短期记忆神经网络模型}{Layouts of illustrations}
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width = 0.6\textwidth]{glove.jpg}
+	\caption[rnn_vanish]{GloVe可视化词向量}
+\end{figure}
+
+GloVe结合了基于矩阵分解的词嵌入表示和基于语言模型（例如Word2Vec）的词嵌入表示。基于矩阵分解具有训练快，容易实习的优点，但是生成词向量语义消息十分有限。基于语言模型的词嵌入表示则具有更多语言学层次的支持，在更多自然语言处理任务上表现更好,但是模型关注的上下文特征较少，忽略了全局的信息。GloVe发明的初衷，就是想结合两者的长处，建立一个充分利用统计量的更好训练的适用程度更广的词嵌入模型。具体模型建立公式如下
+
+$$ F(w_i,w_j,w^c_k) = \cfrac{P_{ij}}{P_{jk}} $$
+其中，取$word_i$的出现次数为$X_i$， 定义$P_{ij}=P(j|i)=\cfrac{X_{ij}}{X_{i}}$表示在$X_i$的上下文下$word_i$的出现几率, $F$则是某一种能够实现我们需求的变换。$w_i,w_j$是实数空间下的$word_i,,word_j$的词向量，$w^c_k$也是实数空间下的$word_k$的上下文词向量，其作用类似word2vec中的上下文向量。为了精简计算引入词向量的线性加减和点乘计算
+$$ F((w_i-w_j)^Tw^c_k) = \cfrac{F(w^T_iw^c_k)}{{F(w^T_jw^c_k)}} $$
+GloVe每个词涉及到两个词向量，一个词语本身的向量$w_i$，一个词的context向量$w^c_i$。最初这样设计，将词向量和上下文的向量分开，不用一套，是为了在更新参数的时候能够简单地套用SGD。实验证明两个向量加起来最后起到的效果最好。后面英文的词向量用的是GloVe模型在大量的Twitter文本上训练的100维度的词向量，中文微博词向量是200维度的词向量。
+
+\BiSubsection{长短期记忆神经网络模型}{Layouts of illustrations}
 由于文本序列的通常具有较长的长度，导致神经网络的层数较多，而传统的递归神经网络解决序列问题经常会出现梯度消失的问题(vanishing gradient problem)与梯度爆炸问题（gradient exploding problem）。梯度消失问题和梯度爆炸问题一般随着网络层数的增加会变得越来越明显。出现的原因在于对神经网络参数进行链式求导的过程中，输出对于前面递归神经参数的倒数随着累乘激活函数的导数而接近于0，以下图的反向传播为例（假设每一层只有一个神经元且对于每一层$y_i=\sigma(z_i)=\sigma(w_ix_i+b_i)$，其中$\sigma$为sigmoid函数）
 
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width = 0.7\textwidth]{rnn_gradient_vanish.png}
+	\caption[rnn_vanish]{RNN梯度消失}
+\end{figure}
+
 可以推导出
-$$\frac{\partial C}{\partial b_1} = \frac{\partial C}{\partial y_4}\frac{\partial y_4}{\partial z_4}\frac{\partial z_4}{\partial x_4}\frac{\partial x_4}{\partial z_3}\frac{\partial z_3}{\partial x_3}\frac{\partial x_3}{\partial z_2}\frac{\partial z_2}{\partial x_2}\frac{\partial x_2}{\partial z_1}\frac{\partial z_1}{\partial b_1}$$
-$$=\frac{\partial C}{\partial y_4}\ \sigma ^\prime(z_4)w_4\sigma ^\prime(z_3)w_3\sigma ^\prime(z_2)w_2\sigma ^\prime(z_1)$$
+
+\begin{equation}\label{nodelimiter}
+\frac{\partial C}{\partial b_1} = \frac{\partial C}{\partial y_4}\frac{\partial y_4}{\partial z_4}\frac{\partial z_4}{\partial x_4}\frac{\partial x_4}{\partial z_3}\frac{\partial z_3}{\partial x_3}\frac{\partial x_3}{\partial z_2}\frac{\partial z_2}{\partial x_2}\frac{\partial x_2}{\partial z_1}\frac{\partial z_1}{\partial b_1}
+\end{equation}
+\begin{equation}\label{delimiter}
+=\frac{\partial C}{\partial y_4}\ \sigma ^\prime(z_4)w_4\sigma ^\prime(z_3)w_3\sigma ^\prime(z_2)w_2\sigma ^\prime(z_1)
+\end{equation}
+
 一般的非线性激活函数的导数都小于1（例如sigmoid的导数最大值为$\frac{1}{4}$）,因此对于上面的链式求导，层数越多，求导结果$\frac{\partial C}{\partial b_1}$越小，因而导致梯度消失的情况出现。
-长短期记忆（Long Short-Term Memory, LSTM）是一种缓解上述问题的间递归神经网络的变种，Hochreiter在1997年首次提出了LSTM结构，2000年Gers等人改进LSTM模型。LSTM单元结构如下
+长短期记忆（Long Short-Term Memory, LSTM）是一种缓解上述问题的间递归神经网络的变种，Hochreiter在1997年首次提出了LSTM结构，2000年Gers等人改进LSTM模型。
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width = 0.6\textwidth]{lstm_unit.png}
+	\caption[rnn_vanish]{LSTM单元结构}
+\end{figure}
 
 LSTM模型提出了记忆存储格（memory cell）的结构，内部包含了遗忘门（forget gate）/？输入门（input gate） /？输出门（output gata） 。各种门的作用在于调节记忆体在外部输入的情况下应该采取怎么的存储测量，具体门状态和记忆体内部参数的更新公式如下。
-$$i_t=\sigma_g(W^ix_t+U_ih_{t-1}+b^i)$$
-$$f_t=\sigma_g(W^fx_t+U_fh_{t-1}+b^f)$$
-$$o_t=\sigma_g(W^ox_t+U_oh_{t-1}+b^o)$$
-$$c_t=f_t \odot c_{t-1}+i_t\odot \sigma_c(W_cx_t+U_ch_{t-1}+b_c)$$
-$$h_t=o_t \odot \sigma_h(c_t)$$
+
+\begin{equation}\label{lstm_f}i_t=\sigma_g(W^ix_t+U_ih_{t-1}+b^i)\end{equation}
+\begin{equation}\label{lstm_f}f_t=\sigma_g(W^fx_t+U_fh_{t-1}+b^f)\end{equation}
+\begin{equation}\label{lstm_f}o_t=\sigma_g(W^ox_t+U_oh_{t-1}+b^o)\end{equation}
+\begin{equation}\label{lstm_f}c_t=f_t \odot c_{t-1}+i_t\odot \sigma_c(W_cx_t+U_ch_{t-1}+b_c)\end{equation}
+\begin{equation}\label{lstm_f}h_t=o_t \odot \sigma_h(c_t)\end{equation}
+
 其中$\sigma_g$为sigmoid的激活函数，$\sigma_c, \sigma_h$为thah的激活函数，$x_t$为输入向量，$h_t$为输出向量， $c_t$为记忆向量，$W,U,b$是矩阵参数和向量参数。各个门的值是保持在0-1之间的向量。其中遗忘门向量$f_t$表示上一时刻的记忆体信息需要遗忘多少， 输入门向量$i_t$表示有多少当前时刻输入信息需要加入到记忆体中，输出门向量$o_t$表示记忆体输出多少信息。
 
 前已经证明，LSTM是解决长序依赖问题的有效技术，并且这种技术的普适性非常高，导致带来的可能性变化非常多。各研究者根据LSTM纷纷提出了自己的变量版本，这就让LSTM可以处理千变万化的垂直问题
 
-\BiSubsubsection{条件编码长短期记忆神经网络模型}
+\BiSubsection{条件编码长短期记忆神经网络模型}{}
 Rocktaschel[]等在句子之间的文本蕴含识别的研究中提出了条件编码长短期记忆神经网络模型，文本蕴含定义为一对文本之间的有向推理关系，其中蕴含前件记作T(Text)，蕴含后件记作H(Hypothesis)。如果人们依据自己的常识认为H的语义能够由T的语义推理得出的话，那么称T蕴含H，记作T → H, 作者提出的模型的结构是首先有一个LSTM模型编码Text消息，另一个不同参数的LSTM模型编码Hypothesis。作者不是简单把两个特征向量拼接在一起，而是做了如下转换。把第一个编码Text信息的LSTM模型的记忆状态（Cell）保留下来，作为第二个编码Hypothesis的LSTM模型记忆状态（Cell）的初始值，此模型建立的了Text消息作为条件下的对Hypothesis的编码表示。
 
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width = 0.8\textwidth]{conditional_encoding.png}
+	\caption[rnn_vanish]{条件编码长短期记忆}
+\end{figure}
 
 如上图图表示所示“A wedding party taking pictures”作为我们的Text文本，“Someone got married”作为我们的Hypothesis，其中$c_5$作为前一个LSTM的记忆体状态被当做编码Hypothesis的初始记忆状态。两个LSTM具体的状态转移公式如下：
-$$[h_1~c_1] = LSTM^{Text}(x_1,h_0,c_0)$$
+\begin{equation}\label{lstm_f}[h_1~c_1] = LSTM^{Text}(x_1,h_0,c_0)\end{equation}
 $$...$$
-$$[h_T~c_T] = LSTM^{Text}(x_1,h_{T-1},c_{T-1})$$
-$$[h_{T+1}~c_{T+1}] = LSTM^{Hypothesis}(x_1,h_0,c_T)$$
+\begin{equation}\label{lstm_f}[h_T~c_T] = LSTM^{Text}(x_1,h_{T-1},c_{T-1})\end{equation}
+\begin{equation}\label{lstm_f}[h_{T+1}~c_{T+1}] = LSTM^{Hypothesis}(x_1,h_0,c_T)\end{equation}
 $$...$$
-$$[h_{N}~c_{N}] = LSTM^{Hypothesis}(x_1,h_{N-1},c_{N-1})$$
-$$c=tanh(Wh_N)$$
+\begin{equation}\label{lstm_f}[h_{N}~c_{N}] = LSTM^{Hypothesis}(x_1,h_{N-1},c_{N-1})\end{equation}
+\begin{equation}\label{lstm_f}c=tanh(Wh_N)\end{equation}
 其中$(x_1...x_T)$为Text的序列消息，$(x_{T+1}...x_N)$为Hypothesis的序列信息。$h_0,c_0$为LSTM的初始化向量。
 
 实验证明在文本蕴含任务上，条件LSTM模型比单独编码高3.3\%（从77.6\%提升到80.9\%）的性能。这种条件编码能使Text的信息更好的流向对Hypothesis编码的LSTM模型，有了第一个LSTM模型传来的记忆状态，第二个LSTM模型能更好的编码Hypothesis的消息。
 
-\BiSection{\LaTeX~中推荐使用的图片格式}{Recommended figure format applied in \LaTeX}
-在~\LaTeX~中应用最多的图片格式是~EPS（Encapsulated PostScript）格式，它是一种专用的打印机描述语言，常用于印刷或打印输出。
-EPS~格式图片可通过多种方式生成，这里介绍一款功能强大的免费图片处理软件———\href{http://www.imagemagick.org/}{ImageMagick}，
-360~软件管家也提供此软件的下载。此软件可将其它格式图片转换为~EPS~格式图片，同时还可以锐化图片，使图片的局部清晰一些。
+\BiSection{基于条件编码长短期记忆的文本立场分析}{}
 
-此软件对图片的格式转换操作都是在命令提示符（cmd.exe）中实现的，可以通过“开始$\to$运行$\to$输入~cmd$\to$回车”或
-“开始$\to$程序$\to$附件$\to$命令提示符”找到它。在命令提示符下，首先采用“盘符命令”或“cd~命令”将当前目录改为待处理图片所在的目录，
-在此目录下就可通过~convert~命令将图片转换为~EPS~格式，其命令的语法格式为
+通过Rocktaschel在文本蕴含的任务的实验可知，在处理两个文本序列的编码任务上，条件编码长短期记忆神经网络比单独独立编码两个文本序列有更好的建模能力。在文本立场分析的任务上，有文本的信息和目标主题两个文本序列信息，我们可以借鉴条件编码长短期记忆神经网络在文本蕴含建模的方式，把文本信息和目标主题信息更好结合起来。在实验部分设计了多种文本序列信息的结合方式，通过实验证明了以目标主题文本作为条件编码文本信息的模型对文本立场分析有更好的效果。
 
-\noindent\verb|convert [可选参数] 原文件名.原扩展名 新文件名.eps|
+本文后期实验将在NLPCC2016中文微博立场分析数据集和SemEval2016英文Twitter立场分析数据集，为较清晰阐述条件编码长短期记忆模型，以下简短的介绍下两个数据集的样例，具体的有关数据集的信息将会在下面实验部分做详细介绍。
 
-\noindent 若~convert~命令中无可选参数，则将原来的图片格式直接转换为~EPS~格式，对图片不进行任何处理，这也是最常用的方法。
-也可以选用可选参数，可选参数有很多选择，但最常用的有如下两个：
+例1:目标主题文本:"深圳禁摩限电" 微博文本:"支持深圳交警。电单车继续治理" 立场分析类标：“Favor”（持支持立场）
 
-\verb|-sharpen radius{xsigma}|———此参数用来锐化图片，一般用在图片像素不高，需要提高图片清晰度的情况下。其中~radius~只能为整数，
-它用来确定转换命令采取哪一种锐化算法，我们可以只取~radius~为~0；sigma~为所采取算法的锐化度，它的取值为~0.1--3~之间的任意一个浮点数，
-数值越大，锐化程度也越大，通常取为~0.5--1~之间；x在参数中为分隔符。
+目标的文本主题有关“深圳禁摩限电”的主题的，而从微博文本“支持深圳交警。电单车继续治理”中，我们可以知道微博的作者首先是赞同了深圳交警的行为，然后叙述了电单车需要得到继续的整治，从两个方法肯定了"深圳禁摩限电"这个主题目标的，因此给出的类标是“Favor”也就是持支持目标主题的立场。
 
-\verb|-resize geometry|———此参数用来改变图片的大小，若图片的存储空间过大，可通过此命令缩小图片尺寸，但同时也将导致图片像素降低，
-其具体用法请参见\href{http://www.imagemagick.org/script/command-line-options.php#resize}{-resize geometry的官方说明}。
+例1:目标主题文本:"Hillary Clinton" Twitter文本:"Hopefully Hillary Clinton gets cancer and dies before she gets the opportunity to embarrass our country any further“，立场分析类标“Against”（持反对立场）
 
-除此之外，一些文字处理软件和科学计算软件也支持生成~EPS~格式的文件，请使用“另存为”功能查看某款软件是否能够将图片以~EPS~格式的形式保存。
+译文:"真希望希拉里克林顿得癌症然后死去，这样她就不再会有机会再让我们国家蒙羞了。"
 
-\BiSection{单张图片的插入方法}{The method of inserting one single figure}
-单张图片独自占一行的插入形式如图~\ref{golfer1}~所示。
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width = 0.4\textwidth]{golfer}
-	\bicaption[golfer1]{}{打高尔夫球的人}{Fig.$\!$}{The person playing golf}\vspace{-1em}
-\end{figure}
+目标的文本主题有关“希拉里克林顿”的主题的，这个Twitter文本是有关2016年美国大选，显然Twitter作者一直咒骂希拉里克林顿，希望她得癌症，不让她侮辱国家，可以看出作者有强烈反对主题目标“希拉里克林顿”，因此给出的类标是“Against”，也就是持反对目标主题的立场。
 
-其插入图片的代码及其说明如下。
-\vspace{1em}\noindent\hrule
-\begin{lstlisting}
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.4\textwidth]{文件名(.eps)}
-\bicaption[标签名(英文)]{}{中文标题}{Fig.$\!$}
-{English caption (首字母大写)}\vspace{-1em}
-\end{figure}
-\end{lstlisting}
-\noindent\hrule
-\begin{lstlisting}
-figure环境的可选参数[htbp]表示浮动图形所放置的位置，h (here)表示当前位置，t (top)表示页芯顶部，b (bottom)表示页芯底部，p (page)表示单独一页。在word等软件中，图片通常插入到当前位置，如果当前页的剩余空间不够，图片将被移动到下一页，当前页就会出现很大的空白，其人工调整工作非常不便。由LaTeX提供的浮动图片功能，总是会按h->t->b->p的次序处理选项中的字母，自动调整图片的位置，大大减轻了工作量。
-\centering命令将后续内容转换成每行皆居中的格式。
-“\includegraphics”的可选参数用来设置图片插入文中的水平宽度，一般表示为正文宽度(\textwidth)的倍数。
-\bicaption命令的使用需要调用ccaption宏包，它可以为图片或表格插入双语标题（博士学位论文要求），可选参数“标签名”为英文形式，一般不以图片或表格的数字顺序作为标签，而应包含一定的图片或表格信息，以便于文中引用（若图片、表格、公式、章节和参考文献等在文中出现的先后顺序发生了变化，其标注序号及其文中引用序号也会跟着发生变化，这一点是word等软件所不能做到的）。第4个参数中的“$\!$”表示-1/6个空铅宽度，这样可以缩小Fig.和Table与后面数字序号之间的水平距离。另外，图题或表题并不会因为分页而与图片或表格体分置于两页，章节等各级标题也不会置于某页的最底部，LaTeX系统会自动调整它们在正文中的位置，这也是word等软件所无法匹敌的。
-注：硕士学位论文的图表只需要插入中文标题，因此需将\bicaption一句命令替换为如下两条命令（下同）：
-\caption{中文标题}
-\label{标签名(英文)}
-\vspace将产生一定高度的竖直空白，必选参数为负值表示将后续文字位置向上提升，参数值可自行调整。em为长度单位，相当于大写字母M的宽度。
-引用方法：“见图~\ref{标签名(英文)}”、“如图~\ref{标签名(英文)}~所示”等。
-\end{lstlisting}
-\noindent\hrule\vspace{1em}
-若需要将~2~张及以上的图片并排插入到一行中，则需要采用\verb|minipage|环境，如图~\ref{golfer2}~和图~\ref{golfer3}~所示。
-\begin{figure}[htbp]
-	\centering
-	\begin{minipage}{0.4\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{golfer}
-		\bicaption[golfer2]{}{打高尔夫球的人}{Fig.$\!$}{The person playing golf}
-	\end{minipage}
-	\begin{minipage}{0.4\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{golfer}
-		\bicaption[golfer3]{}{打高尔夫球的人}{Fig.$\!$}{The person playing golf}
-	\end{minipage}\vspace{-1em}
-\end{figure}
+从上述的两个简单的样例可知，立本立场是有两个输入的，一个是立场主题例如“深圳禁摩限电”和“Hillary Clinton”。另外一个是立场下的文本“支持深圳交警。电单车继续治理”和”Hopefully Hillary Clinton gets cancer and dies before she gets the opportunity to embarrass our country any further“。在这通过中文微博阐述条件编码长短期记忆模型的建立。首先经过一些数据预处理和分词把主题目标”深圳禁摩限电“和”支持深圳交警。电单车继续治理”转变成”深圳 禁摩 限电“和”支持 深圳 交警 电单车 继续 治理“。
 
-其代码如下所示。
-\vspace{1em}\noindent\hrule
-\begin{lstlisting}
-\begin{figure}[htbp]
-\centering
-\begin{minipage}{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{文件名}
-\bicaption[标签名]{}{中文标题}{Fig.$\!$}
-{English caption}
-\end{minipage}
-\begin{minipage}{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{文件名}
-\bicaption[标签名]{}{中文标题}{Fig.$\!$}
-{English caption}
-\end{minipage}\vspace{-1em}
-\end{figure}
-\end{lstlisting}
-\noindent\hrule
-\begin{lstlisting}
-minipage环境的必选参数用来设置小页的宽度，若需要在一行中插入n个等宽图片，则每个小页的宽度应略小于(1/n)\textwidth。
-\end{lstlisting}
-\noindent\hrule
-
-\BiSection{具有子图的图片插入方法}{The method of inserting figures with subfigures}
-
-图中若含有子图时，需要调用~subfigure~宏包。博士学位论文规范要求不止总图的标题为中英文形式，其各个子图也应具有中英文形式的标题。
-然而~ccaption~宏包却无法实现子图的中英文标题功能，这里采用对\verb|\subfigure|命令进行嵌套的方法来实现子图的中英文标题功能，如图~\ref{golfer4}~所示。
+在文本立场分析的任务, 一般目标主题包含的信息较少，而文本包含了大部分的信息。例如上面两个例子所举例的，目标主题文本分别为”Hillary Clinton“和”深圳禁摩限电“，而Twitter和微博文本包含的消息较多，结合立场分析文本的特点，改善了原有的条件编码长短期记忆的网络结构，后续实验论证在多种条件编码长短期记忆的改进方案中，下面所示的网络结构具有更好的实验效果，后续在实验分析其可能的原因。
 
 \begin{figure}[htbp]
 	\centering
-	\subfigure{\label{golfer41}}\addtocounter{subfigure}{-2}
-	\subfigure[The person playing golf]{\subfigure[打高尔夫球的人~1]{\includegraphics[width=0.4\textwidth]{golfer}}}
-	\subfigure{\label{golfer42}}\addtocounter{subfigure}{-2}
-	\subfigure[The person playing golf]{\subfigure[打高尔夫球的人~2]{\includegraphics[width=0.4\textwidth]{golfer}}}
-	\bicaption[golfer4]{}{打高尔夫球的人}{Fig.$\!$}{The person playing golf}\vspace{-1em}
+	\includegraphics[width = 1.0\textwidth]{conditional_encode_lstm.png}
+	\caption[rnn_vanish]{条件编码长短期记忆}
 \end{figure}
 
-其代码及其说明如下。
-\vspace{1em}\noindent\hrule
-\begin{lstlisting}
-\begin{figure}[htbp]
-\centering
-\subfigure{\label{第1个子图标签名}}\addtocounter{subfigure}{-2}
-\subfigure[The 1st subfigure caption]{\subfigure[第1个子图标题]
-{\includegraphics[width=0.4\textwidth]{文件名}}}
-\subfigure{\label{第2个子图标签名}}\addtocounter{subfigure}{-2}
-\subfigure[The 2nd subfigure caption]{\subfigure[第2个子图标题]
-{\includegraphics[width=0.4\textwidth]{文件名}}}
-\bicaption[总标签名]{}{中文总标题}{Fig.$\!$}{The total caption}
-\vspace{-1em}
-\end{figure}
-\end{lstlisting}
-\noindent\hrule
-\begin{lstlisting}
-\addtocounter把指定的值加到计数器上，这里是对subfigure计数器进行减2操作。这是因为每插入1个子图，就调用3次\subfigure命令，第1次调用\subfigure命令用来生成紧随其后所插入子图的标签，而之后的双层嵌套调用\subfigure命令用来插入子图并生成该子图的中英文标题。因此，每插入1张子图，subfigure计数器的值就自动加3，为了使得子图的序号能每次加1，则需在每插入1张子图前手动把subfigure计数器的值减2。
-\subfigure命令的双层嵌套使用可用来生成中英文标题，其内层\subfigure命令用来插入子图并生成中文标题，外层\subfigure命令将插入的子图和中文标题作为一个整体，生成这个整体的英文标题，因此英文标题会置于中文标题的下面。
-硕士学位论文只需要中文标题，其代码如下：
-\begin{figure}[htbp]
-\centering
-\subfigure[第1个子图标题\label{第1个子图标签名}]
-{\includegraphics[width=0.4\textwidth]{文件名}}
-\subfigure[第2个子图标题\label{第2个子图标签名}]
-{\includegraphics[width=0.4\textwidth]{文件名}}
-\caption{中文总标题}\label{总标签名}
-\vspace{-1em}
-\end{figure}
-引用方法：总图的引用方法同本章第1节，子图的引用方法用\ref{第n个子图标签名}来代替。
-\end{lstlisting}
-\noindent\hrule\vspace{1em}
+模型的具体公式如下
 
-子图的引用示例：如图~\ref{golfer41}~和图~\ref{golfer42}~所示。
+\begin{equation}\label{lstm_f}[h_1~c_1] = LSTM^{target}(t_1,h_0,c_0)\end{equation}
+$$...$$
+\begin{equation}\label{lstm_f}[h_M~c_M] = LSTM^{target}(t_1,h_{M-1},c_{M-1})\end{equation}
 
-若想获得插图方法的更多信息，请参见网络上的~\href{ftp://ftp.tex.ac.uk/tex-archive/info/epslatex.pdf}{Using Imported Graphics in \LaTeX and pdf\LaTeX}~文档。 
+\begin{equation}\label{lstm_f}[h^{forward}_{1}~c^{forward}_{1}] = LSTM^{forward}(x_1,h_0,c_T)\end{equation}
+$$...$$
+\begin{equation}\label{lstm_f}[h^{forward}_{N}~c^{forward}_{N}] = LSTM^{forward}(x_n,h^{forward}_{N-1},c^{forward}_{N-1})\end{equation}
+
+\begin{equation}\label{lstm_f}[h^{backward}_{N}~c^{backward}_{N}] = LSTM^{backward}(x_n,h_0,c_T)\end{equation}
+$$...$$
+\begin{equation}\label{lstm_f}[h^{backward}_{1}~c^{backward}_{1}] = LSTM^{backward}(x_1,h^{backward}_{2},c^{backward}_{2})\end{equation}
+
+\begin{equation}\label{lstm_f}c_i=Softmax(W[h^{forward}_n~h^{backward}_1])\end{equation}
+
+其中$M$为主题目标的文本长度，$N$为微博（）Twiiter的文本长度。$LSTM$单向编码主题目标，$LSTM^{forward}$为前向编码文本信息，$LSTM^{backward}$为后向编码文本信息，$h_0$为LSTM的初始化向量，$C_T$为$LSTM$主题目标编码的最后一个Cell状态，$h^{backward}_{1},h^{forward}_{N}$分别为前向和后向编码的最后一个隐藏状态。
+
+本节以“深圳禁摩限电”为话题目标，微博文本“支持深圳交警。电单车继续治理”为例,按本节模型的 4 个层次,描述基于条件编码长短期记忆的立场分析的过程。
+
+(1)输入层
+
+先将话题目标和微博文本经过预处理操作，然后通过分词工具把话题目标和微博文本进行划分，对于同一个话题目标，微博文本分词后句子长度有可能不一致，为了方便后续神经网络框架中的批量的并行计算，通过统计选择30为固定长度,长度超过固定长度进行截断操作，不够的进行补齐词表中规定<PAD>关键词。如例微博文本最后转换成”支持 深圳 交警。电单车 继续 治理 <PAD> ... <PAD>“
+
+(2)词向量嵌入层
+
+词向量的嵌入层，此层的功能是对输入的每一次词检索其词向量(lookup操作)，后续实验词向量的预训练由GloVe模型在大量无监督语料上训练可得，预训练的词向量维度为100，且把词向量设置为可训练，随神经网络模型的训练动态调整权重。
+
+(3)主题目标编码层
+
+通过一个单向的长短期记忆(LSTM)模型模型编码主题目标文本，把分词后的主题目标文本“深圳 禁摩 限电”通过lookup操作取出相应的词向量，经过一个隐藏层为64的单向LSTM模型，且保留最后的记忆体的状态，如上图所示，保留XXX的单元的信息，给下一层文本编码做输入。
+
+(4)文本编码层
+
+由于文本包含大部分信息，所以采用了双向的LSTM模型而不是Rocktaschel提出的单向的LSTM模型编码文本信息。如上图所示，文本编码的双向LSTM模型的初始Cell状态是由上一层的目标主题编码的最后的Cell状态填充，表示主题目标的消息流入到当前的双向LSTM模型中参与对文本的编码操作。每一个方向LSTM的最后的隐状态h作为对整个文本的最终编码表示。
+
+(5)全连接层
+
+
+全连接层接受来自文本编码层每个方向最后的隐状态,拼接两个隐状态信息作为最后的特征向量。全连接层的输出个数为3，表示每个立场的预测概率。通过softmax激活函数归一化三个立场的概率，在预测阶段我们选取概率最大的立场当做预测的类标。
+
+\BiSection{实验结果及分析}{hello}
+
+本节主要介绍条件编码长短期记忆神经网络模在2016NLPCC微博中文语料库和2016SemEval英文Twitter数据集中的实验结果及分析。并从实验的角度论证条件编码长短期记忆在立场分析问题上的有效性。本节包含两部分: 3.4.1 小节介绍中英文两个数据集中训练和测试文本的分布 、实验评价方式以及对比方法;3.4.2 小结介绍模型训练阶段的性能调优,以及本章实验与其他方法的比较。
+
+\BiSubsection{实验设置}{}
+
+为验证条件编码长短期记忆神经网络在立场分析任务上算法的性能表现,本节采用2016 NLPCC中文微博语料和2016 SemEval英文的Twitter语料两个数据集验证算法的效果。以下分别介绍两数据集的分布。
+
+中文数据集来自NLPCC2016 立场分析测评任务[55] ,数据集的5个话题目标分别为 iPhone SE、春节放鞭炮、俄罗斯在叙利亚的反恐行动、开放二胎政策和深圳禁摩限电。所有语料都来自于新浪微博，每个微博文本的立场属于“支持”、“反对”和“其他”三者之一。NLPCC 2016中文微博数据集的训练集、测试集按照75\%与25\%的比例划分,如表~\ref{chinesedata}~所示详细介绍每个话题目标下数据的分布。
+\begin{table}[htbp]
+	\caption[table123]{训练集、测试集话题数量及立场分布比例（中文数据集）}
+	\label{chinesedata}
+	\vspace{0.5em}\centering\wuhao
+	\begin{tabular}{cccccccccc}
+		\toprule[1.5pt]
+		\multirow{2}{*}{预置话题分类}& \multicolumn{4}{c}{训练集数量和立场比例(\%)} 
+		& \multicolumn{4}{c}{测试集数量和立场比例(\%)}  &\multirow{2}{*}{文本数量}\\
+		\cline{2-9}
+		\quad&数量& 支持&反对&其他&数量& 支持&反对&其他 \\
+		\midrule[1pt]
+		iPhone SE&600&40.8&34.8&24.3&200&37.5&52.0&10.5&800\\
+		春节放鞭炮&600&41.7&41.7&16.7&200&44.0&47.0&9.0&800\\
+		俄在叙反恐行动&600&41.7&41.7&16.7&200&47.0&43.0&10.0&800\\
+		开放二胎政策&600&43.3&33.3&23.3&200&49.5&47.5&3.0&800\\
+		深圳禁摩限电&600&26.7&50.0&23.3&200&31.5&55.0&13.5&800\\
+		总计&3000&38.8&40.3&20.9&1000&41.9&48.9&9.2&4000\\
+		\bottomrule[1.5pt]
+	\end{tabular}
+\end{table}
+
+英文数据集来自SemEval2016 Task6 stance detection[55] ,数据集的5个话题目标分别为 Atheism(无神论)、Climate Change is a Real Concern(气候变化真实性)、Feminist Movement(女权运动)、 Hillary Clinton (希拉里克林顿)和
+Legalization of Abortion(堕胎合法化)。所有语料都来自于英文Twitter文本，每个Twitter文本的立场属于“支持”、“反对”和“其他”三者之一。不同于上述中文语料的分布，每个话题目标英文Twitter语料的数量参差不齐，但总体上训练集和测试集按70\%与30\%的比例划分,如表~\ref{englishdata}~所示详细介绍每个话题目标下数据的分布。
+
+
+\begin{table}[htbp]
+	\caption[table123]{训练集、测试集话题数量及立场分布比例（英文数据集）}
+	\label{englishdata}
+	\vspace{0.5em}\centering\wuhao
+	\begin{tabular}{cccccccccc}
+		\toprule[1.5pt]
+		\multirow{2}{*}{预置话题分类}& \multicolumn{4}{c}{训练集数量和立场比例(\%)} 
+		& \multicolumn{4}{c}{测试集数量和立场比例(\%)}  &\multirow{2}{*}{文本数量}\\
+		\cline{2-9}
+		\quad&数量& 支持&反对&其他&数量& 支持&反对&其他 \\
+		\midrule[1pt]
+		Atheism&513&17.9&59.3&22.8&220&14.5&72.7&12.7&733\\
+		Climate Change&395&53.7&3.8&42.5&169&72.8&6.5&20.7&564\\
+		Feminist Movement&664&31.6&49.4&19.0&285&20.4&64.2&15.4&949\\
+		Hillary Cliton&689&17.1&57.0&25.8&295&15.3&58.3&26.4&984\\
+		Legal of Abortion&653&18.5&54.4&27.1&280&16.4&67.5&16.1&933\\
+		总计&2914&25.8&47.9&26.3&1249&24.3&57.3&18.4&4163\\
+		\bottomrule[1.5pt]
+	\end{tabular}
+\end{table}
+
+为了和已有方法进行性能比较，本文在两数据集上都按照分别测评的比例划分出训练集和测试集。其中训练集负责模型的训练和调优, 测试集则进行最后模型的性能的评估。中英文数据集均包含5个不同的话题目标, 每个话题目标包含若干的话题文本，由于每个主题目标关注的内容不同且具有各自独特的语言特点。为了使模型更好的拟合每一种话题的特性,本文首先按照中英文不同语料集合划分成两个大任务，然后根据每个语料库在细分成5个不同子任务，分别建立不同的条件编码长短期记忆模型。各子模型预测结束后, 统计各个子任务上的性能并汇总预测结果进行最后统一指标的计算。
+
+中英文数据集上的社交媒体文本的立场结果有“支持”，“反对”，“其他”，可以把任务当成一个三分类任务，但是由于三个类在不同的数据集下的不同主题目标的分布有可能很不平均，如果只单独用正确率（Accuracy）作为评测指标则缺失了评价指标的客观性。本文c采取了两个评测任务都使用的”支持“和”反对“的F1指标的微平均（micro-average）作为最后模型的评测指标，但是为了更清晰的评价每个主题目标的性能，每个目标主题也会单独计算微平均评测指标。为了清晰地解释指标的含义，列举以下公式说明
+
+首先定义准确率(Precision, P)、召回率(Recall, R),如公式~\ref{precision}~和公式~\ref{recall}~所示。
+\begin{equation}\label{precision}P=\frac{TP}{TP+FP}\end{equation}
+\begin{equation}\label{recall}F=\frac{TP}{TP+FN}\end{equation}
+
+TP：正样例预测为正样例的个数
+
+FP：负样例预测为正样例的个数
+
+FN：正样例预测为负样例的个数。
+
+精确率计算的是所有"正确被检索的样例(TP)"占所有"实际被检索到的(TP+FP)样例的比例。召回率计算的是所有"正确被检索的运力(TP)"占所有"应该检索到的样例(TP+FN)"的比例。如果要同时考虑精确率和召回率，则需要采样两者的调和平均值，也称为F1值，其定义如公式~\ref{f1score}~所示
+\begin{equation}\label{f1score}F1=\frac{2PR}{P+R}=\frac{2TP}{2TP+FP+FN}\end{equation}
+
+有关”支持“立场F1值的计算，“支持”类标作为正样本，“反对”后“其他”作为负样本。因此其计算公式如下所示
+
+\begin{equation}\label{f1favor}F1_{favor}=\frac{2P_{favor}R_{favor}}{P_{favor}+R_{favor}}\end{equation}
+
+同样的”反对“立场F1值的计算，“反对”类标作为正样本，“支持”后“其他”作为负样本。因此其计算公式如下所示
+
+\begin{equation}\label{f1against}F1_{against}=\frac{2P_{against}R_{against}}{P_{against}+R_{against}}\end{equation}
+
+立场分析总的平均指标F1的微平均（Micro-average）的计算公式如下
+\begin{equation}\label{f1average}F1_{average}=\frac{F1_{favor}+F1_{against}}{2}\end{equation}

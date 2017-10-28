@@ -20,49 +20,26 @@
 \contentsline {section}{\numberline {2.4}具有子图的图片插入方法}{8}{section*.33}
 \contentsline {chapter}{\numberline {第3章\hspace {.3em}}基于条件编码长短期记忆社交媒体文本立场分析}{11}{section*.40}
 \contentsline {section}{\numberline {3.1}引言}{11}{section*.42}
-\contentsline {subsection}{\numberline {3.1.1}条件编码长短期记忆神经网络模型}{11}{section*.44}
-\contentsline {subsubsection}{\numberline {3.1.1.1}长短期记忆神经网络模型}{12}{section*.46}
-\contentsline {subsubsection}{\numberline {3.1.1.2}条件编码长短期记忆神经网络模型}{13}{section*.48}
-\contentsline {section}{\numberline {3.2}\LaTeX \nobreakspace {}中推荐使用的图片格式}{14}{section*.50}
-\contentsline {section}{\numberline {3.3}单张图片的插入方法}{14}{section*.52}
-\contentsline {section}{\numberline {3.4}具有子图的图片插入方法}{17}{section*.57}
-\contentsline {chapter}{\numberline {第4章\hspace {.3em}}文本立场分析相关技术概述}{20}{section*.64}
-\contentsline {section}{\numberline {4.1}引言}{20}{section*.66}
-\contentsline {subsection}{\numberline {4.1.1}图题及图中说明}{20}{section*.68}
-\contentsline {subsection}{\numberline {4.1.2}插图编排}{20}{section*.70}
-\contentsline {section}{\numberline {4.2}\LaTeX \nobreakspace {}中推荐使用的图片格式}{21}{section*.72}
-\contentsline {section}{\numberline {4.3}单张图片的插入方法}{21}{section*.74}
-\contentsline {section}{\numberline {4.4}具有子图的图片插入方法}{24}{section*.79}
-\contentsline {chapter}{\numberline {第5章\hspace {.3em}}表格的绘制方法}{27}{section*.86}
-\contentsline {section}{\numberline {5.1}研究生院的绘表规范}{27}{section*.88}
-\contentsline {section}{\numberline {5.2}普通表格的绘制方法}{27}{section*.90}
-\contentsline {section}{\numberline {5.3}长表格的绘制方法}{28}{section*.93}
-\contentsline {section}{\numberline {5.4}列宽可调表格的绘制方法}{31}{section*.97}
-\contentsline {subsection}{\numberline {5.4.1}表格内某单元格内容过长的情况}{31}{section*.99}
-\contentsline {subsection}{\numberline {5.4.2}对物理量符号进行注释的情况}{32}{section*.102}
-\contentsline {chapter}{\numberline {第6章\hspace {.3em}}数学公式的输入方法}{34}{section*.104}
-\contentsline {section}{\numberline {6.1}研究生院的公式规范}{34}{section*.106}
-\contentsline {section}{\numberline {6.2}生成\nobreakspace {}\LaTeX \nobreakspace {}数学公式的两种方法}{34}{section*.108}
-\contentsline {subsection}{\numberline {6.2.1}基于\nobreakspace {}MathType\nobreakspace {}软件的数学公式生成方法}{34}{section*.110}
-\contentsline {subsection}{\numberline {6.2.2}基于\nobreakspace {}MATLAB\nobreakspace {}软件的数学公式生成方法}{35}{section*.112}
-\contentsline {section}{\numberline {6.3}数学字体}{36}{section*.114}
-\contentsline {section}{\numberline {6.4}行内公式}{37}{section*.117}
-\contentsline {section}{\numberline {6.5}行间公式}{37}{section*.126}
-\contentsline {section}{\numberline {6.6}可自动调整大小的定界符}{38}{section*.129}
-\contentsline {section}{\numberline {6.7}数学重音符号}{39}{section*.131}
-\contentsline {chapter}{\numberline {第7章\hspace {.3em}}模板的其它说明}{40}{section*.133}
-\contentsline {section}{\numberline {7.1}中英文封面的相关信息}{40}{section*.135}
-\contentsline {section}{\numberline {7.2}\textsc {Bib}\kern -.08em\TeX \nobreakspace {}文献文件的写法}{40}{section*.137}
-\contentsline {section}{\numberline {7.3}参考文献的引用}{42}{section*.140}
-\contentsline {section}{\numberline {7.4}单层罗列环境}{42}{section*.142}
-\contentsline {section}{\numberline {7.5}算法}{43}{section*.145}
-\contentsline {section}{\numberline {7.6}定理定义}{44}{section*.151}
-\contentsline {chapter}{\fontsize {12pt}{12pt}\selectfont 结\hskip 1em\relax 论}{46}{section*.154}
-\contentsline {chapter}{参考文献}{47}{section*.157}
-\contentsline {chapter}{\numberline {附录\nobreakspace {}A A\hspace {.3em}}带章节的附录}{48}{section*.161}
-\contentsline {section}{\numberline {A.1}附录节的内容}{48}{section*.163}
-\contentsline {chapter}{\numberline {附录\nobreakspace {}B B\hspace {.3em}}这个星球上最好的免费Windows软件列表}{49}{section*.167}
-\contentsline {chapter}{\fontsize {12pt}{12pt}\selectfont 攻读硕士学位期间发表的论文及其他成果}{50}{section*.170}
-\contentsline {chapter}{\fontsize {12pt}{12pt}\selectfont 哈尔滨工业大学学位论文原创性声明和使用权限}{51}{section*.174}
-\contentsline {chapter}{\fontsize {12pt}{12pt}\selectfont 致\hskip 1em\relax 谢}{52}{section*.178}
+\contentsline {section}{\numberline {3.2}条件编码长短期记忆神经网络模型}{11}{section*.44}
+\contentsline {subsection}{\numberline {3.2.1}基于GloVe的词嵌入模型}{12}{section*.46}
+\contentsline {subsection}{\numberline {3.2.2}长短期记忆神经网络模型}{13}{section*.49}
+\contentsline {subsection}{\numberline {3.2.3}条件编码长短期记忆神经网络模型}{15}{section*.53}
+\contentsline {section}{\numberline {3.3}基于条件编码长短期记忆的文本立场分析}{16}{section*.56}
+\contentsline {section}{\numberline {3.4}实验结果及分析}{19}{section*.59}
+\contentsline {subsection}{\numberline {3.4.1}实验设置}{20}{section*.61}
+\contentsline {chapter}{\numberline {第4章\hspace {.3em}}表格的绘制方法}{23}{section*.65}
+\contentsline {section}{\numberline {4.1}研究生院的绘表规范}{23}{section*.67}
+\contentsline {section}{\numberline {4.2}普通表格的绘制方法}{23}{section*.69}
+\contentsline {section}{\numberline {4.3}长表格的绘制方法}{24}{section*.72}
+\contentsline {section}{\numberline {4.4}列宽可调表格的绘制方法}{27}{section*.76}
+\contentsline {subsection}{\numberline {4.4.1}表格内某单元格内容过长的情况}{27}{section*.78}
+\contentsline {subsection}{\numberline {4.4.2}对物理量符号进行注释的情况}{28}{section*.81}
+\contentsline {chapter}{\fontsize {12pt}{12pt}\selectfont 结\hskip 1em\relax 论}{30}{section*.84}
+\contentsline {chapter}{参考文献}{31}{section*.87}
+\contentsline {chapter}{\numberline {附录\nobreakspace {}A A\hspace {.3em}}带章节的附录}{32}{section*.91}
+\contentsline {section}{\numberline {A.1}附录节的内容}{32}{section*.93}
+\contentsline {chapter}{\numberline {附录\nobreakspace {}B B\hspace {.3em}}这个星球上最好的免费Windows软件列表}{33}{section*.97}
+\contentsline {chapter}{\fontsize {12pt}{12pt}\selectfont 攻读硕士学位期间发表的论文及其他成果}{34}{section*.100}
+\contentsline {chapter}{\fontsize {12pt}{12pt}\selectfont 哈尔滨工业大学学位论文原创性声明和使用权限}{35}{section*.104}
+\contentsline {chapter}{\fontsize {12pt}{12pt}\selectfont 致\hskip 1em\relax 谢}{36}{section*.108}
 \contentsfinish 
