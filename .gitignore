@@ -3,6 +3,4 @@ reference/
 .idea/
 *.pyc
 test.py
-*.png
-*.jpg
 *~
