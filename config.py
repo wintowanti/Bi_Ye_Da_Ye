@@ -9,7 +9,7 @@ class Config(object):
     weibo_embedding_path = "./data/weibo_w2v_200.txt"
     embedding_size = 200
     weibo_embedding_size = 200
-    fixed_len = 30
+    fixed_len = 50
     epoch = 150
     batch_size= 64
 

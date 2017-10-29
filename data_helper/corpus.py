@@ -201,9 +201,9 @@ if __name__ == "__main__":
     # for (idx_tweet, idx_targets, stances, sentiments, target_id) in semeval_corpus.iter_epoch(1,"Train", batch_size=2000):
     #     pass
     nlpcc_corpus = NLPCC_Corpus("../data/NLPCC")
+    print("good")
     pass
-    # for idx, (texts, targets, stances, target_idx) in enumerate(nlpcc_corpus.iter_epoch(2, "Train", batch_size=10002)):
-    #     pass
+
     # tsum = 0
     # for idxs, s1, s2 in corpus.iter_epoch("Donald Trump", "Hilary Clinton", "Train", batch_size=100):
     #     tsum += len(s1)

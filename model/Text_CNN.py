@@ -52,7 +52,7 @@ class Text_CNN(torch.nn.Module):
         text = Variable(torch.from_numpy(text))
         batch_size = text.size(0)
         text_em = self.embedding_matrix(text)
-        text_em = text_em.view([-1, 30, self.config.embedding_size])
+        text_em = text_em.view([-1, self.config.fixed_len, self.config.embedding_size])
         text_em = text_em.permute(0, 2, 1)
 
         hn1 = self.conv1_seq(text_em)

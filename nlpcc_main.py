@@ -93,15 +93,15 @@ def main():
     embedding_matrix = init_embedding(corpus.dictionary.word2idx, Config.embedding_size, Config.weibo_embedding_path)
     Config.voc_len = len(corpus.dictionary)
     Config.embedding_matrix = embedding_matrix
-    #model = LSTM_Condition_Bi_Encoder(Config)
+    model = LSTM_Condition_Bi_Encoder(Config)
     #model = LSTM_Bi_Condition_Encoder(Config)
-    #model = Attention_Bi_GRU_CNN(Config)
+    model = Attention_Bi_GRU_CNN(Config)
     #model = Attention_Bi_GRU(Config)
     #model = Bi_GRU_CNN(Config)
     #model = Text_GRU(Config)
     #model = Bi_GRU(Config)
     #model = Attention_Bi_GRU_CNN(Config)
-    model = Text_CNN(Config)
+    #model = Text_CNN(Config)
     #model = Fast_Text(Config)
     #model = LSTM_Text_Only(Config)
     #model = LSTM_Text_Target_Concat(Config)
@@ -111,7 +111,7 @@ def main():
     loss_fun = CrossEntropyLoss(size_average=False)
 
     best_micro_F1 = 0.0
-    target_idx = 3
+    target_idx = 0
     for e_i in range(Config.epoch):
         print("\n----------------epoch: %d--------------------"%e_i)
         train(model, Config, loss_fun, optim, target_idx)

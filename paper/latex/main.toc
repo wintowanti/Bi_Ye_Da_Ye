@@ -30,12 +30,25 @@
 \contentsline {subsection}{\numberline {3.2.3}条件编码长短期记忆神经网络模型}{18}{section*.54}
 \contentsline {section}{\numberline {3.3}基于条件编码长短期记忆的文本立场分析}{19}{section*.57}
 \contentsline {section}{\numberline {3.4}实验结果及分析}{22}{section*.60}
-\contentsline {subsection}{\numberline {3.4.1}实验设置}{23}{section*.62}
-\contentsline {chapter}{参考文献}{27}{section*.66}
-\contentsline {chapter}{\numberline {附录\nobreakspace {}A A\hspace {.3em}}带章节的附录}{28}{section*.70}
-\contentsline {section}{\numberline {A.1}附录节的内容}{28}{section*.72}
-\contentsline {chapter}{\numberline {附录\nobreakspace {}B B\hspace {.3em}}这个星球上最好的免费Windows软件列表}{29}{section*.76}
-\contentsline {chapter}{\fontsize {12pt}{12pt}\selectfont 攻读硕士学位期间发表的论文及其他成果}{30}{section*.79}
-\contentsline {chapter}{\fontsize {12pt}{12pt}\selectfont 哈尔滨工业大学学位论文原创性声明和使用权限}{31}{section*.83}
-\contentsline {chapter}{\fontsize {12pt}{12pt}\selectfont 致\hskip 1em\relax 谢}{32}{section*.87}
+\contentsline {subsection}{\numberline {3.4.1}实验数据与评价指标}{23}{section*.62}
+\contentsline {subsection}{\numberline {3.4.2}实验数据预处理与模型参数设计}{26}{section*.66}
+\contentsline {subsection}{\numberline {3.4.3}模型对比实验结果及分析}{26}{section*.69}
+\contentsline {chapter}{\numberline {第4章\hspace {.3em}}基于条件编码长短期记忆社交媒体文本立场分析}{28}{section*.73}
+\contentsline {section}{\numberline {4.1}引言}{28}{section*.75}
+\contentsline {section}{\numberline {4.2}条件编码长短期记忆神经网络模型}{28}{section*.77}
+\contentsline {subsection}{\numberline {4.2.1}基于GloVe的词嵌入模型}{29}{section*.79}
+\contentsline {subsection}{\numberline {4.2.2}长短期记忆神经网络模型}{30}{section*.82}
+\contentsline {subsection}{\numberline {4.2.3}条件编码长短期记忆神经网络模型}{32}{section*.86}
+\contentsline {section}{\numberline {4.3}基于条件编码长短期记忆的文本立场分析}{33}{section*.89}
+\contentsline {section}{\numberline {4.4}实验结果及分析}{36}{section*.92}
+\contentsline {subsection}{\numberline {4.4.1}实验数据与评价指标}{37}{section*.94}
+\contentsline {subsection}{\numberline {4.4.2}实验数据预处理与模型参数设计}{40}{section*.98}
+\contentsline {subsection}{\numberline {4.4.3}模型对比实验结果及分析}{40}{section*.101}
+\contentsline {chapter}{参考文献}{42}{section*.105}
+\contentsline {chapter}{\numberline {附录\nobreakspace {}A A\hspace {.3em}}带章节的附录}{43}{section*.109}
+\contentsline {section}{\numberline {A.1}附录节的内容}{43}{section*.111}
+\contentsline {chapter}{\numberline {附录\nobreakspace {}B B\hspace {.3em}}这个星球上最好的免费Windows软件列表}{44}{section*.115}
+\contentsline {chapter}{\fontsize {12pt}{12pt}\selectfont 攻读硕士学位期间发表的论文及其他成果}{45}{section*.118}
+\contentsline {chapter}{\fontsize {12pt}{12pt}\selectfont 哈尔滨工业大学学位论文原创性声明和使用权限}{46}{section*.122}
+\contentsline {chapter}{\fontsize {12pt}{12pt}\selectfont 致\hskip 1em\relax 谢}{47}{section*.126}
 \contentsfinish 
