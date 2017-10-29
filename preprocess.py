@@ -17,6 +17,7 @@ def init_embedding(word_dict, embed_size, embedding_path, is_random=False):
             for line in f.readlines():
                 line = line.strip()
                 target_word = line.split(" ")[0]
+                target_word = target_word.decode("UTF-8")
                 if target_word in word_dict:
                     #print("bingo word %s"%(target_word))
                     bingo_count += 1
@@ -47,6 +48,7 @@ def hash_stance(stance):
         return 1
     if stance == "AGAINST" or stance == "neg":
         return 2
+    print(stance)
     raise Exception("can't hash stance: "+stance)
 
 

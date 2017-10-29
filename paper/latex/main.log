@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.10.16)  28 OCT 2017 22:49
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.10.16)  29 OCT 2017 16:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1851,8 +1851,7 @@ Package: xeCJK-listings 2017/05/15 v3.4.8 xeCJK patch file for listings
 \l__xeCJK_listings_max_char_int=\count282
 \l__xeCJK_listings_flag_int=\count283
 )
-(./main.aux (./body/introduction.aux) (./body/chapter2.aux)
-(./body/chapter3.aux
+(./main.aux (./body/chapter1.aux) (./body/chapter2.aux) (./body/chapter3.aux
 
 LaTeX Warning: Label `lstm_f' multiply defined.
 
@@ -1901,9 +1900,8 @@ LaTeX Warning: Label `lstm_f' multiply defined.
 
 LaTeX Warning: Label `lstm_f' multiply defined.
 
-) (./body/tables.aux) (./body/conclusion.aux) (./appendix/appA.aux)
-(./appendix/publications.aux) (./appendix/Authorization.aux)
-(./appendix/acknowledgements.aux))
+) (./appendix/appA.aux) (./appendix/publications.aux)
+(./appendix/Authorization.aux) (./appendix/acknowledgements.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
@@ -2204,9 +2202,9 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 \openout4 = `main.toc'.
 
  [4]
-\openout2 = `body/introduction.aux'.
+\openout2 = `body/chapter1.aux'.
 
- (./body/introduction.tex
+ (./body/chapter1.tex
 第1章
 [1
 
@@ -2214,89 +2212,52 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 
 
-] [2]
-LaTeX Font Info:    Calculating math sizes for size <15> on input line 80.
-) [3]
+] [2] [3] [4] [5] [6] [7]) [8]
 \openout2 = `body/chapter2.aux'.
 
  (./body/chapter2.tex
 第2章
-[4
+[9
 
 
 
-]
-*************************************************
-* xeCJK warning: "CJKfamily-Unknown"
-* 
-* Unknown CJK family `\CJKttdefault' is being ignored.
-* 
-* Try to use `\setCJKmonofont[...]{...}' to define it.
-*************************************************
-File: figures/golfer.eps Graphic file (type eps)
-<figures/golfer.eps>
-LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 44.
- [5] [6]
-File: figures/golfer.eps Graphic file (type eps)
- <figures/golfer.eps>
-File: figures/golfer.eps Graphic file (type eps)
- <figures/golfer.eps> [7]
-File: figures/golfer.eps Graphic file (type eps)
-
-<figures/golfer.eps>
-File: figures/golfer.eps Graphic file (type eps)
- <figures/golfer.eps> [8] [9]) [10]
+] [10] [11]
+File: figures/word2vec_skip_cbow.png Graphic file (type QTm)
+ <use  "figures/word2vec_skip_cbow.png" > [12]) [13]
 \openout2 = `body/chapter3.aux'.
 
- (./body/chapter3.tex
+
+(./body/chapter3.tex
 第3章
-[11
+[14
 
 
 
 ]
 File: figures/glove.jpg Graphic file (type QTm)
- <use  "figures/glove.jpg" > [12]
+ <use  "figures/glove.jpg" > [15]
 File: figures/rnn_gradient_vanish.png Graphic file (type QTm)
 
-<use  "figures/rnn_gradient_vanish.png" > [13]
+<use  "figures/rnn_gradient_vanish.png" > [16]
 File: figures/lstm_unit.png Graphic file (type QTm)
  <use  "figures/lstm_unit.png" >
-[14]
+[17]
 File: figures/conditional_encoding.png Graphic file (type QTm)
- <use  "figures/conditional_encoding.png" > [15] [16]
+ <use  "figures/conditional_encoding.png" > [18] [19]
 File: figures/conditional_encode_lstm.png Graphic file (type QTm)
 
-<use  "figures/conditional_encode_lstm.png" > [17] [18] [19] [20] [21])
+<use  "figures/conditional_encode_lstm.png" > [20] [21]
+
+LaTeX Font Warning: Font shape `TU/SimSun(0)/bx/n' undefined
+(Font)              using `TU/SimSun(0)/m/n' instead on input line 161.
+
 [22]
-\openout2 = `body/tables.aux'.
+LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 170.
+ [23] [24]) [25] [26] (./main.bbl
 
- (./body/tables.tex
-第4章
-[23
+Package natbib Warning: Empty `thebibliography' environment on input line 8.
 
-
-
-] [24] [25] [26]
-Underfull \hbox (badness 3803) in paragraph at lines 166--166
-[]|\TU/TimesNewRoman(0)/m/n/10.5 deuce-ace, leash, set, tercet, ternary, ternio
-n,
- []
-
-[27] [28]) [29]
-\openout2 = `body/conclusion.aux'.
-
- (./body/conclusion.tex
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \hskip 12.0pt
-(hyperref)                replaced by space on input line 3.
-
-) [30
-
-
-
-] (./main.bbl) [31
+) [27
 
 
 ]
@@ -2304,30 +2265,38 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
  (./appendix/appA.tex
 附录\nobreakspace {}A A
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 ...pChapter{带章节的附录}{Full Appendix}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
 File: figures/golfer.eps Graphic file (type eps)
-<figures/golfer.eps> [32
+<figures/golfer.eps> [28
 
 
 ]
 附录\nobreakspace {}B B
-) [33
+) [29
 
 ]
 \openout2 = `appendix/publications.aux'.
 
- (./appendix/publications.tex
-
-LaTeX Font Warning: Font shape `TU/SimSun(0)/bx/n' undefined
-(Font)              using `TU/SimSun(0)/m/n' instead on input line 5.
-
-) [34
+ (./appendix/publications.tex) [30
 
 
 
 ]
 \openout2 = `appendix/Authorization.aux'.
 
- (./appendix/Authorization.tex) [35
+ (./appendix/Authorization.tex)
+[31
 
 
 
@@ -2340,7 +2309,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 12.0pt
 (hyperref)                replaced by space on input line 3.
 
-) [36
+) [32
 
 
 
@@ -2348,14 +2317,13 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 \tf@thm=\write5
 \openout5 = `main.thm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 74.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 74.
- (./main.aux (./body/introduction.aux) (./body/chapter2.aux)
-(./body/chapter3.aux) (./body/tables.aux) (./body/conclusion.aux)
-(./appendix/appA.aux) (./appendix/publications.aux)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 75.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 75.
+ (./main.aux (./body/chapter1.aux) (./body/chapter2.aux)
+(./body/chapter3.aux) (./appendix/appA.aux) (./appendix/publications.aux)
 (./appendix/Authorization.aux) (./appendix/acknowledgements.aux))
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 74.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 74.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 75.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 75.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -2369,12 +2337,12 @@ LaTeX Warning: There were multiply-defined labels.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 33120 strings out of 493005
- 629760 string characters out of 6134595
- 784377 words of memory out of 5000000
- 36599 multiletter control sequences out of 15000+600000
- 25041 words of font info for 156 fonts, out of 8000000 for 9000
+ 32669 strings out of 493005
+ 619883 string characters out of 6134595
+ 685000 words of memory out of 5000000
+ 36177 multiletter control sequences out of 15000+600000
+ 17562 words of font info for 121 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 57i,16n,78p,10410b,4959s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 57i,12n,78p,10410b,3675s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (43 pages).
+Output written on main.pdf (39 pages).

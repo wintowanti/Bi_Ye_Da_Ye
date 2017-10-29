@@ -4,8 +4,11 @@ from __future__ import print_function
 class Config(object):
     data_path = "./data/all_data_tweet_text.csv"
     seme_data_path = "./data"
+    nlpcc_data_path = "./data/NLPCC"
     embedding_path = "./data/glove.twitter.27B.100d.txt"
-    embedding_size = 100
+    weibo_embedding_path = "./data/weibo_w2v_200.txt"
+    embedding_size = 200
+    weibo_embedding_size = 200
     fixed_len = 30
     epoch = 150
     batch_size= 64

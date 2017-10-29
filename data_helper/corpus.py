@@ -178,6 +178,7 @@ class NLPCC_Corpus(Corpus):
 
     def read_data(self, path):
         self.read_nlpcc_data(os.path.join(path, "evasampledata4-TaskAA.txt"), "Train")
+        self.read_nlpcc_data(os.path.join(path, "NLPCC_2016_Stance_Detection_Task_A_gold.txt"), "Test")
         #self.read_semeval_data(os.path.join(path, "test.csv"), "Test")
         
     def iter_epoch(self, target_idx, flag, batch_size=18):
@@ -200,9 +201,9 @@ if __name__ == "__main__":
     # for (idx_tweet, idx_targets, stances, sentiments, target_id) in semeval_corpus.iter_epoch(1,"Train", batch_size=2000):
     #     pass
     nlpcc_corpus = NLPCC_Corpus("../data/NLPCC")
-
-    for idx, (texts, targets, stances, target_idx) in enumerate(nlpcc_corpus.iter_epoch(2, "Train", batch_size=1000)):
-        pass
+    pass
+    # for idx, (texts, targets, stances, target_idx) in enumerate(nlpcc_corpus.iter_epoch(2, "Train", batch_size=10002)):
+    #     pass
     # tsum = 0
     # for idxs, s1, s2 in corpus.iter_epoch("Donald Trump", "Hilary Clinton", "Train", batch_size=100):
     #     tsum += len(s1)

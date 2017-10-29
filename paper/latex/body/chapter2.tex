@@ -7,153 +7,51 @@
 
 本章2.2 节介绍情感分析的相关研究，2.3 节介绍立场分析相关研究，2.4节着重介绍基于深度学习模型的立场分析研究。
 
-\BiSubsection{文本情感分析相关技术概述}{Captions and descriptions of figures}
-文本情感分析，指用自然语言处理、文本挖掘以及计算机语言学等方法来识别和提取原素材中的主观信息。通常来说，情感分析的目的是为了找出说话者，作者在某些话题上或者针对一个文本两极的观点的态度。这个态度或许是他或她的个人判断或是评估，也许是他当时的情感状态，或是作者有意向的情感交流。文本的情感分析是自然语音处理的重要研究内容之一，且其具有重要的科研价值与商业实用价值，吸引了大量的研究人员的关注。研究人员从不同的角度和不同方法对文本情感分析展开了研究。本节将从基于情感词典、机器学习和深度学习的三个方向分别概述近年来情感分析的研究进展，且论述的重点主要集中与文本的后续研究相关的深度学习。
-\BiSubsection{插图编排}{Layouts of illustrations}
-插图之前，文中必须有关于本插图的提示，如“见图~1-1”、“如图~1-1~所示”等。插图与其图题为一个整体，不得拆开排写于两页。
-插图处的该页空白不够排写该图整体时，则可将其后文字部分提前排写，将图移到次页。
+\BiSection{文本情感分析相关技术概述}{Captions and descriptions of figures}
+文本情感分析，指用自然语言处理、文本挖掘以及计算机语言学等方法来识别和提取原素材中的主观信息。通常来说，情感分析的目的是为了找出说话者，作者在某些话题上或者针对一个文本两极的观点的态度。这个态度或许是他或她的个人判断或是评估，也许是他当时的情感状态，或是作者有意向的情感交流。文本的情感分析是自然语音处理的重要研究内容之一，且其具有重要的科研价值与商业实用价值，吸引了大量的研究人员的关注。研究人员从不同的角度和不同方法对文本情感分析展开了研究。本节将从基于情感词典、机器学习和深度学习的三个方向分别概述近年来情感分析的研究进展。
 
-\BiSection{\LaTeX~中推荐使用的图片格式}{Recommended figure format applied in \LaTeX}
-在~\LaTeX~中应用最多的图片格式是~EPS（Encapsulated PostScript）格式，它是一种专用的打印机描述语言，常用于印刷或打印输出。
-EPS~格式图片可通过多种方式生成，这里介绍一款功能强大的免费图片处理软件———\href{http://www.imagemagick.org/}{ImageMagick}，
-360~软件管家也提供此软件的下载。此软件可将其它格式图片转换为~EPS~格式图片，同时还可以锐化图片，使图片的局部清晰一些。
+\BiSubsection{基于情感词典的文本情感分析相关技术}{Recommended figure format applied in \LaTeX}
+基于情感词典的文本情感分析是早期研究人员的成果，其相应的模型建立在情感词典和语言学的规则基础上。由于模型的解释性好，需要计算资源较少，成为早期研究文本情感分析的主流。情感词典作为文本情感分析的重要组成部分能给文本情感分析提供重要的特征信息。情感词典的构造通常有语言学领域的专家完成。例如现有先对成熟的情感词典有WordNet、HowNet、大连理工大学中文情感词汇本来库等。基于情感词典的文本情感分析的技术步骤通常先匹配原文本中与情感词典相对应的情感表达特征词，然后根据各特征词的表达方式综合计算其每一个特征词的情感得分，最好结合整个文本的情感得分总结文本的情感倾向。
 
-此软件对图片的格式转换操作都是在命令提示符（cmd.exe）中实现的，可以通过“开始$\to$运行$\to$输入~cmd$\to$回车”或
-“开始$\to$程序$\to$附件$\to$命令提示符”找到它。在命令提示符下，首先采用“盘符命令”或“cd~命令”将当前目录改为待处理图片所在的目录，
-在此目录下就可通过~convert~命令将图片转换为~EPS~格式，其命令的语法格式为
+Taboada【】在原来情感词典的基础上进一步考虑了词语的词性，结合情感词和词性综合给出情感的倾向得分。该情感分析模型包含一个语义指向计算器（Semantic　orientation　calculator，so－cal），这个计算器首先抽取出文本中的形容词、动词、名词以及副词等情感方位词，然后结合各种情感方位词计算原来文本的情感指向，模型结合的情感指向和强调、弱化、否定等转移的价位得到文本最终的情感倾向。作者通过一系列的实验证明了基于情感词典和此种转移规则的模型具有很强的鲁棒性，在跨领域的的文本情感分析上也有良好的表现。孙建旺【】等提出结合情感词典和机器学习两者的优势来解决微博情感分析的问题，利用微博多层次结构对微博文本进行特征降维。此外，由于微博包含多种颜文字，表情符等特点，设计了对颜文字和表情符的情感计算方法，其实验证明了加入表情符等特征，对微博的情感分析效果得到了提高。
 
-\noindent\verb|convert [可选参数] 原文件名.原扩展名 新文件名.eps|
+基于不同的上下文可能决定某些情感词的特点，具有一定的领域相关性。例如“高”在“质量高”的上下文中表达的是正面的情感倾向，但是如果在“消费高”的上下文则表达负面的情感倾向。Bollegala【】等人结合了不同领域对情感词的表达特点构造了领域相关的情感词典。实验证明结合领域知识的情感词典能在相对于的领域取得更好的效果。Li【】提出一种相关领域自适应情感词的框架，能同步从标注训练语料中提取出的主题词和情感词，并进一步通过分析标注语料中主题词和情感词的关系来推导出未标注语料中与主题相关的情感词。
 
-\noindent 若~convert~命令中无可选参数，则将原来的图片格式直接转换为~EPS~格式，对图片不进行任何处理，这也是最常用的方法。
-也可以选用可选参数，可选参数有很多选择，但最常用的有如下两个：
+总体来看，基于情感词典/规则和知识库的情感分类准确率较高，但由于情感词典和常识库规模的限制，覆盖率较低。同时此类方法对分词、词性标注、规则匹配等的准确性要求较高，系统内部错误传递影响较大。[30]
 
-\verb|-sharpen radius{xsigma}|———此参数用来锐化图片，一般用在图片像素不高，需要提高图片清晰度的情况下。其中~radius~只能为整数，
-它用来确定转换命令采取哪一种锐化算法，我们可以只取~radius~为~0；sigma~为所采取算法的锐化度，它的取值为~0.1--3~之间的任意一个浮点数，
-数值越大，锐化程度也越大，通常取为~0.5--1~之间；x在参数中为分隔符。
+\BiSubsection{基于机器学习的文本情感分析相关技术}{Recommended figure format applied in \LaTeX}
 
-\verb|-resize geometry|———此参数用来改变图片的大小，若图片的存储空间过大，可通过此命令缩小图片尺寸，但同时也将导致图片像素降低，
-其具体用法请参见\href{http://www.imagemagick.org/script/command-line-options.php#resize}{-resize geometry的官方说明}。
+随着机器学习成功应用于其他领域的快速发展，对于文本情感分析的问题，大量的研究人员开始开展基于机器学习的文本情感分析的研究。基于机器学习的文本情感分析方法，首先通过特征工程抽取文本情感分析特征，然后通过抽取出来的特征词用机器学习能理解的数值表达文本。通过人工标注建立起特征表示数据和情感类标对的训练数据，通过各种已有的机器学习模型（支持向量机、朴素贝叶斯、逻辑回归、最大熵模型等）提取出训练集中特征和类标之间的映射关系的模型。Sida Wang【42】等利用N元词组（N-gram）对文本情感进行建模，模型结合了朴素贝叶斯与支持向量机的两个模型。首先利用朴素贝叶斯的思想，计算每一个词组的对数计数概率r，公式如下：
 
-除此之外，一些文字处理软件和科学计算软件也支持生成~EPS~格式的文件，请使用“另存为”功能查看某款软件是否能够将图片以~EPS~格式的形式保存。
 
-\BiSection{单张图片的插入方法}{The method of inserting one single figure}
-单张图片独自占一行的插入形式如图~\ref{golfer1}~所示。
+$$r=\log(\cfrac{\cfrac{p}{\|p_1\|}}{\cfrac{q}{\|q_1\|}})$$
+$$p=\alpha + \sum_{i:y^{(i)}=1}f^{(i)}$$
+$$p=\alpha + \sum_{i:y^{(i)}=-1}f^{(i)}$$
+其中$y^{(i)}$为训练实例$i$的类标，$y^{(i)}\in\lbrace-1,1\rbrace$。其中$f^{(i)}$为训练实例$i$的特征向量，$f_{(i)}\in R^{\|V\|}$, $V$为特征集合 $\alpha$为平滑因子。
+
+于上述r的计算公式可知，从训练语料中可以计算出每一个词语对于不同情感的倾向大小，所以利用我们已经计算的每一个词的r值，可以得到文本的特征表示，特征表示后的文本可以作为支持向量机的输入，通过支持向量机可以抽取出训练集中有关文本情感分析的模式。
+
+Pang[8]等研究者创新性的把文本主题分析的技术迁移应用到文本情感分析中,文本的话题分类主要根据与话题相关的主题词决定，但是表达情感的方式更加的多样话，需要考虑的因素更多。Pang把文本的情感分析看成一类特殊的主题分析，使用了在有监督学习上泛化能力较好的支持向量机、朴素贝叶斯、最大熵模型三种基础的分类模型。选用的分类特征为一元词组（Unigram）、二元词组（Bigram）、词性分析（POS）、形容词位置信息等。此研究通过组合特征和模型的交叉验证表明，三个分类器组合任意一个特征特征的性能都比基线模型要好，在有关电影影评的数据集上，一元词组（Unigram）结合支持向量机的模型取得了良好的效果。但是此研究实验也论证了文本的情感分析的性能还是和文本主题分析存在较大的差距，同时也佐证了文本情感分析对模型和特征也有更高的要求。
+
+为了减少文本中无关的客观信息对文本情绪分析的干扰作用，Pang和lee对上述基于机器学习的文本情感分析模型进行了有正对性的改进，规避了文本客观消息的干扰，使模型更加专注于文本的主观信息。作者他们创新性把原来的文本情感分析问题转换成以各字句链接图中最小割问题，应用了挖掘图中的最小割的分类器来寻找对情感分析有用的主观表达的句子，从而屏蔽掉客观消息的干扰。此研究的实验也论证了剔除客观信息的文本情感分析模型的性能得到显著的加强。
+
+\BiSubsection{基于深度学习的文本情感分析相关技术}{Recommended figure format applied in \LaTeX}
+
+深度学习由于其更复杂的模型和更多的参数，比起以往的的机器学习方法在海量数据集上更有优势。且深度学习具有能够以端到端的形式构建模型的优势，不再需要人工筛选和总结大量特征，所以得到了情感分析研究者的关注。Socher等研究者为满足深度模型构建的需要，首先组织标注了斯坦福情感树库（Stanford Sentiment Treebank，SSTB）。斯坦福情感树库由11,855个电影评论句子组成，共包含215,154个不同短语，其中任意短语构成的节点和其他叶子节点均被标注为五类情感（强正面、正面、中性、负面、强负面）中的一个。Socher提出使用语法树和词汇向量表示任意长度的短语输入的递归神经张量网络，且其使用相同的张量组合函数来计算根节点向量，可得到句子中任意短语的情感向量表示。该模型可以利用树形结构捕捉情感变化和否定侧的作用范围，对于转折结构中情感表达识别同样具有很好的效果。实验证明，RNTN模型在五分类的情感分析及二分类（“正”、“负”）的情感分析中都取得了历史最好成绩。
+
+最简易的文字编码方法就是one-hot representation，向量长度为整个语料库中词的总个数。向量的分量只有一个1，其他全为0，1的位置对应该词在词典中的索引。但这种词向量表示有一些缺点，如容易受位数灾难的困扰，且不能很好地刻画词与词之间的相似性。另一种词向量是Distributed Representation，它最早是Hinton于1986年提出的，可以克服one-hot representation的上述缺点。其基本想法是：通过训练将某种语言中的每一个词映射成一个固定长度的短向量（这里的“短”是相对于one-hot representation的“长”而言的），所有这些向量构成一个词向量空间，而每一向量则可视为该空间中的一个点，在这个空间上引入“距离”，就可以根据词之间的距离来判断它们之间的（语法、语义）相似性。bengio[33]等人提出用神经网络的方式建立二元的语言模型，把词映射为低纬度稠密的词向量，并用词向量之间的距离来衡量词语之间语义的相似性。Mnih[34]等人提出基础层次Log-Bilinear模型来训练神经网络中的语言模型。
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width = 0.4\textwidth]{golfer}
-	\bicaption[golfer1]{}{打高尔夫球的人}{Fig.$\!$}{The person playing golf}\vspace{-1em}
+	\includegraphics[width = 0.6\textwidth]{word2vec_skip_cbow.png}
+	\caption[rnn_vanish]{Skip-gram和CBOW模型}
 \end{figure}
+Mikolov[??]2013提出了Word2Vec模型，解决了词向量训练速度慢，效率低的缺点。其利用了CBOW（Continuous Bag-of-words Model）和Skip-Gram的两种语言模型。其中CBOW的思想是利用词语的上下文词的信息来预测该单词。而Skip-Gram则采取一种和CBOW相反的策略，用中间的词的消息来预测上下文的词。
 
-其插入图片的代码及其说明如下。
-\vspace{1em}\noindent\hrule
-\begin{lstlisting}
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.4\textwidth]{文件名(.eps)}
-\bicaption[标签名(英文)]{}{中文标题}{Fig.$\!$}
-{English caption (首字母大写)}\vspace{-1em}
-\end{figure}
-\end{lstlisting}
-\noindent\hrule
-\begin{lstlisting}
-figure环境的可选参数[htbp]表示浮动图形所放置的位置，h (here)表示当前位置，t (top)表示页芯顶部，b (bottom)表示页芯底部，p (page)表示单独一页。在word等软件中，图片通常插入到当前位置，如果当前页的剩余空间不够，图片将被移动到下一页，当前页就会出现很大的空白，其人工调整工作非常不便。由LaTeX提供的浮动图片功能，总是会按h->t->b->p的次序处理选项中的字母，自动调整图片的位置，大大减轻了工作量。
-\centering命令将后续内容转换成每行皆居中的格式。
-“\includegraphics”的可选参数用来设置图片插入文中的水平宽度，一般表示为正文宽度(\textwidth)的倍数。
-\bicaption命令的使用需要调用ccaption宏包，它可以为图片或表格插入双语标题（博士学位论文要求），可选参数“标签名”为英文形式，一般不以图片或表格的数字顺序作为标签，而应包含一定的图片或表格信息，以便于文中引用（若图片、表格、公式、章节和参考文献等在文中出现的先后顺序发生了变化，其标注序号及其文中引用序号也会跟着发生变化，这一点是word等软件所不能做到的）。第4个参数中的“$\!$”表示-1/6个空铅宽度，这样可以缩小Fig.和Table与后面数字序号之间的水平距离。另外，图题或表题并不会因为分页而与图片或表格体分置于两页，章节等各级标题也不会置于某页的最底部，LaTeX系统会自动调整它们在正文中的位置，这也是word等软件所无法匹敌的。
-注：硕士学位论文的图表只需要插入中文标题，因此需将\bicaption一句命令替换为如下两条命令（下同）：
-\caption{中文标题}
-\label{标签名(英文)}
-\vspace将产生一定高度的竖直空白，必选参数为负值表示将后续文字位置向上提升，参数值可自行调整。em为长度单位，相当于大写字母M的宽度。
-引用方法：“见图~\ref{标签名(英文)}”、“如图~\ref{标签名(英文)}~所示”等。
-\end{lstlisting}
-\noindent\hrule\vspace{1em}
-若需要将~2~张及以上的图片并排插入到一行中，则需要采用\verb|minipage|环境，如图~\ref{golfer2}~和图~\ref{golfer3}~所示。
-\begin{figure}[htbp]
-	\centering
-	\begin{minipage}{0.4\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{golfer}
-		\bicaption[golfer2]{}{打高尔夫球的人}{Fig.$\!$}{The person playing golf}
-	\end{minipage}
-	\begin{minipage}{0.4\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{golfer}
-		\bicaption[golfer3]{}{打高尔夫球的人}{Fig.$\!$}{The person playing golf}
-	\end{minipage}\vspace{-1em}
-\end{figure}
+Mikolov创新性的提出了Hierarchical Softmax和负采样的词向量加速方法,为后续深度学习模型能在自然语言处理任务上打下了夯实的基础。对已经训练好的词向量，通过PCA等降维方法可在低纬度空间内实现可视化。
 
-其代码如下所示。
-\vspace{1em}\noindent\hrule
-\begin{lstlisting}
-\begin{figure}[htbp]
-\centering
-\begin{minipage}{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{文件名}
-\bicaption[标签名]{}{中文标题}{Fig.$\!$}
-{English caption}
-\end{minipage}
-\begin{minipage}{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{文件名}
-\bicaption[标签名]{}{中文标题}{Fig.$\!$}
-{English caption}
-\end{minipage}\vspace{-1em}
-\end{figure}
-\end{lstlisting}
-\noindent\hrule
-\begin{lstlisting}
-minipage环境的必选参数用来设置小页的宽度，若需要在一行中插入n个等宽图片，则每个小页的宽度应略小于(1/n)\textwidth。
-\end{lstlisting}
-\noindent\hrule
+循环神经网络(Recurrent Neural Networks-RNN)已经在众多自然语言处理任务上取得了巨大成功。不同于传统过得前向反馈神经网络的同层节点无连接层于层之间节点有连接，循环神经网络引入了定向循环，可以处理序列数据。RNN中最大的缺陷是后面时间的节点对于前面节点的感知力下降，当网络深时训练效果下降。LSTM可以解决这一问题，目前LSTM是RNN中使用最广泛最成功的模型。
 
-\BiSection{具有子图的图片插入方法}{The method of inserting figures with subfigures}
+卷积神经网络不仅在图像处理上表现优异，在文本分类上同样表现不俗。kim[]提出的多卷积核文本分类CNN模型。模型第一层为预先训练好的词向量或者是随机初始化参数的词向量Embedding层，然后接一个宽度和词向量维数相同，长度通常为3、4、5的多个卷积核的卷积层，卷积层后是是较少参数的池化层，最大值池化层在分类的效果较好。池化层后的输出为文本提取出来的特征向量，最后连接一个全连接作为分类层。实验证明CNN在情感分析上能较好的性能。
 
-图中若含有子图时，需要调用~subfigure~宏包。博士学位论文规范要求不止总图的标题为中英文形式，其各个子图也应具有中英文形式的标题。
-然而~ccaption~宏包却无法实现子图的中英文标题功能，这里采用对\verb|\subfigure|命令进行嵌套的方法来实现子图的中英文标题功能，如图~\ref{golfer4}~所示。
-
-\begin{figure}[htbp]
-	\centering
-	\subfigure{\label{golfer41}}\addtocounter{subfigure}{-2}
-	\subfigure[The person playing golf]{\subfigure[打高尔夫球的人~1]{\includegraphics[width=0.4\textwidth]{golfer}}}
-	\subfigure{\label{golfer42}}\addtocounter{subfigure}{-2}
-	\subfigure[The person playing golf]{\subfigure[打高尔夫球的人~2]{\includegraphics[width=0.4\textwidth]{golfer}}}
-	\bicaption[golfer4]{}{打高尔夫球的人}{Fig.$\!$}{The person playing golf}\vspace{-1em}
-\end{figure}
-
-其代码及其说明如下。
-\vspace{1em}\noindent\hrule
-\begin{lstlisting}
-\begin{figure}[htbp]
-\centering
-\subfigure{\label{第1个子图标签名}}\addtocounter{subfigure}{-2}
-\subfigure[The 1st subfigure caption]{\subfigure[第1个子图标题]
-{\includegraphics[width=0.4\textwidth]{文件名}}}
-\subfigure{\label{第2个子图标签名}}\addtocounter{subfigure}{-2}
-\subfigure[The 2nd subfigure caption]{\subfigure[第2个子图标题]
-{\includegraphics[width=0.4\textwidth]{文件名}}}
-\bicaption[总标签名]{}{中文总标题}{Fig.$\!$}{The total caption}
-\vspace{-1em}
-\end{figure}
-\end{lstlisting}
-\noindent\hrule
-\begin{lstlisting}
-\addtocounter把指定的值加到计数器上，这里是对subfigure计数器进行减2操作。这是因为每插入1个子图，就调用3次\subfigure命令，第1次调用\subfigure命令用来生成紧随其后所插入子图的标签，而之后的双层嵌套调用\subfigure命令用来插入子图并生成该子图的中英文标题。因此，每插入1张子图，subfigure计数器的值就自动加3，为了使得子图的序号能每次加1，则需在每插入1张子图前手动把subfigure计数器的值减2。
-\subfigure命令的双层嵌套使用可用来生成中英文标题，其内层\subfigure命令用来插入子图并生成中文标题，外层\subfigure命令将插入的子图和中文标题作为一个整体，生成这个整体的英文标题，因此英文标题会置于中文标题的下面。
-硕士学位论文只需要中文标题，其代码如下：
-\begin{figure}[htbp]
-\centering
-\subfigure[第1个子图标题\label{第1个子图标签名}]
-{\includegraphics[width=0.4\textwidth]{文件名}}
-\subfigure[第2个子图标题\label{第2个子图标签名}]
-{\includegraphics[width=0.4\textwidth]{文件名}}
-\caption{中文总标题}\label{总标签名}
-\vspace{-1em}
-\end{figure}
-引用方法：总图的引用方法同本章第1节，子图的引用方法用\ref{第n个子图标签名}来代替。
-\end{lstlisting}
-\noindent\hrule\vspace{1em}
-
-子图的引用示例：如图~\ref{golfer41}~和图~\ref{golfer42}~所示。
-
-若想获得插图方法的更多信息，请参见网络上的~\href{ftp://ftp.tex.ac.uk/tex-archive/info/epslatex.pdf}{Using Imported Graphics in \LaTeX and pdf\LaTeX}~文档。 
+\BiSection{文本立场分析相关技术}{Recommended figure format applied in \LaTeX}
+文本立场分析与文本情感分析有着本质的区别，文本立场分析更加关注文本反应出作者对于某一特定目标主题所持的立场和倾向。立场分析需要结合目标主题和情感信息，这比单独考虑文本的消息更加具有有挑战，对模型的建模能力也有更高的要求。
