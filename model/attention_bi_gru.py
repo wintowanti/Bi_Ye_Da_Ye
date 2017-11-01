@@ -13,9 +13,9 @@ class Attention_Bi_GRU(torch.nn.Module):
         self.embedding_matrix = torch.nn.Embedding(config.voc_len, config.embedding_size)
         if config.embedding_matrix is not None:
             self.embedding_matrix.weight.data.copy_(torch.from_numpy(config.embedding_matrix))
-        self.embedding_matrix.weight.requires_grad = True
+        self.embedding_matrix.weight.requires_grad = False
         self.gru = torch.nn.GRU(input_size=config.embedding_size, hidden_size=config.hidden_size,
-                                batch_first=True, bidirectional=True, dropout=0.3)
+                                batch_first=True, bidirectional=True, dropout=0.4)
 
         config.hidden_size *= 2
 

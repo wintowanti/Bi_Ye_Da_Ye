@@ -136,19 +136,26 @@ class Seme_Corpus(Corpus):
         self.read_semeval_data(os.path.join(path, "train.csv"), "Train")
         self.read_semeval_data(os.path.join(path, "test.csv"), "Test")
 
-    def iter_epoch(self, target_idx, flag, batch_size=18):
+    def iter_epoch(self, target_idx, flag, batch_size=18, is_shuffle=True):
         idx_tweets = []
         idx_targets = []
         stances = []
         sentiments = []
         for tweet in self.social_texts:
-            if tweet.raw_target == self.targets[target_idx] and tweet.flag == flag:
+            if tweet.raw_target == self.targets[target_idx] and (tweet.flag == flag or (flag == "Dev" and tweet.flag == "Test")):
                 idx_tweets.append(tweet.idx_text)
                 idx_targets.append(tweet.idx_target)
                 stances.append(tweet.stance)
                 sentiments.append(tweet.sentiment)
+        ##shuffle list
+        # for item in [idx_tweets, idx_targets, stances, sentiments]:
+        #     random.shuffle(item)
+        if flag == "Dev":
+            all_len = len(idx_tweets)
+        else:
+            all_len = len(idx_tweets)
 
-        for start_idx in range(len(idx_tweets))[::batch_size]:
+        for start_idx in range(all_len)[::batch_size]:
             end_idx = min(start_idx + batch_size, len(idx_tweets))
             yield idx_tweets[start_idx:end_idx:], idx_targets[start_idx:end_idx:], stances[start_idx:end_idx:], sentiments[start_idx:end_idx:], target_idx
 
@@ -182,25 +189,33 @@ class NLPCC_Corpus(Corpus):
         #self.read_semeval_data(os.path.join(path, "test.csv"), "Test")
         
     def iter_epoch(self, target_idx, flag, batch_size=18):
+        if flag == "Dev":
+            flag = "Test"
         idx_text = []
         idx_targets = []
         stances = []
+        all_len = 0
         for tweet in self.social_texts:
-            if tweet.raw_target == self.targets[target_idx] and tweet.flag == flag:
+            if tweet.raw_target == self.targets[target_idx] and (tweet.flag == flag or flag == "Train"):
+                if tweet.flag == flag:
+                    all_len += 1
                 idx_text.append(tweet.idx_text)
                 idx_targets.append(tweet.idx_target)
                 stances.append(tweet.stance)
-
-        for start_idx in range(len(idx_text))[::batch_size]:
-            end_idx = min(start_idx + batch_size, len(idx_text))
+        if flag == "Train":
+            all_len += 20
+        for start_idx in range(all_len)[::batch_size]:
+            end_idx = min(start_idx + batch_size, all_len)
             yield idx_text[start_idx:end_idx:], idx_targets[start_idx:end_idx:], stances[start_idx:end_idx:], target_idx
 
 if __name__ == "__main__":
     #corpus = Corpus("./data/all_data_tweet_text.csv")
     # semeval_corpus = Seme_Corpus("../data")
-    # for (idx_tweet, idx_targets, stances, sentiments, target_id) in semeval_corpus.iter_epoch(1,"Train", batch_size=2000):
-    #     pass
+    # for (idx_tweet, idx_targets, stances, sentiments, target_id) in semeval_corpus.iter_epoch(0,"Train", batch_size=2000):
+    #      pass
     nlpcc_corpus = NLPCC_Corpus("../data/NLPCC")
+    for text,target,stance,idx in nlpcc_corpus.iter_epoch(1,"Train",batch_size=1000):
+        pass
     print("good")
     pass
 

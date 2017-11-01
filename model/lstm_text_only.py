@@ -15,7 +15,7 @@ class LSTM_Text_Only(torch.nn.Module):
             self.embedding_matrix.weight.data.copy_(torch.from_numpy(config.embedding_matrix))
         self.embedding_matrix.weight.requires_grad = True
         self.lstm = torch.nn.LSTM(input_size=config.embedding_size, hidden_size=config.hidden_size, batch_first=True,
-                                  bidirectional=False)
+                                  bidirectional=False, dropout=0.3)
 
 
         config.hidden_size *= 1

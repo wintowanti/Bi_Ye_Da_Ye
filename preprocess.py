@@ -54,9 +54,16 @@ def hash_stance(stance):
 
 def metric(y_pred, y_true, name):
 
-    precision, recall, f1_score, support = precision_recall_fscore_support(y_true=y_true, y_pred=y_pred)
-    print confusion_matrix(y_true=y_true, y_pred=y_pred)
+    precision, recall, f1_score, support = precision_recall_fscore_support(y_true=y_true, y_pred=y_pred, labels=[0, 1, 2])
+    print confusion_matrix(y_true=y_true, y_pred=y_pred, labels=[0, 1, 2])
+
+    f1_score[0] = (2*precision[0]*recall[0]) /max(precision[0]+recall[0], 0.001)
+    f1_score[2] = (2*precision[2]*recall[2]) /max(precision[2]+recall[2], 0.001)
+
     f1_average = (f1_score[0] + f1_score[2]) / 2
+
+    print("n: %s Favor  p: %f  r: %f | Against p:%f  r:%f"%(
+        name, precision[0], recall[0], precision[2], recall[2]))
 
     print("n: %s Favor f1: %f  Against f1 %f average: %f"%(
         name, f1_score[0], f1_score[2], f1_average))

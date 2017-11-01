@@ -7,17 +7,17 @@ class Config(object):
     nlpcc_data_path = "./data/NLPCC"
     embedding_path = "./data/glove.twitter.27B.100d.txt"
     weibo_embedding_path = "./data/weibo_w2v_200.txt"
-    embedding_size = 200
+    embedding_size = 100
     weibo_embedding_size = 200
     fixed_len = 50
-    epoch = 150
+    epoch = 50
     batch_size= 64
 
     voc_len = None
     embedding_matrix = None
 
     #lstm
-    hidden_size = 64
+    hidden_size = 100
     class_size = 3
 
 

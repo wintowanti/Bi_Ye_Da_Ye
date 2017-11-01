@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.10.16)  30 OCT 2017 23:01
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.10.16)  1 NOV 2017 23:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2305,40 +2305,40 @@ File: figures/lstm_unit.png Graphic file (type QTm)
 [17]
 File: figures/conditional_encoding.png Graphic file (type QTm)
  <use  "figures/conditional_encoding.png" > [18] [19]
-File: figures/conditional_encode_lstm.png Graphic file (type QTm)
+File: figures/conditional_encode_lstm3.png Graphic file (type QTm)
 
-<use  "figures/conditional_encode_lstm.png" > [20] [21] [22]
+<use  "figures/conditional_encode_lstm3.png" > [20] [21] [22]
 LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 170.
- [23] [24] [25])
-[26] [27]
+ [23] [24]
+[25] [26] [27]) [28] [29]
 \openout2 = `body/chapter4.aux'.
 
  (./body/chapter4.tex
 第4章
-[28
+[30
 
 
 
 ]
 File: figures/NMT.png Graphic file (type QTm)
- <use  "figures/NMT.png" > [29]
+ <use  "figures/NMT.png" > [31]
 File: figures/mnt_visual.jpg Graphic file (type QTm)
- <use  "figures/mnt_visual.jpg" > [30]
-[31]
+ <use  "figures/mnt_visual.jpg" > [32]
+[33]
 File: figures/text_cnn.png Graphic file (type QTm)
  <use  "figures/text_cnn.png" >
 File: figures/gru.png Graphic file (type QTm)
- <use  "figures/gru.png" > [32]
+ <use  "figures/gru.png" > [34]
 File: figures/a_bi_gru_cnn.png Graphic file (type QTm)
 
-<use  "figures/a_bi_gru_cnn.png" > [33] [34] [35]
+<use  "figures/a_bi_gru_cnn.png" > [35] [36] [37]
 File: figures/conditional_encoding.png Graphic file (type QTm)
 
-<use  "figures/conditional_encoding.png" >) [36] (./main.bbl
+<use  "figures/conditional_encoding.png" >) [38] (./main.bbl
 
 Package natbib Warning: Empty `thebibliography' environment on input line 8.
 
-) [37
+) [39
 
 
 ]
@@ -2359,12 +2359,12 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 File: figures/golfer.eps Graphic file (type eps)
-<figures/golfer.eps> [38
+<figures/golfer.eps> [40
 
 
 ]
 附录\nobreakspace {}B B
-) [39
+) [41
 
 ]
 \openout2 = `appendix/publications.aux'.
@@ -2374,14 +2374,14 @@ File: figures/golfer.eps Graphic file (type eps)
 LaTeX Font Warning: Font shape `TU/SimSun(0)/bx/n' undefined
 (Font)              using `TU/SimSun(0)/m/n' instead on input line 5.
 
-) [40
+) [42
 
 
 
 ]
 \openout2 = `appendix/Authorization.aux'.
 
- (./appendix/Authorization.tex) [41
+ (./appendix/Authorization.tex) [43
 
 
 
@@ -2394,7 +2394,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 12.0pt
 (hyperref)                replaced by space on input line 3.
 
-) [42
+) [44
 
 
 
@@ -2423,12 +2423,12 @@ LaTeX Warning: There were multiply-defined labels.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 32725 strings out of 493005
- 620287 string characters out of 6134595
- 689470 words of memory out of 5000000
- 36221 multiletter control sequences out of 15000+600000
+ 32730 strings out of 493005
+ 620548 string characters out of 6134595
+ 685748 words of memory out of 5000000
+ 36226 multiletter control sequences out of 15000+600000
  17562 words of font info for 121 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 57i,12n,78p,10410b,3711s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 57i,12n,78p,10410b,3717s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (49 pages).
+Output written on main.pdf (51 pages).

@@ -107,7 +107,7 @@ $$...$$
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width = 1.0\textwidth]{conditional_encode_lstm.png}
+	\includegraphics[width = 0.85\textwidth]{conditional_encode_lstm3.png}
 	\caption[rnn_vanish]{条件编码长短期记忆}
 \end{figure}
 
@@ -280,34 +280,59 @@ FN：正样例预测为负样例的个数。
 		\bottomrule[1.5pt]
 	\end{tabular}
 \end{table}
+通过网格搜索调节不同参数，使得基于条件双向编码长短期记忆模型在各个数据集上取得最优的效果。调优过程中，在模型的词向量抽取层、LSTM内部记忆单元层、和最后的特征向量层加入适当的dropout可以使得模型更加的稳定，Dropout一定层度上减少了模型过拟合的趋势，增加了模型的泛化能力，通过调节最优参数，模型在SemEval2016数据集上的表现表~\ref{conditional_semeval}~所示。
+\begin{table}[htbp]
+	\caption[table123]{条件双向编码长短期记忆模型在各个话题试验性能（SemEval数据集）}
+	\label{conditional_semeval}
+	\vspace{0.5em}\centering\wuhao
+	\begin{tabular}{cccccccc}
+		\toprule[1.5pt]
+		主题目标& $P_{favor}$&$R_{favor}$&$F_{favor}$&$P_{against}$&$R_{against}$&$F_{against}$&$F_{average}$ \\
+		\midrule[1pt]
+		Atheism&0.3824&0.4063&0.3939&0.8323&0.8375&0.8349&0.6144\\
+		Climate Change&0.7389&0.9431&0.8286&0.0000&0.0000&0.0000&0.4143\\
+		Feminist Movement&0.3924&0.5345&0.4526&0.7205&0.6339&0.6744&0.5635\\
+		Hillary Clinton&0.6316&0.2667&0.3750&0.6638&0.8837&0.7581&0.5666\\
+		Legal. of Abortion&0.4630&0.5435&0.5000&0.7770&0.6085&0.6825&0.5912\\
+		合并统计&0.5743&0.6480&0.6112&0.7396&0.7231&0.7314&0.6713\\
+		\bottomrule[1.5pt]
+	\end{tabular}
+\end{table}
 
-\BiSubsection{模型对比实验结果及分析}{}
-通过在
+如标~\ref{conditional_semeval}~所示，以下分析模型的结果。条件双向编码LSTM模型在所有类标的micro-F1值的指标为0.6713，其总结所有主题目标“支持”立场的F1值为0.5789，而“反对”立场的总体F1值有0.7418。从这个数据可以看出来模型对反对立场有更好的性能，模型会有这样的偏置的原因是由于原英文数据的分布有关，原英文数据集的分布如表~\ref{englishdata}~所示，训练集0.47的样本是持”反对“立场，测试集合也有0.57的持反对立场。而“支持”立场分别只占了0.25和0.24。由于有更多的“反对”样本，条件双向编码LSTM模型能更好的识别”反对“立场中的分类模型，并且模型在不平均数据集上会对高频的类有先天的偏置。这两点导致了模型在“反对”立场上的性能比“支持”有更好的性能。单独分析具体话题目标，“Climate Change is a Real Concern”主题目标的F1值只有0.41，远低于其他主题目标的指标。从原数据分析发现，“Climate Change is a Real Concern”主题目标下”反对“立场只占原数据集的0.03，”支持“的占有率为0.53，”支持“的样本是“反对”的10多倍了。而从模型最后对于“反对”测试集准确率为0，召回率也为0。可以看出最后模型都未预测任何一个样本为“反对”立场。这导致了模型在“Climate Change is a Real Concern”的准确率和召回率都为0,影响了整体的模型性能。
+
+如标~\ref{conditional_semeval}~所示，整体模型的Micro-F1值为0.6713。远高于性能好的子主题目标"Atheism"上的F1值0.6114。其中的原因有可能是各个主题目标的“反对”和“支持”分布较不均匀，例如“Climate Change is a Real Concern”中“支持”立场占了0.53，而“Hillary Clinton”中”反对“立场占据了0.57。相对来说单个主题目标中“支持”与”反对“的分布很均衡，但整体综合5个主题目标后，“支持”与”反对“却变得相互平衡了。因此导致"支持”和“反对”立场都拥有了较好了F1指标，进一步micro-F1的指标也会优于各个主题目标的F1指标。
+
 \begin{table}[htbp]
 	\caption[table123]{基于子话题分别训练的条件双向编码长短期记忆模型试验性能（SemEval数据集）}
 	\label{chinesedata}
 	\vspace{0.5em}\centering\wuhao
 	\begin{tabular}{cccccccc}
 		\toprule[1.5pt]
-		预置话题分类& $P_{favor}$&$R_{favor}$&$F_{favor}$&$P_{against}$&$R_{against}$&$F_{against}$&$F_{average}$ \\
+	主题目标& $P_{favor}$&$R_{favor}$&$F_{favor}$&$P_{against}$&$R_{against}$&$F_{against}$&$F_{average}$ \\
 		\midrule[1pt]
-		iPhone SE&600&40.8&34.8&24.3&200&37.5&52.0\\
-		春节放鞭炮&600&41.7&41.7&16.7&200&44.0&47.0\\
-		俄在叙反恐行动&600&41.7&41.7&16.7&200&47.0&43.0\\
-		开放二胎政策&600&43.3&33.3&23.3&200&49.5&47.5\\
-		深圳禁摩限电&600&26.7&50.0&23.3&200&31.5&55.0\\
-		总计&3000&38.8&40.3&20.9&1000&41.9&48.9\\
+		iPhone SE&0.5844&0.6000&0.5921&0.6842&0.6250&0.6533&0.6227\\
+		春节放鞭炮&0.6792&0.8182&0.7423&0.8049&0.7021&0.7500&0.7461\\
+		俄在叙反恐行动&0.6267&0.5000&0.5562&0.5299&0.7209&0.6108&0.5835\\
+		开放二胎政策&0.6694&0.8384&0.7444&0.8413&0.5579&0.6709&0.7076\\
+		深圳禁摩限电&0.6308&0.6508&0.6406&0.7674&0.9000&0.8285&0.7345\\
+		总计&0.6443&0.6874&0.6658&0.7099&0.7055&0.7077&0.6868\\
 		\bottomrule[1.5pt]
 	\end{tabular}
 \end{table}
 
+\BiSubsection{模型对比实验结果及分析}{}
+
+
+
+\BiSubsection{模型对比实验结果及分析}{}
 \begin{table}[htbp]
 	\caption[table123]{基于子话题分别训练的条件双向编码长短期记忆模型试验性能（NLPCC数据集）}
 	\label{chinesedata}
 	\vspace{0.5em}\centering\wuhao
 	\begin{tabular}{cccccccc}
 		\toprule[1.5pt]
-		预置话题分类& $P_{favor}$&$R_{favor}$&$F_{favor}$&$P_{against}$&$R_{against}$&$F_{against}$&$F_{average}$ \\
+		主题目标& $P_{favor}$&$R_{favor}$&$F_{favor}$&$P_{against}$&$R_{against}$&$F_{against}$&$F_{average}$ \\
 		\midrule[1pt]
 		iPhone SE&600&40.8&34.8&24.3&200&37.5&52.0\\
 		春节放鞭炮&600&41.7&41.7&16.7&200&44.0&47.0\\

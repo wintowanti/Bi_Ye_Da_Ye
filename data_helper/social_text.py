@@ -6,6 +6,7 @@ class Social_Text(object):
         self.stance = stance
         self.flag = flag
         self.tokenized_text = [word for word in self.tokenize()]
+        self.filter_word=set()
         self.tokenized_target =[word for word in self.tokenize_target()]
 
     def idxed_data_by_dict(self, dict):
@@ -13,6 +14,9 @@ class Social_Text(object):
         self.idx_target = []
         #idxed tweet
         for word in self.tokenize():
+            if word in self.filter_word:
+                # delete this word
+                continue
             if word not in dict.word2idx:
                 word = "_UNK_"
             self.idx_text.append(dict.word2idx[word])
