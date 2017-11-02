@@ -8,7 +8,7 @@ from utils import RedirectStdout
 from config import Config
 from copy import deepcopy
 from model import Fast_Text, Text_CNN, LSTM_Text_Only, Text_GRU, Bi_GRU_CNN, Bi_GRU, Attention_Bi_GRU
-from model import Attention_Bi_GRU_CNN, LSTM_Text_Target_Concat, lstm_condition_encode, LSTM_Condition_Bi_Encoder
+from model import Attention_Bi_GRU_CNN, LSTM_Text_Target_Concat, LSTM_Condition_Encoder, LSTM_Condition_Bi_Encoder
 from model import LSTM_Bi_Condition_Encoder
 
 import torch
@@ -73,17 +73,19 @@ def get_model(config):
     #model = Text_GRU(config)
     #model = Bi_GRU(config)
     #model = Attention_Bi_GRU_CNN(config)
-    model = Text_CNN(config)
+    #model = Text_CNN(config)
     #model = Fast_Text(config)
     #model = LSTM_Text_Only(config)
     #model = LSTM_Text_Target_Concat(config)
+    model = LSTM_Condition_Bi_Encoder(config)
+    #model = LSTM_Condition_Encoder(config)
     return model
 
 def test_all_target(Config):
     y_true_stances = np.array([])
     y_pred_stances = np.array([])
     for target_idx in range(5):
-        target_idx = 0
+        #target_idx =
         model = get_model(Config)
         optim = torch.optim.Adam(filter(lambda p: p.requires_grad, model.parameters()), lr=0.005, weight_decay=1e-6)
         loss_fun = CrossEntropyLoss(size_average=False)

@@ -14,7 +14,7 @@ class LSTM_Condition_Bi_Encoder(torch.nn.Module):
         self.embedding_matrix = torch.nn.Embedding(config.voc_len, config.embedding_size)
         if config.embedding_matrix is not None:
             self.embedding_matrix.weight.data.copy_(torch.from_numpy(config.embedding_matrix))
-        self.embedding_matrix.weight.requires_grad = False
+        self.embedding_matrix.weight.requires_grad = True
         self.target_lstm = torch.nn.LSTM(input_size=config.embedding_size, hidden_size=config.hidden_size, batch_first=True, bidirectional=False, dropout=0.3)
         self.text_bi_lstm =torch.nn.LSTM(input_size=config.embedding_size, hidden_size=config.hidden_size, batch_first=True, bidirectional=True, dropout=0.3)
 
