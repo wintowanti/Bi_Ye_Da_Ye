@@ -193,6 +193,7 @@ class NLPCC_Corpus(Corpus):
             flag = "Test"
         idx_text = []
         idx_targets = []
+        print(self.targets[target_idx])
         stances = []
         all_len = 0
         for tweet in self.social_texts:
@@ -210,11 +211,26 @@ class NLPCC_Corpus(Corpus):
 
 if __name__ == "__main__":
     #corpus = Corpus("./data/all_data_tweet_text.csv")
-    # semeval_corpus = Seme_Corpus("../data")
+
+    semeval_corpus = Seme_Corpus("../data")
+
+    all_lens = len(semeval_corpus.social_texts)
+    sum = 0.0
+    for (key, count) in Counter([len(st.idx_text) for st in semeval_corpus.social_texts]).iteritems():
+        sum += count
+        print(key," ",sum/all_lens)
     # for (idx_tweet, idx_targets, stances, sentiments, target_id) in semeval_corpus.iter_epoch(0,"Train", batch_size=2000):
     #      pass
     nlpcc_corpus = NLPCC_Corpus("../data/NLPCC")
-    for text,target,stance,idx in nlpcc_corpus.iter_epoch(1,"Train",batch_size=1000):
+    all_lens = len(nlpcc_corpus.social_texts)
+    sum = 0.0
+    #tmp = Counter([len(st.idx_text) for st in nlpcc_corpus.social_texts]).iteritems()
+    pass
+    for (key, count) in Counter([len(st.idx_text) for st in nlpcc_corpus.social_texts]).iteritems():
+        sum += count
+        print(key," ",sum/all_lens)
+
+    for text,target,stance,idx in nlpcc_corpus.iter_epoch(0,"Train",batch_size=1000):
         pass
     print("good")
     pass

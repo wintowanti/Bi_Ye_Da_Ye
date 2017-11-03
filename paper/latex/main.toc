@@ -34,22 +34,25 @@
 \contentsline {subsection}{\numberline {3.2.2}长短期记忆神经网络模型}{20}{section*.60}
 \contentsline {subsection}{\numberline {3.2.3}条件编码长短期记忆神经网络模型}{22}{section*.64}
 \contentsline {section}{\numberline {3.3}基于条件编码长短期记忆的文本立场分析}{23}{section*.67}
-\contentsline {section}{\numberline {3.4}实验结果及分析}{27}{section*.70}
-\contentsline {subsection}{\numberline {3.4.1}实验数据与评价指标}{27}{section*.72}
-\contentsline {subsection}{\numberline {3.4.2}实验数据预处理与模型参数设计}{29}{section*.76}
-\contentsline {subsection}{\numberline {3.4.3}模型对比实验结果及分析}{30}{section*.79}
-\contentsline {subsection}{\numberline {3.4.4}模型对比实验结果及分析}{37}{section*.89}
-\contentsline {chapter}{\numberline {第4章\hspace {.3em}}基于注意力机制的卷积神经网络社交媒体文本立场分析}{39}{section*.93}
-\contentsline {section}{\numberline {4.1}引言}{39}{section*.95}
-\contentsline {section}{\numberline {4.2}注意力机制的卷积神经网络模型的社交媒体文本立场分析}{39}{section*.97}
-\contentsline {subsection}{\numberline {4.2.1}注意力机制}{39}{section*.99}
-\contentsline {subsection}{\numberline {4.2.2}卷积神经网络}{42}{section*.103}
-\contentsline {subsection}{\numberline {4.2.3}注意力机制卷积神经网络社交媒体文本立场分析}{43}{section*.106}
-\contentsline {chapter}{参考文献}{48}{section*.111}
-\contentsline {chapter}{\numberline {附录\nobreakspace {}A A\hspace {.3em}}带章节的附录}{49}{section*.115}
-\contentsline {section}{\numberline {A.1}附录节的内容}{49}{section*.117}
-\contentsline {chapter}{\numberline {附录\nobreakspace {}B B\hspace {.3em}}这个星球上最好的免费Windows软件列表}{50}{section*.121}
-\contentsline {chapter}{\fontsize {12pt}{12pt}\selectfont 攻读硕士学位期间发表的论文及其他成果}{51}{section*.124}
-\contentsline {chapter}{\fontsize {12pt}{12pt}\selectfont 哈尔滨工业大学学位论文原创性声明和使用权限}{52}{section*.128}
-\contentsline {chapter}{\fontsize {12pt}{12pt}\selectfont 致\hskip 1em\relax 谢}{53}{section*.132}
+\contentsline {section}{\numberline {3.4}实验设置及结果分析}{27}{section*.70}
+\contentsline {subsection}{\numberline {3.4.1}实验设置}{27}{section*.72}
+\contentsline {subsection}{\numberline {3.4.2}实验结果及分析}{30}{section*.77}
+\contentsline {section}{\numberline {3.5}本章小结}{39}{section*.89}
+\contentsline {chapter}{\numberline {第4章\hspace {.3em}}基于注意力机制的卷积神经网络社交媒体文本立场分析}{40}{section*.91}
+\contentsline {section}{\numberline {4.1}引言}{40}{section*.93}
+\contentsline {section}{\numberline {4.2}注意力机制的卷积神经网络模型的社交媒体文本立场分析}{40}{section*.95}
+\contentsline {subsection}{\numberline {4.2.1}注意力机制}{40}{section*.97}
+\contentsline {subsection}{\numberline {4.2.2}卷积神经网络}{42}{section*.101}
+\contentsline {subsection}{\numberline {4.2.3}注意力机制卷积神经网络社交媒体文本立场分析}{43}{section*.104}
+\contentsline {section}{\numberline {4.3}实验设置及结果分析}{48}{section*.108}
+\contentsline {subsection}{\numberline {4.3.1}实验设置}{48}{section*.110}
+\contentsline {subsection}{\numberline {4.3.2}实验结果及分析}{49}{section*.112}
+\contentsline {section}{\numberline {4.4}本章小结}{54}{section*.121}
+\contentsline {chapter}{参考文献}{55}{section*.124}
+\contentsline {chapter}{\numberline {附录\nobreakspace {}A A\hspace {.3em}}带章节的附录}{56}{section*.128}
+\contentsline {section}{\numberline {A.1}附录节的内容}{56}{section*.130}
+\contentsline {chapter}{\numberline {附录\nobreakspace {}B B\hspace {.3em}}这个星球上最好的免费Windows软件列表}{57}{section*.134}
+\contentsline {chapter}{\fontsize {12pt}{12pt}\selectfont 攻读硕士学位期间发表的论文及其他成果}{58}{section*.137}
+\contentsline {chapter}{\fontsize {12pt}{12pt}\selectfont 哈尔滨工业大学学位论文原创性声明和使用权限}{59}{section*.141}
+\contentsline {chapter}{\fontsize {12pt}{12pt}\selectfont 致\hskip 1em\relax 谢}{60}{section*.145}
 \contentsfinish 

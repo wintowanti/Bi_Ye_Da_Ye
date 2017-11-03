@@ -28,7 +28,7 @@ class Attention_Bi_GRU_CNN(torch.nn.Module):
         self.filter_num = filter_num = 50
         self.cnn2_seq = self.cnn_sequences(config.hidden_size, 3, filter_num)
         self.cnn3_seq = self.cnn_sequences(config.hidden_size, 4, filter_num)
-        self.cnn4_seq = self.cnn_sequences(config.hidden_size, 5, filter_num)
+        self.cnn4_seq = self.cnn_sequences(config.hidden_size, 2, filter_num)
 
         self.fc_targets = []
         for i in range(5):

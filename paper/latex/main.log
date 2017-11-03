@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.10.16)  2 NOV 2017 22:56
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.10.16)  3 NOV 2017 22:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1903,12 +1903,6 @@ LaTeX Warning: Label `lstm_f' multiply defined.
 
 LaTeX Warning: Label `semeval_all_model' multiply defined.
 
-
-LaTeX Warning: Label `chinesedata' multiply defined.
-
-
-LaTeX Warning: Label `chinesedata' multiply defined.
-
 ) (./body/chapter4.aux
 
 LaTeX Warning: Label `lstm_f' multiply defined.
@@ -1960,6 +1954,33 @@ LaTeX Warning: Label `conv1' multiply defined.
 
 
 LaTeX Warning: Label `conv1' multiply defined.
+
+
+LaTeX Warning: Label `param' multiply defined.
+
+
+LaTeX Warning: Label `model_list' multiply defined.
+
+
+LaTeX Warning: Label `semeval_model_char' multiply defined.
+
+
+LaTeX Warning: Label `semeval_all_model' multiply defined.
+
+
+LaTeX Warning: Label `semeval_all_model' multiply defined.
+
+
+LaTeX Warning: Label `chart_semeval_best_model' multiply defined.
+
+
+LaTeX Warning: Label `semeval_res' multiply defined.
+
+
+LaTeX Warning: Label `chart_nlpcc_best_model' multiply defined.
+
+
+LaTeX Warning: Label `nlpcc_res' multiply defined.
 
 
 LaTeX Warning: Label `conv1' multiply defined.
@@ -2322,37 +2343,44 @@ File: figures/chart_seme_condi.png Graphic file (type QTm)
 File: figures/chart_semeval_best_model.png Graphic file (type QTm)
 
 <use  "figures/chart_semeval_best_model.png" > [36]
-File: figures/conditional_encode_lstm3.png Graphic file (type QTm)
+File: figures/chart_nlpcc_best_model.png Graphic file (type QTm)
 
-<use  "figures/conditional_encode_lstm3.png" >) [37] [38]
+<use  "figures/chart_nlpcc_best_model.png" > [37] [38]) [39]
 \openout2 = `body/chapter4.aux'.
 
- (./body/chapter4.tex
+
+(./body/chapter4.tex
 第4章
-[39
+[40
 
 
 
 ]
 File: figures/NMT.png Graphic file (type QTm)
- <use  "figures/NMT.png" > [40]
+ <use  "figures/NMT.png" > [41]
 File: figures/mnt_visual.jpg Graphic file (type QTm)
- <use  "figures/mnt_visual.jpg" > [41]
-[42]
+ <use  "figures/mnt_visual.jpg" > [42]
 File: figures/text_cnn.png Graphic file (type QTm)
- <use  "figures/text_cnn.png" >
+
+<use  "figures/text_cnn.png" >
 File: figures/gru.png Graphic file (type QTm)
- <use  "figures/gru.png" > [43]
+ <use  "figures/gru.png" > [43] [44]
 File: figures/a_bi_gru_cnn.png Graphic file (type QTm)
 
-<use  "figures/a_bi_gru_cnn.png" > [44] [45] [46]
+<use  "figures/a_bi_gru_cnn.png" > [45] [46] [47] [48] [49] [50]
+File: figures/chart_semeval_best_model.png Graphic file (type QTm)
+
+<use  "figures/chart_semeval_best_model.png" > [51] [52]
+File: figures/chart_nlpcc_best_model.png Graphic file (type QTm)
+
+<use  "figures/chart_nlpcc_best_model.png" > [53]
 File: figures/conditional_encoding.png Graphic file (type QTm)
 
-<use  "figures/conditional_encoding.png" >) [47] (./main.bbl
+<use  "figures/conditional_encoding.png" >) [54] (./main.bbl
 
 Package natbib Warning: Empty `thebibliography' environment on input line 8.
 
-) [48
+) [55
 
 
 ]
@@ -2373,12 +2401,12 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 File: figures/golfer.eps Graphic file (type eps)
-<figures/golfer.eps> [49
+<figures/golfer.eps> [56
 
 
 ]
 附录\nobreakspace {}B B
-) [50
+) [57
 
 ]
 \openout2 = `appendix/publications.aux'.
@@ -2388,14 +2416,14 @@ File: figures/golfer.eps Graphic file (type eps)
 LaTeX Font Warning: Font shape `TU/SimSun(0)/bx/n' undefined
 (Font)              using `TU/SimSun(0)/m/n' instead on input line 5.
 
-) [51
+) [58
 
 
 
 ]
 \openout2 = `appendix/Authorization.aux'.
 
- (./appendix/Authorization.tex) [52
+ (./appendix/Authorization.tex) [59
 
 
 
@@ -2408,7 +2436,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 12.0pt
 (hyperref)                replaced by space on input line 3.
 
-) [53
+) [60
 
 
 
@@ -2440,12 +2468,12 @@ LaTeX Warning: There were multiply-defined labels.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 32756 strings out of 493005
- 621541 string characters out of 6134595
- 687004 words of memory out of 5000000
- 36250 multiletter control sequences out of 15000+600000
+ 32773 strings out of 493005
+ 622335 string characters out of 6134595
+ 691281 words of memory out of 5000000
+ 36266 multiletter control sequences out of 15000+600000
  17562 words of font info for 121 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 57i,12n,78p,10410b,3748s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 57i,12n,78p,10410b,3766s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (60 pages).
+Output written on main.pdf (67 pages).
