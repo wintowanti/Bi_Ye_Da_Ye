@@ -15,44 +15,44 @@
 \contentsline {subsection}{\numberline {1.3.2}社交媒体文本情感分析研究现状}{5}{section*.20}
 \contentsline {subsection}{\numberline {1.3.3}文本立场分析研究现状}{6}{section*.22}
 \contentsline {section}{\numberline {1.4}本文的主要研究内容和组织结构}{8}{section*.24}
-\contentsline {chapter}{\numberline {第2章\hspace {.3em}}文本立场分析相关技术概述}{9}{section*.26}
-\contentsline {section}{\numberline {2.1}引言}{9}{section*.28}
-\contentsline {section}{\numberline {2.2}文本情感分析相关技术概述}{9}{section*.30}
-\contentsline {subsection}{\numberline {2.2.1}基于情感词典的文本情感分析相关技术}{9}{section*.32}
-\contentsline {subsection}{\numberline {2.2.2}基于机器学习的文本情感分析相关技术}{10}{section*.34}
-\contentsline {subsection}{\numberline {2.2.3}基于深度学习的文本情感分析相关技术}{12}{section*.36}
-\contentsline {section}{\numberline {2.3}文本立场分析相关技术}{13}{section*.39}
-\contentsline {section}{\numberline {2.4}文本立场分析相关技术}{13}{section*.41}
-\contentsline {subsection}{\numberline {2.4.1}基于有监督机器学习的文本立场分析技术}{14}{section*.43}
-\contentsline {subsection}{\numberline {2.4.2}基于弱监督机器学习的文本立场分析技术}{15}{section*.45}
-\contentsline {section}{\numberline {2.5}基于深度学习的立场分析技术}{16}{section*.47}
-\contentsline {section}{\numberline {2.6}本章小节}{17}{section*.49}
-\contentsline {chapter}{\numberline {第3章\hspace {.3em}}基于条件编码长短期记忆社交媒体文本立场分析}{18}{section*.51}
-\contentsline {section}{\numberline {3.1}引言}{18}{section*.53}
-\contentsline {section}{\numberline {3.2}条件编码长短期记忆神经网络模型}{18}{section*.55}
-\contentsline {subsection}{\numberline {3.2.1}基于GloVe的词嵌入模型}{19}{section*.57}
-\contentsline {subsection}{\numberline {3.2.2}长短期记忆神经网络模型}{20}{section*.60}
-\contentsline {subsection}{\numberline {3.2.3}条件编码长短期记忆神经网络模型}{22}{section*.64}
-\contentsline {section}{\numberline {3.3}基于条件编码长短期记忆的文本立场分析}{23}{section*.67}
-\contentsline {section}{\numberline {3.4}实验设置及结果分析}{27}{section*.70}
-\contentsline {subsection}{\numberline {3.4.1}实验设置}{27}{section*.72}
-\contentsline {subsection}{\numberline {3.4.2}实验结果及分析}{30}{section*.77}
-\contentsline {section}{\numberline {3.5}本章小结}{39}{section*.89}
-\contentsline {chapter}{\numberline {第4章\hspace {.3em}}基于注意力机制的卷积神经网络社交媒体文本立场分析}{40}{section*.91}
-\contentsline {section}{\numberline {4.1}引言}{40}{section*.93}
-\contentsline {section}{\numberline {4.2}注意力机制的卷积神经网络模型的社交媒体文本立场分析}{40}{section*.95}
-\contentsline {subsection}{\numberline {4.2.1}注意力机制}{40}{section*.97}
-\contentsline {subsection}{\numberline {4.2.2}卷积神经网络}{42}{section*.101}
-\contentsline {subsection}{\numberline {4.2.3}注意力机制卷积神经网络社交媒体文本立场分析}{43}{section*.104}
-\contentsline {section}{\numberline {4.3}实验设置及结果分析}{48}{section*.108}
-\contentsline {subsection}{\numberline {4.3.1}实验设置}{48}{section*.110}
-\contentsline {subsection}{\numberline {4.3.2}实验结果及分析}{49}{section*.112}
-\contentsline {section}{\numberline {4.4}本章小结}{54}{section*.121}
-\contentsline {chapter}{参考文献}{55}{section*.124}
-\contentsline {chapter}{\numberline {附录\nobreakspace {}A A\hspace {.3em}}带章节的附录}{56}{section*.128}
-\contentsline {section}{\numberline {A.1}附录节的内容}{56}{section*.130}
-\contentsline {chapter}{\numberline {附录\nobreakspace {}B B\hspace {.3em}}这个星球上最好的免费Windows软件列表}{57}{section*.134}
-\contentsline {chapter}{\fontsize {12pt}{12pt}\selectfont 攻读硕士学位期间发表的论文及其他成果}{58}{section*.137}
-\contentsline {chapter}{\fontsize {12pt}{12pt}\selectfont 哈尔滨工业大学学位论文原创性声明和使用权限}{59}{section*.141}
-\contentsline {chapter}{\fontsize {12pt}{12pt}\selectfont 致\hskip 1em\relax 谢}{60}{section*.145}
+\contentsline {chapter}{\numberline {第2章\hspace {.3em}}文本立场分析相关技术概述}{10}{section*.26}
+\contentsline {section}{\numberline {2.1}引言}{10}{section*.28}
+\contentsline {section}{\numberline {2.2}文本情感分析相关技术概述}{10}{section*.30}
+\contentsline {subsection}{\numberline {2.2.1}基于情感词典的文本情感分析相关技术}{10}{section*.32}
+\contentsline {subsection}{\numberline {2.2.2}基于机器学习的文本情感分析相关技术}{11}{section*.34}
+\contentsline {subsection}{\numberline {2.2.3}基于深度学习的文本情感分析相关技术}{13}{section*.36}
+\contentsline {section}{\numberline {2.3}文本立场分析相关技术}{14}{section*.39}
+\contentsline {subsection}{\numberline {2.3.1}基于有监督机器学习的文本立场分析技术}{15}{section*.41}
+\contentsline {subsection}{\numberline {2.3.2}基于弱监督机器学习的文本立场分析技术}{16}{section*.43}
+\contentsline {section}{\numberline {2.4}基于深度学习的立场分析技术}{16}{section*.45}
+\contentsline {section}{\numberline {2.5}本章小节}{18}{section*.47}
+\contentsline {chapter}{\numberline {第3章\hspace {.3em}}基于条件编码长短期记忆社交媒体文本立场分析}{19}{section*.49}
+\contentsline {section}{\numberline {3.1}引言}{19}{section*.51}
+\contentsline {section}{\numberline {3.2}条件编码长短期记忆神经网络模型}{19}{section*.53}
+\contentsline {subsection}{\numberline {3.2.1}基于GloVe的词嵌入模型}{20}{section*.55}
+\contentsline {subsection}{\numberline {3.2.2}长短期记忆神经网络模型}{21}{section*.58}
+\contentsline {subsection}{\numberline {3.2.3}条件编码长短期记忆神经网络模型}{23}{section*.62}
+\contentsline {section}{\numberline {3.3}基于条件编码长短期记忆的文本立场分析}{24}{section*.65}
+\contentsline {section}{\numberline {3.4}实验设置及结果分析}{28}{section*.68}
+\contentsline {subsection}{\numberline {3.4.1}实验设置}{28}{section*.70}
+\contentsline {subsection}{\numberline {3.4.2}实验结果及分析}{31}{section*.75}
+\contentsline {section}{\numberline {3.5}本章小结}{40}{section*.87}
+\contentsline {chapter}{\numberline {第4章\hspace {.3em}}基于注意力机制的卷积神经网络社交媒体文本立场分析}{41}{section*.89}
+\contentsline {section}{\numberline {4.1}引言}{41}{section*.91}
+\contentsline {section}{\numberline {4.2}注意力机制的卷积神经网络模型的社交媒体文本立场分析}{41}{section*.93}
+\contentsline {subsection}{\numberline {4.2.1}注意力机制}{41}{section*.95}
+\contentsline {subsection}{\numberline {4.2.2}卷积神经网络}{43}{section*.99}
+\contentsline {subsection}{\numberline {4.2.3}注意力机制卷积神经网络社交媒体文本立场分析}{44}{section*.101}
+\contentsline {section}{\numberline {4.3}实验设置及结果分析}{49}{section*.106}
+\contentsline {subsection}{\numberline {4.3.1}实验设置}{49}{section*.108}
+\contentsline {subsection}{\numberline {4.3.2}实验结果及分析}{50}{section*.110}
+\contentsline {section}{\numberline {4.4}本章小结}{55}{section*.119}
+\contentsline {chapter}{\fontsize {12pt}{12pt}\selectfont 结\hskip 1em\relax 论}{56}{section*.122}
+\contentsline {chapter}{参考文献}{57}{section*.125}
+\contentsline {chapter}{\numberline {附录\nobreakspace {}A A\hspace {.3em}}带章节的附录}{58}{section*.129}
+\contentsline {section}{\numberline {A.1}附录节的内容}{58}{section*.131}
+\contentsline {chapter}{\numberline {附录\nobreakspace {}B B\hspace {.3em}}这个星球上最好的免费Windows软件列表}{59}{section*.135}
+\contentsline {chapter}{\fontsize {12pt}{12pt}\selectfont 攻读硕士学位期间发表的论文及其他成果}{60}{section*.138}
+\contentsline {chapter}{\fontsize {12pt}{12pt}\selectfont 哈尔滨工业大学学位论文原创性声明和使用权限}{61}{section*.142}
+\contentsline {chapter}{\fontsize {12pt}{12pt}\selectfont 致\hskip 1em\relax 谢}{62}{section*.146}
 \contentsfinish 
