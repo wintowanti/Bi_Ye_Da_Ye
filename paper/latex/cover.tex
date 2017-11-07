@@ -1,11 +1,11 @@
 % !Mode:: "TeX:UTF-8" 
 
-\newcommand{\chinesethesistitle}{基于引入主题目标信息的社交媒体文本立场分析} %授权书用，无需断行
-\newcommand{\englishthesistitle}{\uppercase{RESEARCH ON FUSION TOPIC INFORMATION BASED STANCE DETECTION IN SOCIAL MEDIA TEXT}} %\uppercase作用：将英文标题字母全部大写；
+\newcommand{\chinesethesistitle}{基于结合主题目标信息的社交媒体文本立场分析} %授权书用，无需断行
+\newcommand{\englishthesistitle}{\uppercase{RESEARCH ON COMBINED TOPIC INFORMATION BASED STANCE DETECTION IN SOCIAL MEDIA TEXT}} %\uppercase作用：将英文标题字母全部大写；
 \newcommand{\chinesethesistime}{2017 年~12 月}  %封面底部的日期中文形式
 \newcommand{\englishthesistime}{December, 2017}    %封面底部的日期英文形式
 
-\ctitle{基于引入主题目标信息的社交媒体文本立场分析}  %封面用论文标题，自己可手动断行
+\ctitle{基于结合主题目标信息的社交媒体文本立场分析}  %封面用论文标题，自己可手动断行
 \cdegree{\cxueke\cxuewei}
 \csubject{计算机科学与技术}                 %(~按二级学科填写~)
 \caffil{深圳研究生院} %（在校生填所在系名称，同等学力人员填工作单位）
@@ -35,19 +35,24 @@
 \BiAppendixChapter{摘~~~~要}{}
 \fi
 \cabstract{
-摘要是论文内容的高度概括，应具有独立性和自含性，即不阅读论文的全文，就能获得必要的信息。
-摘要应包括本论文的目的、主要研究内容、研究方法、创造性成果及其理论与实际意义。
-摘要中不宜使用公式、化学结构式、图表和非公知公用的符号和术语，不标注引用文献编号。避免将摘要写成目录式的内容介绍。
+随着互联网与移动互联网的飞速发展和多样化网络交流软件的普及使用，越来越多的网络用户可随时随地浏览热点新闻报道，与此同时借助微博、Twitter、知乎等平台上围绕各种新闻报道、热点社会事件等话题发表自己的观点和表达自己的立场与情绪。这些海量的评论数据，对商业智能、舆情分析、政府决策等都具有重要的研究价值。现有的文本情感分析只对文本本身做出正负极性分析，无法深入挖掘文本作者对特定主题目标的立场倾向，而在一些应用场景下，更多关注是文本的立场倾向而不是文本情感，因此，针对特定主题目标的社交媒体文本立场分析研究具有巨大的社会价值与商业价值。
+
+针对现有文本立场分析缺乏考虑主题目标信息的问题，研究一种以条件编码的方式结合主题目标信息与文本信息的文本立场分析方法。通过设计对比实验，表明以条件编码的方式引入主题目标信息能显著提高文本立场分析的性能，并结合文本立场分析的特点，改进了条件编码模型，在SemEval2016英文数据集和NLPCC2016中文数据集的微平均F1值分别为0.671与0.698，在不需要外部收集语料与手工设计特征的前提下，条件编码模型性能已经接近评测最佳系统。
+
+基于不同主题目标对文本信息内容有着不同的侧重点，本文将文本立场分析中主题目标作为注意力机制的导向，给予文本信息不同权重的关注度，其后利用卷积神经网络挖掘已授予不同关注度文本信息中有关立场分析的模式。相对于条件编码，注意力机制更为显示引入主题目标信息。在SemEval2016数据集和NLPCC数据的微平均F1值分别为0.680与0.716，对比两个数据集评测任务的最优系统分别提高了0.20\%和0.61\%，实验表明提出基于注意力机制卷积神经网络在社交媒体文本立场分析任务上的有效性。
 }
 
-\ckeywords{关键词~1；关键词~2；关键词~3；……；关键词~6（关键词总共~3~—~6~个，最后一个关键词后面没有标点符号）}
+\ckeywords{立场分析；深度学习；条件编码；注意力机制}
 
 \eabstract{
-Externally pressurized gas bearing has been widely used in the field of aviation, semiconductor, weave, and measurement apparatus because of its advantage of high accuracy, little friction, low heat distortion, long life-span, and no pollution. In this thesis, based on the domestic and overseas researching……
+With the rapid development of the Internet and mobile Internet and the popularity of  network communication software, people express their views and stance about hot social events and other topics. These massive review data has important research value on business intelligence, public opinion analysis, government decision-making field. The existing text sentiment analysis only classify the texts into positive sentiment or negative sentiment, and can not dig deep into the stance of people on specific target. In some applications, more attention is placed on the textual stance rather than textual sentiment Therefore, the research of social media text stance detection on specific target have great social and commercial value.
 
+Aiming at the lack of consideration of the target information in the existing stance detection research, this paper studies a text stance detection method which combines the topic target information and the text information by conditional encoding. Through the design of comparative experiments, it is shown that the combining of  target information and text information by conditional encoding can significantly improve the performance of stance detection. Due to the characteristics of stance detection task, improving the conditional encoding model. In the case of SemEval2016 English dataset and NLPCC2016 Chinese dataset, The average micro F1 values ​​are 0.671 and 0.698, respectively. Conditional coding model performance is close to the best system for evaluation without the need of external corpus collection and manual design features.
+
+Based on the different target have different emphasis on the content of text information, this paper will make target information  as a focus of attention mechanism to give text information of different weights of attention, and then use convolutional neural network to extract the pattern of stance detection. In contrast to conditional coding, attentional mechanisms are more explicit to combine target information and text information . The average micro F1 values ​​of SemEval2016 dataset and NLPCC dataset were 0.680 and 0.716 respectively, which were respectively 0.20\% and 0.61\% higher than the top system in those of the two datasets. These results indicate that the proposed method is effective in stance detection.
 }
 
-\ekeywords{keyword 1, keyword 2, keyword 3, ……, keyword 6 (no punctuation at the end) 英文摘要与中文摘要的内容应一致，在语法、用词上应准确无误。}
+\ekeywords{stance detection, deeplearning, conditional encoding, attentional mechanisms}
 
 \makecover
 \clearpage 

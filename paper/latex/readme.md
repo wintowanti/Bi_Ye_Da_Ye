@@ -1,11 +1,17 @@
+
+- 此版本废弃，不再维护，新模板[hithesis](https://github.com/dustincys/hithesis)括本硕博，对老版本的缺陷进行了彻底的修改
+
+
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [哈　尔　滨　工　业　大　学](#哈　尔　滨　工　业　大　学)
+- [哈　尔　滨　工　业　大　学](#哈尔滨工业大学)
 - [PlutoThesis硕博士学位论文XeLaTeX模版](#plutothesis硕博士学位论文xelatex模版)
-  - [模板介绍](#版本介绍)
+  - [模板介绍](#模板介绍)
     - [关于版本](#关于版本)
     - [关于字体](#关于字体)
+    - [关于参考文献](#关于参考文献)
     - [关于查重](#关于查重)
     - [关于编译](#关于编译)
     - [关于维护者以及捐赠](#关于维护者以及捐赠)
@@ -13,20 +19,20 @@
     - [对于开发者](#对于开发者)
     - [对于使用者](#对于使用者)
   - [FAQ](#faq)
-    - [为什么要添加XeLaTeX？](#为什么要添加xelatex？)
-    - [为什么原版本不支持XeLaTeX了？](#为什么原版本不支持xelatex了？)
+    - [为什么要添加XeLaTeX](#为什么要添加xelatex)
+    - [为什么原版本不支持XeLaTeX了](#为什么原版本不支持xelatex了)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-#哈　尔　滨　工　业　大　学  
-#PlutoThesis硕博士学位论文XeLaTeX模版
+# 哈　尔　滨　工　业　大　学
+# PlutoThesis硕博士学位论文XeLaTeX模版
 
-##模板介绍
-###关于版本
+## 模板介绍
+### 关于版本
 
 该版本是基于PlutoThesis 2013版本（google code [项目](https://code.google.com/p/plutothesis/downloads/lis://code.google.com/p/plutothesis/downloads/list)中只有2012版本）的基础上添加XeLaTeX支持而来.
 
-在“学术桥-LaTeX交流群（群号：38872389）”中留下2013年谭广军毕业版本，是按照日期命名的版本号（也许是因为谷歌代码登陆不了？O\(∩\_∩\)O哈哈~）。
+在“学术桥-LaTeX交流群（群号：<del>38872389</del>, hithesis 群号259959600）”中留下2013年谭广军毕业版本，是按照日期命名的版本号（也许是因为谷歌代码登陆不了？O\(∩\_∩\)O哈哈~）。
 所以为了纪念谭大师兄所做的卓越贡献，所有版本均以时间命名。
 
 ### 关于字体
@@ -49,6 +55,21 @@ Linux由于没有winfonts，首先需要安装Windows字体，然后再手动载
 
 模板中就是手动载入的字体。
 
+### 关于参考文献
+
+#### 参考文献中的空白间距过大的问题
+
+![参考文献举例](http://wx3.sinaimg.cn/large/61dccbaaly1fft6tz9i43j20hv0frmx7.jpg "参考文献举例")
+
+如果出现如图所示，在参考文献的页面下方出现较大空白，那么有一个阈值可以调节。
+在`setup/package.tex`文件中第26～28行
+
+	\AtBeginDocument{%
+	  \apptocmd\thebibliography{\interlinepenalty=-5000 }{}{}% 设置参考文献的空白的阈值
+	}
+
+修改`\interlinepenalty`这个阈值。
+
 ### 关于查重
 
 根据郭大侠（HIT郭靖）的所提的意见和修改方法，添加了完美的可复制支持。
@@ -56,73 +77,65 @@ Linux由于没有winfonts，首先需要安装Windows字体，然后再手动载
 
 > 注：截至现在已经有Ｎ多人使用ＰＤＦ查重。
 
-> 这意味着什么？  
+> 这意味着什么？
 > 这意味着word死忠可以哭晕在厕所了……
 
 使用版本管理毕业论文的刀客，可以优雅地欣赏如下两个场景了：
 
 word死忠的文件夹模式一：
 
-		毕业论文第1章.doc 
-		毕业论文第2章.doc 
-		毕业论文第3章.doc 
-		毕业论文第4章.doc 
-		毕业论文第5章.doc 
-		毕业论文完整版.doc 
-		毕业论文完整版改.doc 
-		毕业论文完整版再改.doc 
-		毕业论文完整版再再改.doc 
-		毕业论文完整版再也不改.doc 
-		毕业论文完整版再也不再改.doc 
-		毕业论文完整版死都不改.doc 
-		毕业论文完整版不死还得改.doc 
+		毕业论文第1章.doc
+		毕业论文第2章.doc
+		毕业论文第3章.doc
+		毕业论文第4章.doc
+		毕业论文第5章.doc
+		毕业论文完整版.doc
+		毕业论文完整版改.doc
+		毕业论文完整版再改.doc
+		毕业论文完整版再再改.doc
+		毕业论文完整版再也不改.doc
+		毕业论文完整版再也不再改.doc
+		毕业论文完整版死都不改.doc
+		毕业论文完整版不死还得改.doc
 		……
 
 word死忠的文件夹模式二：
 
-		毕业论文第1章.doc 
-		毕业论文第2章.doc 
-		毕业论文第3章.doc 
-		毕业论文第4章.doc 
-		毕业论文第5章.doc 
-		毕业论文完整版20150701.doc 
-		毕业论文完整版20150702.doc 
-		毕业论文完整版20150703.doc 
-		毕业论文完整版20150704.doc 
-		毕业论文完整版20150705.doc 
+		毕业论文第1章.doc
+		毕业论文第2章.doc
+		毕业论文第3章.doc
+		毕业论文第4章.doc
+		毕业论文第5章.doc
+		毕业论文完整版年月日.doc
+		毕业论文完整版年月日+1.doc
+		毕业论文完整版年月日+2.doc
+		毕业论文完整版年月日+3.doc
+		毕业论文完整版年月日+4.doc
 		……
 
 
 ### 关于编译
 
-#### 那些莫名其妙的编译提示错误……
+#### 编译方法
 
-有些HIT刀客（Doctor）行走江湖过惯了快意恩仇的生活，眼里不揉沙子。
-把模板一点不动地在本地运行一下，发现了提示错误，于是有的刀客转身奔向敌营Word，有的刀客发冲冠一怒开山立派，自立门户。
+##### 普通用户看这里
 
-其实这不是错误……
+使用[latexmk](https://www.ctan.org/pkg/latexmk "latexmk")编译，[latexmk](https://www.ctan.org/pkg/latexmk "latexmk")是一只全自动LaTeX文档生成器，呆萌的操作，傲娇的效果，还没来得及安装的朋友请猛戳链接迅速下载安装！
 
-因为LaTeX最初设计用来排版英文，所以对于中文在基因上先天不足，唯有靠后天补营养。
-当bibTeX使用模板中的哈工大参考文献样式bst文件来排版参考文献时，会弹出错误提示，这个错误提示不是真正意义的错误。
-为什么呢？因为我们的目的已经达到了，已经生成好了bbl文件。
-于是这个尴尬的局面出现了：如果采用如下方法在Makefile文件里面将bibTeX错误提示屏蔽掉，
+只需执行：
 
-	bibtex main || true
+	latexmk -xelatex main
 
-那么这也会屏蔽bib文件中真正的格式错误。
-所以到底屏不屏蔽，还是留给各位刀客自己决定吧。
+##### 懒得不要不要的看这里
 
-#### 那种完美的中文引用样式……
+[Overleaf](https://www.overleaf.com/ "Overleaf") 这种运行在网页上的TeX的优点是不需要编译，直接得到pdf结果，但Overleaf有两个不足： 1， 编辑器太菜，只是普通的记事本级别；2，无法良好支持中文。
 
-要么上标，要么下标，综述是不是枯燥又无聊！
-所以一定有一种[中文引用样式](http://yanshuo.name/cn/2015/06/latex/)会使综述的时间逻辑（年份）和空间逻辑（该文献在文章最后哪一个部分）都很清晰，且含有主语（作者名）。
-用这样的引用样式写出的文献综述是不是很文学范？
+vim/Emacs 的很多TeX插件都支持[latexmk](https://www.ctan.org/pkg/latexmk "latexmk")，如vim的vimtex， Latex-studio 等。
+Emacs和vim都支持异步，回调功能，配合latexmk使用，是最佳的编写LaTeX环境。
 
-使用方法：正文中的引用方式是`\citeayu`；
-编译方法是：
+[latexmk](https://www.ctan.org/pkg/latexmk "latexmk")具有类似Overleaf的功能，只需要运行一次如下命令，[latexmk](https://www.ctan.org/pkg/latexmk "latexmk")会自动检测TeX文件的修改状况，自动编译。
 
-	make -f MakefileAYU
-
+	latexmk -pvc -xelatex main
 
 #### 没有明确要求的格式
 
@@ -273,7 +286,7 @@ kiss分支是用来逐渐实现PlutoThesis又傻又简单(Keep It Stupid & Simpl
 		├── Makefile （自动编译文件，这个文件里面定义了编译方式）
 		├── MakefileAYU （自动编译文件，这个文件里面定义了编译方式）
 		├── readme.md
-		├── reference.bib （用于存放参考文献，BibTeX格式，需要编写） 
+		├── reference.bib （用于存放参考文献，BibTeX格式，需要编写）
 		├── setup （论文的设置部分）
 		│   ├── Definition.tex
 		│   ├── format.tex
@@ -282,9 +295,9 @@ kiss分支是用来逐渐实现PlutoThesis又傻又简单(Keep It Stupid & Simpl
 		├── tex.snippets （是snippet 模板，用来给vim编辑器用）
 		├── XeLaTeX支持说明(第１章开始).pdf
 		└── 模板更新记录.txt
-	
+
 ## FAQ
-### 为什么要添加XeLaTeX？
+### 为什么要添加XeLaTeX
 
 XeLaTeX对中文的支持非常完美，要不怎么叫做“邪恶LaTeX”呢？
 其实主要就是因为对字体的支持，目前主流的LaTeX使用字体的方法有两种：
@@ -295,11 +308,11 @@ XeLaTeX对中文的支持非常完美，要不怎么叫做“邪恶LaTeX”呢�
 第一种方式繁琐，逐渐被xeCJK替代。
 另外说，XeLaTeX对图片格式，标题汉化什么的支持更好。
 
-### 为什么原版本不支持XeLaTeX了？
+### 为什么原版本不支持XeLaTeX了
 
-时过境迁，沧海桑田。  
-Google code项目已经停滞2年，也许诸位先驱都已毕业?  
-当年诸位先驱开发模班的时代是CJK的时代，而如今CJK逐渐被xeCJK所取代， 当年的命令作废的作废，冲突的冲突。  
+时过境迁，沧海桑田。
+Google code项目已经停滞2年，也许诸位先驱都已毕业?
+当年诸位先驱开发模班的时代是CJK的时代，而如今CJK逐渐被xeCJK所取代， 当年的命令作废的作废，冲突的冲突。
 新版本的texlive无法编译陈旧的源文件了。
 
 ## 附

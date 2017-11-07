@@ -1,77 +1,73 @@
 This is BibTeX, Version 0.99d (TeX Live 2017)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: main.aux
-A level-1 auxiliary file: body/introduction.aux
+A level-1 auxiliary file: body/chapter1.aux
 A level-1 auxiliary file: body/chapter2.aux
 A level-1 auxiliary file: body/chapter3.aux
-A level-1 auxiliary file: body/tables.aux
+A level-1 auxiliary file: body/chapter4.aux
 A level-1 auxiliary file: body/conclusion.aux
 The style file: GBT7714-2005NLang-HIT.bst
-A level-1 auxiliary file: appendix/appA.aux
-A level-1 auxiliary file: appendix/publications.aux
 A level-1 auxiliary file: appendix/Authorization.aux
 A level-1 auxiliary file: appendix/acknowledgements.aux
-I found no \citation commands---while reading file main.aux
-new.block is an unknown function---line 73 of file GBT7714-2005NLang-HIT.bst
-remove.dots is an unknown function---line 461 of file GBT7714-2005NLang-HIT.bst
-remove.dots is an unknown function---line 514 of file GBT7714-2005NLang-HIT.bst
-remove.dots is an unknown function---line 571 of file GBT7714-2005NLang-HIT.bst
-remove.dots is an unknown function---line 616 of file GBT7714-2005NLang-HIT.bst
-format.pages is an unknown function---line 1163 of file GBT7714-2005NLang-HIT.bst
-format.pages is an unknown function---line 1194 of file GBT7714-2005NLang-HIT.bst
-format.pages is an unknown function---line 1203 of file GBT7714-2005NLang-HIT.bst
-format.pages is an unknown function---line 1233 of file GBT7714-2005NLang-HIT.bst
-format.pages is an unknown function---line 1242 of file GBT7714-2005NLang-HIT.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-*publisher is an unknown function---line 1929 of file GBT7714-2005NLang-HIT.bst
-*　* is an unknown function---line 1938 of file GBT7714-2005NLang-HIT.bst
-ouput is an unknown function---line 2064 of file GBT7714-2005NLang-HIT.bst
-ouput is an unknown function---line 2068 of file GBT7714-2005NLang-HIT.bst
-ouput is an unknown function---line 2102 of file GBT7714-2005NLang-HIT.bst
-ouput is an unknown function---line 2105 of file GBT7714-2005NLang-HIT.bst
-format.conference.title is an unknown function---line 2622 of file GBT7714-2005NLang-HIT.bst
-format.cconference.title is an unknown function---line 2657 of file GBT7714-2005NLang-HIT.bst
-Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Database file #1: reference.bib
-You've used 0 entries,
-            6756 wiz_defined-function locations,
-            1199 strings with 8531 characters,
-and the built_in function-call counts, 34 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 2
-:= -- 11
+Warning--entry type for "毛峡2011人机情感交互" isn't style-file defined
+--line 999 of file reference.bib
+Repeated entry---line 1031 of file reference.bib
+ : @article{taboada2011lexicon
+ :                            ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1453 of file reference.bib
+ : @inproceedings{augenstein2016usfd
+ :                                  ,
+I'm skipping whatever remains of this entry
+"}" immediately follows an entry type---line 1459 of file reference.bib
+ :  booktitle={SemEval@ NAACL-HLT
+ :                               },
+I'm skipping whatever remains of this entry
+Warning--Unsupported entry type for 毛峡2011人机情感交互
+Warning--Require address: tromp2015pattern
+You've used 50 entries,
+            3103 wiz_defined-function locations,
+            988 strings with 16622 characters,
+and the built_in function-call counts, 92980 in all, are:
+= -- 10331
+> -- 179
+< -- 405
++ -- 8262
+- -- 630
+* -- 2334
+:= -- 10417
 add.period$ -- 0
-call.type$ -- 0
+call.type$ -- 50
 change.case$ -- 0
 chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 1
-format.name$ -- 0
-if$ -- 1
-int.to.chr$ -- 1
-int.to.str$ -- 1
+cite$ -- 51
+duplicate$ -- 13283
+empty$ -- 3592
+format.name$ -- 516
+if$ -- 25044
+int.to.chr$ -- 0
+int.to.str$ -- 50
 missing$ -- 0
-newline$ -- 8
-num.names$ -- 0
-pop$ -- 0
+newline$ -- 174
+num.names$ -- 49
+pop$ -- 1342
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 1
+skip$ -- 833
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
+substring$ -- 11162
+swap$ -- 2322
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 0
-while$ -- 0
-width$ -- 0
-write$ -- 7
-(There were 19 error messages)
+warning$ -- 2
+while$ -- 1246
+width$ -- 52
+write$ -- 653
+(There were 3 error messages)

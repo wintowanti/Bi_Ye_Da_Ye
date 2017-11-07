@@ -1,8 +1,12 @@
-data/
+/data/
+tmp/
+untrack/
 output/
 reference/
 .idea/
 *.pyc
 test.py
 *.pdf
+*.docx*
+*.gz
 *~
