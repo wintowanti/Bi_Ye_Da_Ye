@@ -26,8 +26,8 @@
 
 \bibitem{mikolov2013efficient}
 \bibauthor{Mikolov T\@, Chen K\@, Corrado G, et~al}\@. \bibtitle{Efficient
-  estimation of word representations in vector space}\bibmark{[J]}\@.
-  \bibjournal{arXiv preprint arXiv:1301.3781}\@, \bibyear{2013}\@.
+  Estimation of Word Representations in Vector Space}\bibmark{[J]}\@.
+  \bibjournal{Computer Science}\@, \bibyear{2013}\@.
 
 \bibitem{godbole2007large}
 \bibauthor{Godbole N\@, Srinivasaiah M\@, Skiena S}\@. \bibtitle{Large-Scale
@@ -111,8 +111,8 @@
 
 \bibitem{kim2014convolutional}
 \bibauthor{Kim Y}\@. \bibtitle{Convolutional neural networks for sentence
-  classification}\bibmark{[J]}\@. \bibjournal{arXiv preprint
-  arXiv:1408.5882}\@, \bibyear{2014}\@.
+  classification}\bibmark{[C]} //\thinspace{}\bibbooktitle{In EMNLP}\@.
+  \bibyear{2014}\@.
 
 \bibitem{梁2015基于极性转移和}
 \bibauthor{梁军\@, 柴玉梅\@, 原慧斌, et~al}\@.
@@ -240,9 +240,8 @@
   }\bibpages{384\thinspace{}\textnormal{--}\thinspace{}388}\@.
 
 \bibitem{zarrella2016mitre}
-\bibauthor{Zarrella G\@, Marsh A}\@. \bibtitle{MITRE at semeval-2016 task 6:
-  Transfer learning for stance detection}\bibmark{[J]}\@. \bibjournal{arXiv
-  preprint arXiv:1606.03784}\@, \bibyear{2016}\@.
+\bibauthor{Zarrella G\@, Marsh A}\@. \bibtitle{MITRE at SemEval-2016 Task 6:
+  Transfer Learning for Stance Detection}\bibmark{[J]}\@, \bibyear{2016}\@.
 
 \bibitem{johnson2016all}
 \bibauthor{Johnson K\@, Goldwasser D}\@. \bibtitle{" All I know about politics
@@ -354,14 +353,14 @@
   }\bibpages{893\thinspace{}\textnormal{--}\thinspace{}900}\@.
 
 \bibitem{bahdanau2014neural}
-\bibauthor{Bahdanau D\@, Cho K\@, Bengio Y}\@. \bibtitle{Neural machine
-  translation by jointly learning to align and translate}\bibmark{[J]}\@.
-  \bibjournal{arXiv preprint arXiv:1409.0473}\@, \bibyear{2014}\@.
+\bibauthor{Bahdanau D\@, Cho K\@, Bengio Y}\@. \bibtitle{Neural Machine
+  Translation by Jointly Learning to Align and Translate}\bibmark{[J]}\@.
+  \bibjournal{Computer Science}\@, \bibyear{2014}\@.
 
 \bibitem{rocktaschel2015reasoning}
-\bibauthor{Rockt{\"a}schel T\@, Grefenstette E\@, Hermann K~M, et~al}\@.
-  \bibtitle{Reasoning about entailment with neural attention}\bibmark{[J]}\@.
-  \bibjournal{arXiv preprint arXiv:1509.06664}\@, \bibyear{2015}\@.
+\bibauthor{Rockt?schel T\@, Grefenstette E\@, Hermann K~M, et~al}\@.
+  \bibtitle{Reasoning about Entailment with Neural Attention}\bibmark{[J]}\@,
+  \bibyear{2015}\@.
 
 \bibitem{gimpel2011part}
 \bibauthor{Gimpel K\@, Schneider N\@, O'Connor B, et~al}\@.
