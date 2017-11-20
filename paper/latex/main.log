@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.10.16)  7 NOV 2017 15:49
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.10.16)  20 NOV 2017 16:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1851,7 +1851,14 @@ Package: xeCJK-listings 2017/05/15 v3.4.8 xeCJK patch file for listings
 \l__xeCJK_listings_max_char_int=\count282
 \l__xeCJK_listings_flag_int=\count283
 )
-(./main.aux (./body/chapter1.aux) (./body/chapter2.aux) (./body/chapter3.aux
+(./main.aux (./body/chapter1.aux) (./body/chapter2.aux
+
+LaTeX Warning: Label `f1favor' multiply defined.
+
+
+LaTeX Warning: Label `f1favor' multiply defined.
+
+) (./body/chapter3.aux
 
 LaTeX Warning: Label `lstm_f' multiply defined.
 
@@ -1899,6 +1906,9 @@ LaTeX Warning: Label `lstm_f' multiply defined.
 
 
 LaTeX Warning: Label `lstm_f' multiply defined.
+
+
+LaTeX Warning: Label `f1favor' multiply defined.
 
 
 LaTeX Warning: Label `semeval_all_model' multiply defined.
@@ -2273,12 +2283,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 
 
-] [2]
-
-Package natbib Warning: Citation `毛峡2011人机情感交互' on page 3 undefined on input li
-ne 32.
-
-[3] [4] [5] [6] [7]) [8]
+] [2] [3] [4] [5] [6] [7]) [8]
 \openout2 = `body/chapter2.aux'.
 
  (./body/chapter2.tex
@@ -2287,98 +2292,72 @@ ne 32.
 
 
 
-] [10] [11] [12] [13] [14] [15]) [16] [17
-
-]
+] [10] [11] [12] [13] [14] [15]) [16]
 \openout2 = `body/chapter3.aux'.
 
  (./body/chapter3.tex
 第3章
-[18
+[17
+
 
 
 ]
 File: figures/glove.jpg Graphic file (type QTm)
- <use  "figures/glove.jpg" > [19]
-Missing character: There is no ， in font Times New Roman/OT:script=latn;languag
-e=DFLT;mapping=tex-text;!
-Missing character: There is no ， in font Times New Roman/OT:script=latn;languag
-e=DFLT;mapping=tex-text;!
-Missing character: There is no ， in font Times New Roman/OT:script=latn;languag
-e=DFLT;mapping=tex-text;!
-Missing character: There is no ， in font Times New Roman/OT:script=latn;languag
-e=DFLT;mapping=tex-text;!
-Missing character: There is no ， in font Times New Roman/OT:script=latn;languag
-e=DFLT;mapping=tex-text;!
+ <use  "figures/glove.jpg" > [18]
 File: figures/rnn_gradient_vanish.png Graphic file (type QTm)
 
-<use  "figures/rnn_gradient_vanish.png" > [20]
+<use  "figures/rnn_gradient_vanish.png" > [19]
 File: figures/lstm_unit.png Graphic file (type QTm)
  <use  "figures/lstm_unit.png" >
-[21]
-Missing character: There is no ， in font Times New Roman/OT:script=latn;languag
-e=DFLT;mapping=tex-text;!
-Missing character: There is no ， in font Times New Roman/OT:script=latn;languag
-e=DFLT;mapping=tex-text;!
-Missing character: There is no ， in font Times New Roman/OT:script=latn;languag
-e=DFLT;mapping=tex-text;!
+[20]
 File: figures/conditional_encoding.png Graphic file (type QTm)
- <use  "figures/conditional_encoding.png" > [22]
-Missing character: There is no ， in font Times New Roman/OT:script=latn;languag
-e=DFLT;mapping=tex-text;!
- [23]
+ <use  "figures/conditional_encoding.png" > [21] [22]
 File: figures/conditional_encode_lstm3.png Graphic file (type QTm)
 
-<use  "figures/conditional_encode_lstm3.png" > [24]
-Missing character: There is no ， in font Times New Roman/OT:script=latn;languag
-e=DFLT;mapping=tex-text;!
- [25] [26]
-LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 170.
- [27] [28]
-[29] [30] [31] [32]
-File: figures/chart_seme_condi.png Graphic file (type QTm)
- <use  "figures/chart_seme_condi.png" > [33] [34] [35]
-File: figures/chart_semeval_best_model.png Graphic file (type QTm)
+<use  "figures/conditional_encode_lstm3.png" > [23] [24] [25]
+LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 168.
 
-<use  "figures/chart_semeval_best_model.png" > [36]
+Overfull \hbox (3.56657pt too wide) in paragraph at lines 193--208
+ [][] 
+ []
+
+[26] [27] [28] [29] [30] [31]
+File: figures/chart_seme_condi.png Graphic file (type QTm)
+ <use  "figures/chart_seme_condi.png" > [32]
+[33] [34]
+File: figures/chart_semeval_best_model.png Graphic file (type QTm)
+ <use  "figures/chart_semeval_best_model.png" > [35]
 File: figures/chart_nlpcc_best_model.png Graphic file (type QTm)
 
-<use  "figures/chart_nlpcc_best_model.png" > [37] [38]) [39]
+<use  "figures/chart_nlpcc_best_model.png" > [36] [37]) [38]
 \openout2 = `body/chapter4.aux'.
 
 
 (./body/chapter4.tex
 第4章
-[40
+[39
 
 
 
 ]
 File: figures/NMT.png Graphic file (type QTm)
- <use  "figures/NMT.png" > [41]
-Missing character: There is no ， in font Times New Roman/OT:script=latn;languag
-e=DFLT;mapping=tex-text;!
-Missing character: There is no ， in font Times New Roman/OT:script=latn;languag
-e=DFLT;mapping=tex-text;!
+ <use  "figures/NMT.png" > [40]
 File: figures/mnt_visual.jpg Graphic file (type QTm)
- <use  "figures/mnt_visual.jpg" > [42]
-[43]
+ <use  "figures/mnt_visual.jpg" > [41]
 File: figures/text_cnn.png Graphic file (type QTm)
- <use  "figures/text_cnn.png" >
+
+<use  "figures/text_cnn.png" > [42] [43]
 File: figures/gru.png Graphic file (type QTm)
  <use  "figures/gru.png" >
 File: figures/a_bi_gru_cnn.png Graphic file (type QTm)
 
-<use  "figures/a_bi_gru_cnn.png" > [44] [45] [46]
-Missing character: There is no ， in font Times New Roman/OT:script=latn;languag
-e=DFLT;mapping=tex-text;!
- [47] [48] [49] [50]
+<use  "figures/a_bi_gru_cnn.png" > [44] [45] [46] [47] [48] [49]
 File: figures/chart_semeval_best_model_attention.png Graphic file (type QTm)
 
-<use  "figures/chart_semeval_best_model_attention.png" > [51] [52]
+<use  "figures/chart_semeval_best_model_attention.png" > [50] [51]
 File: figures/chart_nlpcc_best_model_attention.png Graphic file (type QTm)
 
-<use  "figures/chart_nlpcc_best_model_attention.png" > [53] [54]) [55]
+<use  "figures/chart_nlpcc_best_model_attention.png" > [52]) [53]
 \openout2 = `body/conclusion.aux'.
 
 
@@ -2388,27 +2367,23 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 12.0pt
 (hyperref)                replaced by space on input line 3.
 
-) [56
+) [54
 
 
 
-] (./main.bbl [57
+] (./main.bbl [55
 
 
-]
-Invalid UTF-8 byte or sequence at line 118 replaced by U+FFFD.
-Missing character: There is no � in font Times New Roman/OT:script=latn;languag
-e=DFLT;mapping=tex-text;!
- [58]
+] [56]
 Underfull \hbox (badness 1270) in paragraph at lines 227--233
 \TU/TimesNewRoman(0)/m/n/12 bates[C] //International Conference on Social Compu
 ting, Behavioral-Cultural
  []
 
-[59] [60]) [61]
+[57] [58]) [59]
 \openout2 = `appendix/Authorization.aux'.
 
- (./appendix/Authorization.tex) [62
+ (./appendix/Authorization.tex) [60
 
 
 ]
@@ -2421,22 +2396,19 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 12.0pt
 (hyperref)                replaced by space on input line 3.
 
-) [63
+) [61
 
 
 
 ]
-
-Package natbib Warning: There were undefined citations.
-
 \tf@thm=\write5
 \openout5 = `main.thm'.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 60.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 60.
-(./main.aux (./body/chapter1.aux) (./body/chapter2.aux) (./body/chapter3.aux)
-(./body/chapter4.aux) (./body/conclusion.aux) (./appendix/Authorization.aux)
-(./appendix/acknowledgements.aux))
+ (./main.aux (./body/chapter1.aux) (./body/chapter2.aux)
+(./body/chapter3.aux) (./body/chapter4.aux) (./body/conclusion.aux)
+(./appendix/Authorization.aux) (./appendix/acknowledgements.aux))
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 60.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 60.
 
@@ -2452,12 +2424,12 @@ LaTeX Warning: There were multiply-defined labels.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 32848 strings out of 493005
- 621628 string characters out of 6134595
- 691756 words of memory out of 5000000
- 36351 multiletter control sequences out of 15000+600000
- 17554 words of font info for 120 fonts, out of 8000000 for 9000
+ 32834 strings out of 493005
+ 620531 string characters out of 6134595
+ 697665 words of memory out of 5000000
+ 36335 multiletter control sequences out of 15000+600000
+ 17562 words of font info for 121 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 57i,12n,78p,10442b,3972s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 57i,12n,78p,10442b,4053s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (70 pages).
+Output written on main.pdf (68 pages).

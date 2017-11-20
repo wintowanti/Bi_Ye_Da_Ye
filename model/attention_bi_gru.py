@@ -25,9 +25,10 @@ class Attention_Bi_GRU(torch.nn.Module):
             torch.nn.Linear(config.hidden_size, 1),
         )
 
-        self.fc_targets = []
-        for i in range(5):
-            self.fc_targets.append(torch.nn.Linear(config.hidden_size, config.class_size))
+        self.fc_target = torch.nn.Linear(config.hidden_size, config.class_size)
+        # self.fc_targets = []
+        # for i in range(5):
+        #     self.fc_targets.append(torch.nn.Linear(config.hidden_size, config.class_size))
 
     def forward(self, text, target, target_idx):
         text = Variable(torch.from_numpy(text))
@@ -50,7 +51,7 @@ class Attention_Bi_GRU(torch.nn.Module):
         Ai = softmax(ei).view(batch_size, -1, 1).repeat(1,1,self.config.hidden_size)
         s = torch.sum((output * Ai), dim=1)
         s = dropout(s)
-        output1 = self.fc_targets[target_idx](s)
+        output1 = self.fc_target(s)
         output2 = None
         #output1 = self.fc_target1(hn)
         return output1, output2

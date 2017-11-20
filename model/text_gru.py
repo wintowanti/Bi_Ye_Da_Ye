@@ -20,9 +20,10 @@ class Text_GRU(torch.nn.Module):
 
         config.hidden_size *= 1
 
-        self.fc_targets = []
-        for i in range(5):
-            self.fc_targets.append(torch.nn.Linear(config.hidden_size, config.class_size))
+        self.fc_target = torch.nn.Linear(config.hidden_size, config.class_size)
+        # self.fc_targets = []
+        # for i in range(5):
+        #     self.fc_targets.append(torch.nn.Linear(config.hidden_size, config.class_size))
 
     def forward(self, text, target, target_idx):
         text = Variable(torch.from_numpy(text))
@@ -36,7 +37,8 @@ class Text_GRU(torch.nn.Module):
         hn = dropout(hn)
 
         hn = hn.view(-1, self.config.hidden_size)
-        output1 = self.fc_targets[target_idx](hn)
+        #output1 = self.fc_targets[target_idx](hn)
+        output1 = self.fc_target(hn)
         output2 = None
         #output1 = self.fc_target1(hn)
         return output1, output2

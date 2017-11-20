@@ -2,14 +2,14 @@
 from __future__ import print_function
 from __future__ import absolute_import
 
-from data_helper import Corpus, Seme_Corpus
+from data_helper import Seme_Corpus
 from copy import deepcopy
 from preprocess import init_embedding, fixed_length, stance2idx, metric
 from config import Config
 from model import Fast_Text, Text_CNN, LSTM_Text_Only, Text_GRU, Bi_GRU_CNN, Bi_GRU, Attention_Bi_GRU
 from model import Attention_Bi_GRU_CNN, LSTM_Text_Target_Concat, LSTM_Condition_Encoder, LSTM_Condition_Bi_Encoder
 from model import LSTM_Bi_Condition_Encoder
-from utils import RedirectStdout
+from utils import RedirectStdout, get_nowtime_str, judge
 
 import torch
 from torch.autograd import Variable
@@ -36,11 +36,13 @@ def train(model, config, loss_fun, optim, target_idx):
         #loss = loss_fun(output1, var_s1)
         #loss = loss_fun(output2, var_s2)
         #train - independed
+
         loss = loss_fun(output1, var_s1)
         all_loss += loss.data.sum()
         optim.zero_grad()
         loss.backward()
         optim.step()
+    judge()
     print("-----------train mean loss: ", all_loss/sample_len)
     return model.state_dict()
 
@@ -80,7 +82,7 @@ def test(model, config, loss_fun, flag, target_idx):
 def get_model(config):
     #model = LSTM_Condition_Bi_Encoder(config)
     #model = LSTM_Bi_Condition_Encoder(config)
-    #model = Attention_Bi_GRU_CNN(config)
+    model = Attention_Bi_GRU_CNN(config)
     #model = Attention_Bi_GRU(config)
     #model = Bi_GRU_CNN(config)
     #model = Text_GRU(config)
@@ -88,7 +90,7 @@ def get_model(config):
     #model = Attention_Bi_GRU_CNN(config)
     #model = Text_CNN(config)
     ##model = Fast_Text(config)
-    model = LSTM_Condition_Encoder(config)
+    #model = LSTM_Condition_Encoder(config)
     #model = LSTM_Text_Only(config)
     #model = LSTM_Text_Target_Concat(config)
     return model
@@ -96,10 +98,10 @@ def get_model(config):
 def test_all_target(Config):
     y_true_stances = np.array([])
     y_pred_stances = np.array([])
-    for target_idx in range(3,5):
-        #target_idx = 1
+    for target_idx in range(10):
+        target_idx = 0
         model = get_model(Config)
-        optim = torch.optim.Adam(filter(lambda p: p.requires_grad, model.parameters()), lr=0.005, weight_decay=1e-6)
+        optim = torch.optim.Adam(filter(lambda p: p.requires_grad, model.parameters()), lr=0.001, weight_decay=1e-6)
         loss_fun = CrossEntropyLoss(size_average=False)
         best_micro_F1 = 0.0
         best_model_dict = None
@@ -122,6 +124,7 @@ def test_all_target(Config):
         y_pred_stances = np.append(y_pred_stances, pred_stances)
         with open(file_name, "a+") as f:
             with RedirectStdout(f):
+                print("Time: %s"%get_nowtime_str())
                 metric(y_pred_stances, y_true_stances, "Average")
     return
 
@@ -132,7 +135,6 @@ def main():
     Config.fixed_len = 30
     Config.embedding_size = 100
     Config.hidden_size = 64
-
     corpus = Seme_Corpus(Config.seme_data_path)
     embedding_matrix = init_embedding(corpus.dictionary.word2idx, Config.embedding_size, Config.embedding_path)
     Config.voc_len = len(corpus.dictionary)

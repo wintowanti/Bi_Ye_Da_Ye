@@ -4,7 +4,7 @@ from __future__ import absolute_import
 
 from data_helper import NLPCC_Corpus
 from preprocess import init_embedding, fixed_length, stance2idx, metric
-from utils import RedirectStdout
+from utils import RedirectStdout, judge
 from config import Config
 from copy import deepcopy
 from model import Fast_Text, Text_CNN, LSTM_Text_Only, Text_GRU, Bi_GRU_CNN, Bi_GRU, Attention_Bi_GRU
@@ -35,6 +35,7 @@ def train(model, config, loss_fun, optim, target_idx):
         optim.zero_grad()
         loss.backward()
         optim.step()
+    judge()
     print("-----------train mean loss: ", all_loss/sample_len)
     return model.state_dict()
 
@@ -85,9 +86,9 @@ def test_all_target(Config):
     y_true_stances = np.array([])
     y_pred_stances = np.array([])
     for target_idx in range(5):
-        target_idx = 0
+        target_idx = 3
         model = get_model(Config)
-        optim = torch.optim.Adam(filter(lambda p: p.requires_grad, model.parameters()), lr=0.005, weight_decay=1e-6)
+        optim = torch.optim.Adam(filter(lambda p: p.requires_grad, model.parameters()), lr=0.001, weight_decay=1e-6)
         loss_fun = CrossEntropyLoss(size_average=False)
         best_micro_F1 = 0.0
         best_model_dict = None

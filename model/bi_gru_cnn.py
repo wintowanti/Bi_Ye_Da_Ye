@@ -23,9 +23,10 @@ class Bi_GRU_CNN(torch.nn.Module):
         self.cnn3_seq = self.cnn_sequences(config.hidden_size, 4, filter_num)
         self.cnn4_seq = self.cnn_sequences(config.hidden_size, 5, filter_num)
 
-        self.fc_targets = []
-        for i in range(5):
-            self.fc_targets.append(torch.nn.Linear(self.filter_num*3, config.class_size))
+        self.fc_target = torch.nn.Linear(self.filter_num*3, config.class_size)
+        # self.fc_targets = []
+        # for i in range(5):
+        #     self.fc_targets.append(torch.nn.Linear(self.filter_num*3, config.class_size))
 
 
 
@@ -57,7 +58,7 @@ class Bi_GRU_CNN(torch.nn.Module):
         hn = dropout(hn)
 
         hn = hn.view(-1, self.filter_num*3)
-        output1 = self.fc_targets[target_idx](hn)
+        output1 = self.fc_target(hn)
         output2 = None
         #output1 = self.fc_target1(hn)
         return output1, output2

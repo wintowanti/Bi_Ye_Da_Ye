@@ -13,8 +13,6 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Database file #1: reference.bib
-Warning--entry type for "毛峡2011人机情感交互" isn't style-file defined
---line 999 of file reference.bib
 Repeated entry---line 1031 of file reference.bib
  : @article{taboada2011lexicon
  :                            ,
@@ -27,30 +25,41 @@ I'm skipping whatever remains of this entry
  :  booktitle={SemEval@ NAACL-HLT
  :                               },
 I'm skipping whatever remains of this entry
-Warning--Unsupported entry type for 毛峡2011人机情感交互
+Repeated entry---line 1597 of file reference.bib
+ : @inproceedings{wei2016pkudblab
+ :                               ,
+I'm skipping whatever remains of this entry
+"}" immediately follows an entry type---line 1603 of file reference.bib
+ :  booktitle={SemEval@ NAACL-HLT
+ :                               },
+I'm skipping whatever remains of this entry
+Repeated entry---line 1613 of file reference.bib
+ : @article{zarrella2016mitre
+ :                           ,
+I'm skipping whatever remains of this entry
 Warning--Require address: tromp2015pattern
-You've used 50 entries,
+You've used 49 entries,
             3103 wiz_defined-function locations,
-            988 strings with 16622 characters,
-and the built_in function-call counts, 92980 in all, are:
-= -- 10331
-> -- 179
+            984 strings with 16532 characters,
+and the built_in function-call counts, 93014 in all, are:
+= -- 10338
+> -- 178
 < -- 405
-+ -- 8262
++ -- 8270
 - -- 630
-* -- 2334
-:= -- 10417
+* -- 2330
+:= -- 10423
 add.period$ -- 0
-call.type$ -- 50
+call.type$ -- 49
 change.case$ -- 0
 chr.to.int$ -- 0
-cite$ -- 51
-duplicate$ -- 13283
-empty$ -- 3592
+cite$ -- 50
+duplicate$ -- 13288
+empty$ -- 3591
 format.name$ -- 516
-if$ -- 25044
+if$ -- 25058
 int.to.chr$ -- 0
-int.to.str$ -- 50
+int.to.str$ -- 49
 missing$ -- 0
 newline$ -- 174
 num.names$ -- 49
@@ -60,14 +69,14 @@ purify$ -- 0
 quote$ -- 0
 skip$ -- 833
 stack$ -- 0
-substring$ -- 11162
-swap$ -- 2322
+substring$ -- 11168
+swap$ -- 2321
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 2
+warning$ -- 1
 while$ -- 1246
-width$ -- 52
+width$ -- 51
 write$ -- 653
-(There were 3 error messages)
+(There were 6 error messages)

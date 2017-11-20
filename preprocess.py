@@ -52,10 +52,11 @@ def hash_stance(stance):
     raise Exception("can't hash stance: "+stance)
 
 
-def metric(y_pred, y_true, name):
+def metric(y_pred, y_true, name, print_matrix=False):
 
     precision, recall, f1_score, support = precision_recall_fscore_support(y_true=y_true, y_pred=y_pred, labels=[0, 1, 2])
-    print confusion_matrix(y_true=y_true, y_pred=y_pred, labels=[0, 1, 2])
+    if print_matrix:
+        print confusion_matrix(y_true=y_true, y_pred=y_pred, labels=[0, 1, 2])
 
     f1_score[0] = (2*precision[0]*recall[0]) /max(precision[0]+recall[0], 0.001)
     f1_score[2] = (2*precision[2]*recall[2]) /max(precision[2]+recall[2], 0.001)

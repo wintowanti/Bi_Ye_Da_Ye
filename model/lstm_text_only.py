@@ -19,12 +19,12 @@ class LSTM_Text_Only(torch.nn.Module):
 
 
         config.hidden_size *= 1
-        self.fc_target1 = torch.nn.Linear(config.hidden_size, config.class_size)
-        self.fc_target2 = torch.nn.Linear(config.hidden_size, config.class_size)
-        self.fc_target3 = torch.nn.Linear(config.hidden_size, config.class_size)
-        self.fc_target4 = torch.nn.Linear(config.hidden_size, config.class_size)
-        self.fc_target5 = torch.nn.Linear(config.hidden_size, config.class_size)
-        self.fc_target6 = torch.nn.Linear(config.hidden_size, config.class_size)
+        self.fc_target = torch.nn.Linear(config.hidden_size, config.class_size)
+        # self.fc_target2 = torch.nn.Linear(config.hidden_size, config.class_size)
+        # self.fc_target3 = torch.nn.Linear(config.hidden_size, config.class_size)
+        # self.fc_target4 = torch.nn.Linear(config.hidden_size, config.class_size)
+        # self.fc_target5 = torch.nn.Linear(config.hidden_size, config.class_size)
+        # self.fc_target6 = torch.nn.Linear(config.hidden_size, config.class_size)
 
     def forward(self, text, target, pair_idx):
         text = Variable(torch.from_numpy(text))
@@ -37,7 +37,7 @@ class LSTM_Text_Only(torch.nn.Module):
         hn = relu(hn)
         hn = dropout(hn)
         output2 = None
-        output1 = self.fc_target1(hn)
+        output1 = self.fc_target(hn)
         return output1, output2
 
 

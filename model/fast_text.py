@@ -16,9 +16,10 @@ class Fast_Text(torch.nn.Module):
         self.embedding_matrix.weight.requires_grad = True
 
         config.last_feature_size = 200
-        self.fc_targets = []
-        for i in range(5):
-            self.fc_targets.append(torch.nn.Linear(config.last_feature_size, config.class_size))
+        self.fc_target = torch.nn.Linear(config.last_feature_size, config.class_size)
+        # self.fc_targets = []
+        # for i in range(5):
+        #     self.fc_targets.append(torch.nn.Linear(config.last_feature_size, config.class_size))
 
     def forward(self, text, target, target_idx):
         batch_size = text.shape[0]
@@ -33,7 +34,8 @@ class Fast_Text(torch.nn.Module):
         hn = relu(hn)
         hn = dropout(hn)
         hn = hn.view(-1, self.config.last_feature_size)
-        output1 = self.fc_targets[target_idx](hn)
+        #output1 = self.fc_targets[target_idx](hn)
+        output1 = self.fc_target(hn)
         output2 = None
 
         return output1, output2

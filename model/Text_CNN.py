@@ -44,9 +44,10 @@ class Text_CNN(torch.nn.Module):
 
         self.config.sum_filter = sum_filter
         #5 fc for each target
-        self.fc_targets = []
-        for i in range(5):
-            self.fc_targets.append(torch.nn.Linear(sum_filter, config.class_size))
+        self.fc_target = torch.nn.Linear(sum_filter, config.class_size)
+        # self.fc_targets = []
+        # for i in range(5):
+        #     self.fc_targets.append(torch.nn.Linear(sum_filter, config.class_size))
 
     def forward(self, text, target, target_idx):
         text = Variable(torch.from_numpy(text))
@@ -66,7 +67,8 @@ class Text_CNN(torch.nn.Module):
 
         hn = torch.cat([hn1, hn2, hn3], dim=1)
 
-        output1 = self.fc_targets[target_idx](hn)
+        #output1 = self.fc_targets[target_idx](hn)
+        output1 = self.fc_target(hn)
         output2 = None
 
         return output1, output2

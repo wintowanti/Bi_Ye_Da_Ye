@@ -151,7 +151,7 @@ class Seme_Corpus(Corpus):
         # for item in [idx_tweets, idx_targets, stances, sentiments]:
         #     random.shuffle(item)
         if flag == "Dev":
-            all_len = len(idx_tweets)
+            all_len = int(len(idx_tweets)*0.8)
         else:
             all_len = len(idx_tweets)
 
@@ -189,11 +189,13 @@ class NLPCC_Corpus(Corpus):
         #self.read_semeval_data(os.path.join(path, "test.csv"), "Test")
         
     def iter_epoch(self, target_idx, flag, batch_size=18):
+        small = False
         if flag == "Dev":
             flag = "Test"
+            small = True
         idx_text = []
         idx_targets = []
-        print(self.targets[target_idx])
+        print(self.targets[target_idx].encode("UTF-8"))
         stances = []
         all_len = 0
         for tweet in self.social_texts:
@@ -204,7 +206,12 @@ class NLPCC_Corpus(Corpus):
                 idx_targets.append(tweet.idx_target)
                 stances.append(tweet.stance)
         if flag == "Train":
-            all_len += 20
+            all_len += 10
+
+        if small:
+            all_len = int(all_len*0.9)
+
+
         for start_idx in range(all_len)[::batch_size]:
             end_idx = min(start_idx + batch_size, all_len)
             yield idx_text[start_idx:end_idx:], idx_targets[start_idx:end_idx:], stances[start_idx:end_idx:], target_idx

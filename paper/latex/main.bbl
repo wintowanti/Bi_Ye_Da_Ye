@@ -115,7 +115,7 @@
   arXiv:1408.5882}\@, \bibyear{2014}\@.
 
 \bibitem{梁2015基于极性转移和}
-\bibauthor{军 �\@, 柴玉梅\@, 原慧斌, et~al}\@.
+\bibauthor{梁军\@, 柴玉梅\@, 原慧斌, et~al}\@.
   \bibtitle{基于极性转移和 LSTM
   递归网络的情感分析}\bibmark{[J]}\@.
   \bibjournal{中文信息学报}\@, \bibyear{2015}\@,
@@ -231,6 +231,14 @@
   \bibyear{2014}\thinspace{}\textnormal{:
   }\bibpages{153\thinspace{}\textnormal{--}\thinspace{}160}\@.
 
+\bibitem{wei2016pkudblab}
+\bibauthor{Wei W\@, Zhang X\@, Liu X, et~al}\@. \bibtitle{pkudblab at
+  SemEval-2016 Task 6: A Specific Convolutional Neural Network System for
+  Effective Stance Detection.}\bibmark{[C]}
+  //\thinspace{}\bibbooktitle{SemEval@ NAACL-HLT}\@.
+  \bibyear{2016}\thinspace{}\textnormal{:
+  }\bibpages{384\thinspace{}\textnormal{--}\thinspace{}388}\@.
+
 \bibitem{zarrella2016mitre}
 \bibauthor{Zarrella G\@, Marsh A}\@. \bibtitle{MITRE at semeval-2016 task 6:
   Transfer learning for stance detection}\bibmark{[J]}\@. \bibjournal{arXiv
@@ -344,14 +352,6 @@
   //\thinspace{}\bibbooktitle{International Conference on Computer Processing
   of Oriental Languages}\@. \bibyear{2016}\thinspace{}\textnormal{:
   }\bibpages{893\thinspace{}\textnormal{--}\thinspace{}900}\@.
-
-\bibitem{wei2016pkudblab}
-\bibauthor{Wei W\@, Zhang X\@, Liu X, et~al}\@. \bibtitle{pkudblab at
-  SemEval-2016 Task 6: A Specific Convolutional Neural Network System for
-  Effective Stance Detection.}\bibmark{[C]}
-  //\thinspace{}\bibbooktitle{SemEval@ NAACL-HLT}\@.
-  \bibyear{2016}\thinspace{}\textnormal{:
-  }\bibpages{384\thinspace{}\textnormal{--}\thinspace{}388}\@.
 
 \bibitem{bahdanau2014neural}
 \bibauthor{Bahdanau D\@, Cho K\@, Bengio Y}\@. \bibtitle{Neural machine
