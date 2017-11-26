@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.10.16)  20 NOV 2017 22:49
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.10.16)  26 NOV 2017 10:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1921,37 +1921,31 @@ LaTeX Warning: Label `lstm_f' multiply defined.
 LaTeX Warning: Label `lstm_f' multiply defined.
 
 
-LaTeX Warning: Label `conv1' multiply defined.
-
-
-LaTeX Warning: Label `conv1' multiply defined.
-
-
-LaTeX Warning: Label `conv1' multiply defined.
-
-
 LaTeX Warning: Label `target_info' multiply defined.
 
 
 LaTeX Warning: Label `text_info' multiply defined.
 
 
-LaTeX Warning: Label `target_info' multiply defined.
+LaTeX Warning: Label `lstm_f' multiply defined.
 
 
-LaTeX Warning: Label `target_info' multiply defined.
+LaTeX Warning: Label `lstm_f' multiply defined.
 
 
-LaTeX Warning: Label `text_info' multiply defined.
+LaTeX Warning: Label `lstm_f' multiply defined.
 
 
-LaTeX Warning: Label `text_info' multiply defined.
+LaTeX Warning: Label `lstm_f' multiply defined.
 
 
-LaTeX Warning: Label `conv1' multiply defined.
+LaTeX Warning: Label `lstm_f' multiply defined.
 
 
-LaTeX Warning: Label `conv1' multiply defined.
+LaTeX Warning: Label `lstm_f' multiply defined.
+
+
+LaTeX Warning: Label `lstm_f' multiply defined.
 
 
 LaTeX Warning: Label `conv1' multiply defined.
@@ -1967,6 +1961,12 @@ LaTeX Warning: Label `conv1' multiply defined.
 
 
 LaTeX Warning: Label `param' multiply defined.
+
+
+LaTeX Warning: Label `semeval_all_model' multiply defined.
+
+
+LaTeX Warning: Label `semeval_all_model' multiply defined.
 
 ) (./body/conclusion.aux) (./appendix/Authorization.aux)
 (./appendix/acknowledgements.aux))
@@ -2265,14 +2265,17 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 ] [2
 
 
-]) (./main.toc [3
+] [3]) (./main.toc [4
 
 
 ])
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
- [4]
+ [5] [6
+
+
+]
 \openout2 = `body/chapter1.aux'.
 
  (./body/chapter1.tex
@@ -2281,83 +2284,79 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 
 
-
-
-] [2] [3] [4] [5] [6] [7]) [8]
+] [2] [3] [4] [5] [6]) [7]
 \openout2 = `body/chapter2.aux'.
 
  (./body/chapter2.tex
 第2章
-[9
+[8
 
 
 
-] [10] [11] [12] [13] [14] [15]) [16]
+] [9] [10] [11] [12] [13]) [14] [15]
 \openout2 = `body/chapter3.aux'.
 
  (./body/chapter3.tex
 第3章
-[17
+[16
 
 
 
 ]
 File: figures/glove.jpg Graphic file (type QTm)
- <use  "figures/glove.jpg" > [18]
+ <use  "figures/glove.jpg" > [17]
 File: figures/rnn_gradient_vanish.png Graphic file (type QTm)
 
-<use  "figures/rnn_gradient_vanish.png" > [19]
+<use  "figures/rnn_gradient_vanish.png" > [18]
 File: figures/lstm_unit.png Graphic file (type QTm)
  <use  "figures/lstm_unit.png" >
-[20]
+[19]
 File: figures/conditional_encoding.png Graphic file (type QTm)
- <use  "figures/conditional_encoding.png" > [21] [22]
+ <use  "figures/conditional_encoding.png" > [20] [21]
 File: figures/conditional_encode_lstm3.png Graphic file (type QTm)
 
-<use  "figures/conditional_encode_lstm3.png" > [23] [24] [25]
+<use  "figures/conditional_encode_lstm3.png" > [22] [23] [24]
 LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 168.
 
 Overfull \hbox (3.56657pt too wide) in paragraph at lines 193--208
  [][] 
  []
 
-[26] [27] [28] [29] [30] [31]
+[25] [26] [27] [28] [29] [30]
 File: figures/chart_seme_condi.png Graphic file (type QTm)
- <use  "figures/chart_seme_condi.png" > [32]
-[33] [34]
+ <use  "figures/chart_seme_condi.png" > [31]
+[32] [33]
 File: figures/chart_semeval_best_model.png Graphic file (type QTm)
- <use  "figures/chart_semeval_best_model.png" > [35]
+ <use  "figures/chart_semeval_best_model.png" > [34]
 File: figures/chart_nlpcc_best_model.png Graphic file (type QTm)
 
-<use  "figures/chart_nlpcc_best_model.png" > [36] [37]) [38]
+<use  "figures/chart_nlpcc_best_model.png" > [35] [36]) [37]
 \openout2 = `body/chapter4.aux'.
 
 
 (./body/chapter4.tex
 第4章
-[39
+[38
 
 
 
 ]
 File: figures/NMT.png Graphic file (type QTm)
- <use  "figures/NMT.png" > [40]
+ <use  "figures/NMT.png" > [39]
 File: figures/mnt_visual.jpg Graphic file (type QTm)
- <use  "figures/mnt_visual.jpg" > [41]
-File: figures/text_cnn.png Graphic file (type QTm)
-
-<use  "figures/text_cnn.png" > [42] [43]
-File: figures/gru.png Graphic file (type QTm)
- <use  "figures/gru.png" >
+ <use  "figures/mnt_visual.jpg" > [40]
 File: figures/a_bi_gru_cnn.png Graphic file (type QTm)
 
-<use  "figures/a_bi_gru_cnn.png" > [44] [45] [46] [47] [48] [49]
+<use  "figures/a_bi_gru_cnn.png" > [41] [42] [43] [44] [45] [46]
+File: figures/chart_attention_condition_semeval.png Graphic file (type QTm)
+
+<use  "figures/chart_attention_condition_semeval.png" > [47] [48]
 File: figures/chart_semeval_best_model_attention.png Graphic file (type QTm)
 
-<use  "figures/chart_semeval_best_model_attention.png" > [50] [51]
+<use  "figures/chart_semeval_best_model_attention.png" > [49] [50]
 File: figures/chart_nlpcc_best_model_attention.png Graphic file (type QTm)
 
-<use  "figures/chart_nlpcc_best_model_attention.png" > [52]) [53]
+<use  "figures/chart_nlpcc_best_model_attention.png" > [51]) [52]
 \openout2 = `body/conclusion.aux'.
 
 
@@ -2367,23 +2366,23 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 12.0pt
 (hyperref)                replaced by space on input line 3.
 
-) [54
+) [53
 
 
 
-] (./main.bbl [55
+] (./main.bbl [54
 
 
-] [56]
+] [55]
 Underfull \hbox (badness 1270) in paragraph at lines 227--233
 \TU/TimesNewRoman(0)/m/n/12 bates[C] //International Conference on Social Compu
 ting, Behavioral-Cultural
  []
 
-[57] [58]) [59]
+[56] [57]) [58]
 \openout2 = `appendix/Authorization.aux'.
 
- (./appendix/Authorization.tex) [60
+ (./appendix/Authorization.tex) [59
 
 
 ]
@@ -2396,7 +2395,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 12.0pt
 (hyperref)                replaced by space on input line 3.
 
-) [61
+) [60
 
 
 
@@ -2424,12 +2423,12 @@ LaTeX Warning: There were multiply-defined labels.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 32834 strings out of 493005
- 620531 string characters out of 6134595
- 697665 words of memory out of 5000000
- 36335 multiletter control sequences out of 15000+600000
- 17562 words of font info for 121 fonts, out of 8000000 for 9000
+ 32837 strings out of 493005
+ 620751 string characters out of 6134595
+ 692686 words of memory out of 5000000
+ 36338 multiletter control sequences out of 15000+600000
+ 17570 words of font info for 122 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 57i,12n,78p,10442b,4053s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 57i,13n,78p,10442b,4045s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (68 pages).
+Output written on main.pdf (69 pages).

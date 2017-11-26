@@ -9,6 +9,7 @@ from config import Config
 from model import Fast_Text, Text_CNN, LSTM_Text_Only, Text_GRU, Bi_GRU_CNN, Bi_GRU, Attention_Bi_GRU
 from model import Attention_Bi_GRU_CNN, LSTM_Text_Target_Concat, LSTM_Condition_Encoder, LSTM_Condition_Bi_Encoder
 from model import LSTM_Bi_Condition_Encoder
+from model import Bi_LSTM, Attention_Bi_LSTM, Attention_Bi_LSTM_Condition
 from utils import RedirectStdout, get_nowtime_str, judge
 
 import torch
@@ -42,7 +43,7 @@ def train(model, config, loss_fun, optim, target_idx):
         optim.zero_grad()
         loss.backward()
         optim.step()
-    judge()
+    #judge()
     print("-----------train mean loss: ", all_loss/sample_len)
     return model.state_dict()
 
@@ -82,7 +83,7 @@ def test(model, config, loss_fun, flag, target_idx):
 def get_model(config):
     #model = LSTM_Condition_Bi_Encoder(config)
     #model = LSTM_Bi_Condition_Encoder(config)
-    model = Attention_Bi_GRU_CNN(config)
+    #model = Attention_Bi_GRU_CNN(config)
     #model = Attention_Bi_GRU(config)
     #model = Bi_GRU_CNN(config)
     #model = Text_GRU(config)
@@ -93,13 +94,16 @@ def get_model(config):
     #model = LSTM_Condition_Encoder(config)
     #model = LSTM_Text_Only(config)
     #model = LSTM_Text_Target_Concat(config)
+    #model = Attention_Bi_LSTM(config)
+    #model = Attention_Bi_LSTM_Condition(config)
+    model = AT
     return model
 
 def test_all_target(Config):
     y_true_stances = np.array([])
     y_pred_stances = np.array([])
-    for target_idx in range(10):
-        target_idx = 0
+    for target_idx in range(5):
+        target_idx = 4
         model = get_model(Config)
         optim = torch.optim.Adam(filter(lambda p: p.requires_grad, model.parameters()), lr=0.001, weight_decay=1e-6)
         loss_fun = CrossEntropyLoss(size_average=False)

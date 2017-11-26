@@ -11,3 +11,8 @@ from model.attention_bi_gru_cnn import Attention_Bi_GRU_CNN
 from model.lstm_text_target_concat import LSTM_Text_Target_Concat
 from model.lstm_conditional_biencode import LSTM_Condition_Bi_Encoder
 from model.lstm_bi_conditional_encode import LSTM_Bi_Condition_Encoder
+
+#new model
+from model.bi_lstm import Bi_LSTM
+from model.attention_bi_lstm import Attention_Bi_LSTM
+from model.attention_bi_lstm_condition import Attention_Bi_LSTM_Condition

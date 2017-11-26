@@ -36,45 +36,45 @@ I'm skipping whatever remains of this entry
 Warning--Require address: tromp2015pattern
 Warning--Require journal: zarrella2016mitre
 Warning--Require journal: rocktaschel2015reasoning
-You've used 49 entries,
+You've used 51 entries,
             3103 wiz_defined-function locations,
-            982 strings with 16387 characters,
-and the built_in function-call counts, 92761 in all, are:
-= -- 10302
-> -- 178
-< -- 405
-+ -- 8234
-- -- 630
-* -- 2324
-:= -- 10388
+            995 strings with 16965 characters,
+and the built_in function-call counts, 97289 in all, are:
+= -- 10810
+> -- 186
+< -- 423
++ -- 8634
+- -- 660
+* -- 2436
+:= -- 10886
 add.period$ -- 0
-call.type$ -- 49
+call.type$ -- 51
 change.case$ -- 0
 chr.to.int$ -- 0
-cite$ -- 52
-duplicate$ -- 13252
-empty$ -- 3595
-format.name$ -- 516
-if$ -- 24995
+cite$ -- 54
+duplicate$ -- 13913
+empty$ -- 3773
+format.name$ -- 540
+if$ -- 26211
 int.to.chr$ -- 0
-int.to.str$ -- 49
+int.to.str$ -- 51
 missing$ -- 0
-newline$ -- 174
-num.names$ -- 49
-pop$ -- 1342
+newline$ -- 180
+num.names$ -- 51
+pop$ -- 1410
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 834
+skip$ -- 867
 stack$ -- 0
-substring$ -- 11132
-swap$ -- 2311
+substring$ -- 11687
+swap$ -- 2424
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 3
-while$ -- 1246
-width$ -- 51
-write$ -- 649
+while$ -- 1307
+width$ -- 53
+write$ -- 678
 (There were 5 error messages)

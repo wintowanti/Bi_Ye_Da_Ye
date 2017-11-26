@@ -151,7 +151,7 @@ class Seme_Corpus(Corpus):
         # for item in [idx_tweets, idx_targets, stances, sentiments]:
         #     random.shuffle(item)
         if flag == "Dev":
-            all_len = int(len(idx_tweets)*0.8)
+            all_len = int(len(idx_tweets))
         else:
             all_len = len(idx_tweets)
 
@@ -178,6 +178,7 @@ class NLPCC_Corpus(Corpus):
                       u"俄罗斯在叙利亚的反恐行动",
                       u"开放二胎",
                       u"深圳禁摩限电"]
+        print("good")
     def read_nlpcc_data(self, path, flag):
         data = read_csv(path, names=["id", "target", "text", "stance"], skiprows=[0], sep="\t")
         for text, target, stance in zip(data.text, data.target, data.stance):
@@ -206,10 +207,10 @@ class NLPCC_Corpus(Corpus):
                 idx_targets.append(tweet.idx_target)
                 stances.append(tweet.stance)
         if flag == "Train":
-            all_len += 10
+            all_len += 20
 
         if small:
-            all_len = int(all_len*0.9)
+            all_len = int(all_len)
 
 
         for start_idx in range(all_len)[::batch_size]:

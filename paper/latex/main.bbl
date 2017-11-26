@@ -352,11 +352,6 @@
   of Oriental Languages}\@. \bibyear{2016}\thinspace{}\textnormal{:
   }\bibpages{893\thinspace{}\textnormal{--}\thinspace{}900}\@.
 
-\bibitem{bahdanau2014neural}
-\bibauthor{Bahdanau D\@, Cho K\@, Bengio Y}\@. \bibtitle{Neural Machine
-  Translation by Jointly Learning to Align and Translate}\bibmark{[J]}\@.
-  \bibjournal{Computer Science}\@, \bibyear{2014}\@.
-
 \bibitem{rocktaschel2015reasoning}
 \bibauthor{Rockt?schel T\@, Grefenstette E\@, Hermann K~M, et~al}\@.
   \bibtitle{Reasoning about Entailment with Neural Attention}\bibmark{[J]}\@,
@@ -370,5 +365,27 @@
   Language Technologies: short papers-Volume 2}\@.
   \bibyear{2011}\thinspace{}\textnormal{:
   }\bibpages{42\thinspace{}\textnormal{--}\thinspace{}47}\@.
+
+\bibitem{tutek2016takelab}
+\bibauthor{Tutek M\@, Sekulic I\@, Gombar P, et~al}\@. \bibtitle{TakeLab at
+  SemEval-2016 task 6: stance classification in tweets using a genetic
+  algorithm based ensemble}\bibmark{[C]}
+  //\thinspace{}\bibbooktitle{Proceedings of the 10th International Workshop on
+  Semantic Evaluation (SemEval-2016)}\@.
+  \bibyear{2016}\thinspace{}\textnormal{:
+  }\bibpages{464\thinspace{}\textnormal{--}\thinspace{}468}\@.
+
+\bibitem{xu2016overview}
+\bibauthor{Xu R\@, Zhou Y\@, Wu D, et~al}\@. \bibtitle{Overview of NLPCC Shared
+  Task 4: Stance Detection in Chinese Microblogs}\bibmark{[C]}
+  //\thinspace{}\bibbooktitle{International Conference on Computer Processing
+  of Oriental Languages}\@. \bibyear{2016}\thinspace{}\textnormal{:
+  }\bibpages{907\thinspace{}\textnormal{--}\thinspace{}916}\@.
+
+\bibitem{mohammadstance}
+\bibauthor{Mohammad S~M\@, Sobhani P\@, Kiritchenko S}\@. \bibtitle{Stance and
+  sentiment in tweets}\bibmark{[J]}\@. \bibjournal{ACM Transactions on Internet
+  Technology (TOIT)}\@, \bibyear{2017}\@,
+  \bibvolume{17}\bibnumber{(3)}\thinspace{}\textnormal{: }\bibpages{26}\@.
 
 \end{thebibliography}

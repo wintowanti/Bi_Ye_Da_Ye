@@ -11,6 +11,7 @@ from model import Fast_Text, Text_CNN, LSTM_Text_Only, Text_GRU, Bi_GRU_CNN, Bi_
 from model import Attention_Bi_GRU_CNN, LSTM_Text_Target_Concat, LSTM_Condition_Encoder, LSTM_Condition_Bi_Encoder
 from model import LSTM_Bi_Condition_Encoder
 
+from model import Bi_LSTM, Attention_Bi_LSTM, Attention_Bi_LSTM_Condition
 import torch
 from torch.autograd import Variable
 from torch.nn import NLLLoss,CrossEntropyLoss
@@ -68,7 +69,7 @@ def test(model, config, loss_fun, flag, target_idx):
 def get_model(config):
     #model = LSTM_Condition_Bi_Encoder(config)
     #model = LSTM_Bi_Condition_Encoder(config)
-    model = Attention_Bi_GRU_CNN(config)
+    #model = Attention_Bi_GRU_CNN(config)
     #model = Attention_Bi_GRU(config)
     #model = Bi_GRU_CNN(config)
     #model = Text_GRU(config)
@@ -80,13 +81,17 @@ def get_model(config):
     #model = LSTM_Text_Target_Concat(config)
     #model = LSTM_Condition_Bi_Encoder(config)
     #model = LSTM_Condition_Encoder(config)
+    #model = Attention_Bi_LSTM_Condition(config)
+    model = Attention_Bi_LSTM(config)
+
     return model
 
 def test_all_target(Config):
     y_true_stances = np.array([])
     y_pred_stances = np.array([])
     for target_idx in range(5):
-        target_idx = 3
+        target_idx = 4
+        #target_idx += 1
         model = get_model(Config)
         optim = torch.optim.Adam(filter(lambda p: p.requires_grad, model.parameters()), lr=0.001, weight_decay=1e-6)
         loss_fun = CrossEntropyLoss(size_average=False)

@@ -115,17 +115,17 @@ $$...$$
 $$...$$
 \begin{equation}\label{lstm_f}[h_M~c_M] = LSTM^{target}(t_1,h_{M-1},c_{M-1})\end{equation}
 
-\begin{equation}\label{lstm_f}[h^{forward}_{1}~c^{forward}_{1}] = LSTM^{forward}(x_1,h_0,c_T)\end{equation}
+\begin{equation}\label{lstm_f}[h^{→}_{1}~c^{→}_{1}] = LSTM^{→}(x_1,h_0,c_T)\end{equation}
 $$...$$
-\begin{equation}\label{lstm_f}[h^{forward}_{N}~c^{forward}_{N}] = LSTM^{forward}(x_n,h^{forward}_{N-1},c^{forward}_{N-1})\end{equation}
+\begin{equation}\label{lstm_f}[h^{→}_{N}~c^{→}_{N}] = LSTM^{→}(x_n,h^{→}_{N-1},c^{→}_{N-1})\end{equation}
 
-\begin{equation}\label{lstm_f}[h^{backward}_{N}~c^{backward}_{N}] = LSTM^{backward}(x_n,h_0,c_T)\end{equation}
+\begin{equation}\label{lstm_f}[h^{←}_{N}~c^{←}_{N}] = LSTM^{←}(x_n,h_0,c_T)\end{equation}
 $$...$$
-\begin{equation}\label{lstm_f}[h^{backward}_{1}~c^{backward}_{1}] = LSTM^{backward}(x_1,h^{backward}_{2},c^{backward}_{2})\end{equation}
+\begin{equation}\label{lstm_f}[h^{←}_{1}~c^{←}_{1}] = LSTM^{←}(x_1,h^{←}_{2},c^{←}_{2})\end{equation}
 
-\begin{equation}\label{lstm_f}c_i=Softmax(W[h^{forward}_n~h^{backward}_1])\end{equation}
+\begin{equation}\label{lstm_f}c_i=Softmax(W[h^{→}_n~h^{←}_1])\end{equation}
 
-其中$M$为主题目标的文本长度，$N$为微博或Twiiter的文本长度。$LSTM$单向编码主题目标，$LSTM^{forward}$为前向编码文本信息，$LSTM^{backward}$为后向编码文本信息，$h_0$为LSTM的初始化向量，$C_T$为$LSTM$主题目标编码的最后一个Cell状态，$h^{backward}_{1},h^{forward}_{N}$分别为前向和后向编码的最后一个隐藏状态。
+其中$M$为主题目标的文本长度，$N$为微博或Twiiter的文本长度。$LSTM$单向编码主题目标，$LSTM^{→}$为前向编码文本信息，$LSTM^{←}$为后向编码文本信息，$h_0$为LSTM的初始化向量，$C_T$为$LSTM$主题目标编码的最后一个Cell状态，$h^{←}_{1},h^{→}_{N}$分别为前向和后向编码的最后一个隐藏状态。
 
 本节以“深圳禁摩限电”为话题目标，微博文本“支持深圳交警，电单车继续治理”为例，按本节模型的5个层次，描述基于条件编码长短期记忆的立场分析的过程。
 
@@ -388,7 +388,7 @@ FN：正样例预测为负样例的个数。
 	\end{tabular}
 \end{table}
 
-其中两个数据集中Text-Only模型取得0.644和0.678的微平均F1值，而Text-Target模型虽然在各个主题目标下的F1值接近Text-Only的值F1值，但是在总体上的微平均值只有0.627和0.667，比Text-Only模型分别少1.70\%和1.03\%，也在一定程度上说明如果主题目标信息引入的方法不对（直接拼接向量）后，有可能导致模型的实际泛化能力还下降了，导致整体的效果还不如只考虑文本信息本身，因此在文本立场分析任务中，以合适的方式引入主题目标建立合适的模型是重要的一个环节。
+其中两个数据集中Text-Only模型取得0.644和0.678的微平均F1值，而Text-Target模型虽然在各个主题目标下的F1值接近Text-Only的值F1值，但是在总体上的微平均值只有0.627和0.667，比Text-Only模型分别少1.70\%和1.03\%，也在一定程度上说明若主题目标信息引入的方法不合理（直接拼接向量）时，可能导致模型的实际泛化能力还下降了，导致整体的效果还不如只考虑文本信息本身，因此在文本立场分析任务中，以合适的方式引入主题目标信息是重要的一个环节。
 
 以条件编码结合主题目标和文本的模型在两个数据集上都取得较好的结果，其中Text-On-Target模型在中英数据集上取得0.668和0.698的平均F1值，比Text-Only模型在两个模型中分别高了0.024和0.020，说明引入主题目标作为对文本编码的“先验知识”能显著的提高模型在文本立场分析的性能。Text-on-Target比Text-Target模型在两个数据集上高0.044和0.031的微F1值，此处提升的比对比Text-Only模型还高，说明以条件编码结合主题目标信息比直接单独拼接特征向量的方法更能挖掘文本和主题目标之间的立场关系。
 
@@ -398,11 +398,11 @@ FN：正样例预测为负样例的个数。
 
 在SemEval数据集合上，引入以下模型是作为对比模型。
 
-（1）MITRE， SemEval2016 Twitter立场分析评测任务第一名，收集大量的无标注数据。通过分析筛选出多个\#话题标签，建立LSTM模型去预测文本的标签。先训练预测标签的模型，而后在预训练好的模型上做立场分析的任务上的微调，此模型基于大量无标注样本的迁移学习，需要大量无标注任务和手工筛选特别话题标签。
+（1）MITRE \cite{zarrella2016mitre}， SemEval2016 Twitter立场分析评测任务第一名，收集大量的无标注数据。通过分析筛选出多个\#话题标签，建立LSTM模型去预测文本的标签。先训练预测标签的模型，而后在预训练好的模型上做立场分析的任务上的微调，此模型基于大量无标注样本的迁移学习，需要大量无标注任务和手工筛选特别话题标签。
 
-（2）TakeLab   SemEval2016 Twitter立场分析评测参赛模型，融合了随机森林，逻辑回归，支持向量机等多种机器学习的集成学习方法，各模型利用大量人工构造的特征。
+（2）TakeLab \cite{tutek2016takelab}  SemEval2016 Twitter立场分析评测参赛模型，融合了随机森林，逻辑回归，支持向量机等多种机器学习的集成学习方法，各模型利用大量人工构造的特征。
 
-（3）ECNU  SemEval2016 Twitter立场分析评测华东师范大学参赛模型，采用了传统语义特征、主题目标特征、相似性特征、情感字典特征、主题模型特征和词向量特征的特征工程的传统机器学习方法。
+（3）ECNU\cite{zhang2016ecnu}  SemEval2016 Twitter立场分析评测华东师范大学参赛模型，采用了传统语义特征、主题目标特征、相似性特征、情感字典特征、主题模型特征和词向量特征的特征工程的传统机器学习方法。
 
 （4） BiText-On-Target本章出的基于主题目标的条件的双向LSTM文本编码模型。
 
@@ -426,9 +426,9 @@ FN：正样例预测为负样例的个数。
 		\toprule[1.5pt]
 		主题目标& $F_{favor}$&$F_{against}$&$F_{average}$ \\
 		\midrule[1pt]
-		MITRE&0.5932&0.7633&0.6782\\
-		TakeLab&0.6093&0.7273&0.6683\\
-		ECNU&0.6055&0.7054&0.6555\\
+		MITRE\citeup{zarrella2016mitre}&0.5932&0.7633&0.6782\\
+		TakeLab\citeup{tutek2016takelab} &0.6093&0.7273&0.6683\\
+		ECNU\citeup{zhang2016ecnu}&0.6055&0.7054&0.6555\\
 		BiText-On-Target&0.6112&0.7314&0.6713\\
 		\bottomrule[1.5pt]
 	\end{tabular}
@@ -436,9 +436,9 @@ FN：正样例预测为负样例的个数。
 
 上述统计说明模型在SemEval英文数据的性能，以下将在NLPCC2016中文数据集对比评测中的模型，对比的模型如下所示
 
-（1）RUC-MMC NLPCC2016 立场分析评测任务第一名，提取同义词，TF-IDF，n-gram等作为特征结合支持向量机和随机森林分类器。
+（1）RUC-MMC \citeup{xu2016overview}NLPCC2016 立场分析评测任务第一名，提取同义词，TF-IDF，n-gram等作为特征结合支持向量机和随机森林分类器。
 
-（2）Top-Team NLPCC2016立场分析评测任务参赛模型，为每个主题目标抽取分类关键词字典。
+（2）Top-Team \citeup{xu2016overview}NLPCC2016立场分析评测任务参赛模型，为每个主题目标抽取分类关键词字典。
 
 （3） BiText-On-Target 本章提出的基于主题目标的条件的双向LSTM文本编码模型。
 
@@ -461,8 +461,8 @@ FN：正样例预测为负样例的个数。
 		\toprule[1.5pt]
 		主题目标& $F_{favor}$&$F_{against}$&$F_{average}$ \\
 		\midrule[1pt]
-		RUC-MMC&0.6969&0.7243&0.7106\\
-		Top-Team&0.6601&0.7186&0.6894\\
+		RUC-MMC\citeup{xu2016overview}&0.6969&0.7243&0.7106\\
+		Top-Team\citeup{xu2016overview}&0.6601&0.7186&0.6894\\
 		BiText-On-Target&0.6761&0.7158&0.6984\\
 		\bottomrule[1.5pt]
 	\end{tabular}

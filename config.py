@@ -10,7 +10,7 @@ class Config(object):
     embedding_size = 100
     weibo_embedding_size = 200
     fixed_len = 50
-    epoch = 50
+    epoch = 30
     batch_size= 64
 
     voc_len = None

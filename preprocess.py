@@ -52,7 +52,7 @@ def hash_stance(stance):
     raise Exception("can't hash stance: "+stance)
 
 
-def metric(y_pred, y_true, name, print_matrix=False):
+def metric(y_pred, y_true, name, print_matrix=True):
 
     precision, recall, f1_score, support = precision_recall_fscore_support(y_true=y_true, y_pred=y_pred, labels=[0, 1, 2])
     if print_matrix:
