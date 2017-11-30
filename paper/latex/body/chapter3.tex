@@ -2,26 +2,12 @@
 \BiChapter{基于条件编码长短期记忆社交媒体文本立场分析}{Methods of inserting figures}
 
 \BiSection{引言}{Figures inserting standard from graduate school}
-当前社交媒体文本立场分析的研究中，研究人员的研究方向主要集中在如何提取社交媒体文本有效的分类特征。忽略了文本立场分析一种重要的出发点是文本基于某个特定的目标，若原文本脱离了特定目标，文本立场分析与情感分析将无差别。基于这个出发点，本章提出了基于条件编码长短期记忆神经网络的模型，通过以条件编码的形式引入文本的主题目标信息，使立场分析的效果得到显著的提升。本章研究基于条件编码长短期记忆的社交媒体文本立场分析方法，通过以不同形式给模型接入文本立场的主题目标信息，表明了接入目标信息对文本立场分析有明显提升效果。通过在SemEval2016英文立场分析数据集和NLPCC2016中文立场分析数据集的实验，论证上述结论。
+当前社交媒体文本立场分析的研究中，研究人员的研究方向主要集中在如何有效提取社交媒体文本的特征，忽略考虑立场分析中主题目标信息，这种舍本逐末的建模存在一定的不合理性。基于这个出发点，本章提出了基于条件编码长短期记忆神经网络的模型，通过以条件编码的形式引入立场分析中的主题目标信息。本章设计对比实验实验，结果表明以条件编码的方式引入主题目标信息的方式能显著提高文本立场分析的效果。并结合文本立场分析的特点，改进了条件编码模型。通过在SemEval2016英文数据集和NLPCC2016中文数据集与评测模型的对比，表明在改进后的条件编码模型在社交媒体文本立场分析具有较好的性能。
 
 本章的各节结构如下：3.2节介绍基于条件编码长短期记忆在文本立场分析；3.3节为本章实验和结果分析；3.4节总结本章的内容。
 
 \BiSection{基于条件编码长短期记忆神经网络文本立场分析研究}{Captions and descriptions of figures}
-循环神经网络（Recurrent Neural Networks， RNN）已经在众多自然语言处理任务上取得了巨大成功。不同于传统的前向反馈神经网络的同层节点无连接层于层之间节点有连接，循环神经网络引入了定向循环，可以处理序列数据。RNN中最大的缺陷是后面时间的节点对于前面节点的感知力下降，当网络深时训练效果下降。LSTM可以解决这一问题，目前LSTM是RNN中使用最广泛最成功的模型。Rocktaschel\citeup{rocktaschel2015reasoning}在2016年在句子之间的文本蕴含识别（Recognizing textual entailment，RTE）的研究中提出了条件编码的思想，其论证了在文本含义识别任务上，条件编码比单独编码更能抽取两个句子之间的信息。结合文本立场分析的也有文本和目标需要同时考虑特点，把借鉴条件编码的思想来解决文本立场分析的任务。
-\BiSubsection{基于GloVe的词嵌入模型}{}
-词的表示是自然语言处理中一个基础且十分重要的任务，大量的研究人员投入到词表示的研究中。早期的有词的表示方式为one hot encoding。每个词独占一个维度，每个词向量有一个维度是1，其他维度为0，词向量的维度是所有单词的的长度。One-hot编码的特点是假设所有的单词互相独立，这是一个很强的假设，显然在有些任务中并不合适，如词语相似度方面，dog和cat的相似度应当比dog和not高，但是在one hot编码中他们相似性一样。one-hot编码词表示有一些缺点，如容易受位数灾难的困扰，且不能很好地刻画词与词之间的相似性。词嵌入表示模型能很好的改善one-hot编码的缺点，词的嵌入模型用稠密且固定长度的向量表示每一个词，而且相似的词具有相似的词向量表示。基于这点Mikolov\citeup{mikolov2013efficient}2013提出了Word2Vec模型，解决了词向量训练速度慢，效率低的缺点。其利用了CBOW（Continuous Bag-of-words Model）和Skip-Gram的两种语言模型。其中CBOW的思想是利用词语的上下文词的信息来预测该单词。而Skip-Gram则采取一种和CBOW相反的策略，用中间的词的消息来预测上下文的词。GloVe（Global Vectors for Word Representation）是斯坦福大学发表的一种词嵌入模型，GloVe尝试借鉴NNLM和word2vec的优势来弥补旧方法的劣势，取得了不错的效果。该文发表于Word2Vec之后，其方法内核比较朴实和简单，官方实验中，GloVe略胜Word2Vec一筹。
-
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width = 0.6\textwidth]{glove.jpg}
-	\caption[rnn_vanish]{GloVe可视化词向量}
-\end{figure}
-
-GloVe结合了基于矩阵分解的词嵌入表示和基于语言模型（例如Word2Vec）的词嵌入表示。基于矩阵分解具有训练快，容易实现的优点，但是生成词向量语义信息十分有限。基于语言模型的词嵌入表示则具有更多语言学层次的支持，在更多自然语言处理任务上表现更好，但是模型关注的上下文特征较少，忽略了全局的信息。GloVe发明的初衷，就是想结合两者的长处，建立一个充分利用统计量的更好训练的适用程度更广的词嵌入模型。具体模型建立公式如下。
-\begin{equation} F(w_i,w_j,w^c_k) = \cfrac{P_{ij}}{P_{jk}}  \end{equation}
-其中，取$word_i$的出现次数为$X_i$， 定义$P_{ij}=P(j|i)=\cfrac{X_{ij}}{X_{i}}$表示在$X_i$的上下文下$word_i$的出现几率， $F$则是某一种能够实现我们需求的变换。$w_i,w_j$是实数空间下的$word_i,word_j$的词向量，$w^c_k$也是实数空间下的$word_k$的上下文词向量，其作用类似Word2Vec中的上下文向量。为了精简计算引入词向量的线性加减和点乘计算。
-\begin{equation} F((w_i-w_j)^Tw^c_k) = \cfrac{F(w^T_iw^c_k)}{{F(w^T_jw^c_k)}} \end{equation}
-GloVe每个词涉及到两个词向量，一个词语本身的向量$w_i$，一个词的context向量$w^c_i$。最初这样设计，将词向量和上下文的向量分开，不用一套，是为了在更新参数的时候能够简单地套用SGD。实验证明两个向量加起来最后起到的效果最好。后面英文的词向量用的是GloVe模型在大量的Twitter文本上训练的100维度的词向量，中文微博词向量是200维度的词向量。
+循环神经网络（Recurrent Neural Networks， RNN）已经在众多自然语言处理任务上取得了巨大成功。不同于传统的前向反馈神经网络的同层节点无连接层于层之间节点有连接，循环神经网络引入了定向循环，可以处理序列数据。RNN中最大的缺陷是后面时间的节点对于前面节点的感知力下降，当网络深时训练效果下降。LSTM可以解决这一问题，目前LSTM是RNN中使用最广泛最成功的模型。Rocktaschel\citeup{rocktaschel2015reasoning}在2016年在句子之间的文本蕴含识别（Recognizing textual entailment，RTE）的研究中提出了条件编码的思想，其论证了在文本含义识别任务上，条件编码比单独编码更能抽取两个句子之间的信息。结合文本立场分析的也有文本和目标需要同时考虑特点，把借鉴条件编码的思想来解决文本立场分析的任务,用编码主题目标信息作为"先验知识"来指导立场分析中的文本信息的编码。结合文本立场分析语料中主题目标信息只包含少量信息，而立场分析中文本包含绝大部分信息的特点，提出一种用单向与双向长短期记忆网络分别编码主题目标信息与文本信息的改进模型。
 
 \BiSubsection{长短期记忆神经网络模型}{Layouts of illustrations}
 由于文本序列的通常具有较长的长度，导致神经网络的层数较多，而传统的递归神经网络解决序列问题经常会出现梯度消失的问题（vanishing gradient problem）与梯度爆炸问题（gradient exploding problem）。梯度消失问题和梯度爆炸问题一般随着网络层数的增加会变得越来越明显。出现的原因在于对神经网络参数进行链式求导的过程中，输出对于前面递归神经参数的倒数随着累乘激活函数的导数而接近于0，以下图的反向传播为例（假设每一层只有一个神经元且对于每一层$y_i=\sigma(z_i)=\sigma(w_ix_i+b_i)$，其中$\sigma$为sigmoid函数）
@@ -46,7 +32,7 @@ GloVe每个词涉及到两个词向量，一个词语本身的向量$w_i$，一�
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width = 0.6\textwidth]{lstm_unit.png}
+	\includegraphics[width = 0.5\textwidth]{lstm_unit.png}
 	\caption[rnn_vanish]{LSTM单元结构}
 \end{figure}
 
@@ -73,10 +59,8 @@ Rocktaschel\citeup{rocktaschel2015reasoning}等在句子之间的文本蕴含识
 
 如上图图表示所示“A wedding party taking pictures”作为我们的Text文本，“Someone got married”作为我们的Hypothesis，其中$c_5$作为前一个LSTM的记忆体状态被当做编码Hypothesis的初始记忆状态。两个LSTM具体的状态转移公式如下：
 \begin{equation}\label{lstm_f}[h_1~c_1] = LSTM^{Text}(x_1,h_0,c_0)\end{equation}
-$$...$$
 \begin{equation}\label{lstm_f}[h_T~c_T] = LSTM^{Text}(x_1,h_{T-1},c_{T-1})\end{equation}
 \begin{equation}\label{lstm_f}[h_{T+1}~c_{T+1}] = LSTM^{Hypothesis}(x_1,h_0,c_T)\end{equation}
-$$...$$
 \begin{equation}\label{lstm_f}[h_{N}~c_{N}] = LSTM^{Hypothesis}(x_1,h_{N-1},c_{N-1})\end{equation}
 \begin{equation}\label{lstm_f}c=tanh(Wh_N)\end{equation}
 其中$(x_1...x_T)$为Text的序列消息，$(x_{T+1}...x_N)$为Hypothesis的序列信息。$h_0,c_0$为LSTM的初始化向量。
@@ -93,7 +77,7 @@ $$...$$
 
 目标的文本主题有关“深圳禁摩限电”的主题的，而从微博文本“支持深圳交警，电单车继续治理”中，我们可以知道微博的作者首先是赞同了深圳交警的行为，然后叙述了电单车需要得到继续的整治，从两个方法肯定了“深圳禁摩限电”这个主题目标的，因此给出的类标是“Favor”也就是持支持目标主题的立场。
 
-例1:目标主题文本:“Hillary Clinton” Twitter文本:“Hopefully Hillary Clinton gets cancer and dies before she gets the opportunity to embarrass our country any further”，立场分析类标“Against”（持反对立场）。
+例2:目标主题文本:“Hillary Clinton” Twitter文本:“Hopefully Hillary Clinton gets cancer and dies before she gets the opportunity to embarrass our country any further”，立场分析类标“Against”（持反对立场）。
 
 译文:“真希望希拉里克林顿得癌症然后死去，这样她就不再会有机会再让我们国家蒙羞了。”
 
@@ -105,24 +89,18 @@ $$...$$
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width = 0.85\textwidth]{conditional_encode_lstm3.png}
-	\caption[rnn_vanish]{条件编码长短期记忆}
+	\includegraphics[width = 1.0\textwidth]{conditional.pdf}
+	\caption[rnn_vanish]{基于条件编码长短期记忆的社交媒体立场分析}
 \end{figure}
 
 模型的具体公式如下。
 
 \begin{equation}\label{lstm_f}[h_1~c_1] = LSTM^{target}(t_1,h_0,c_0)\end{equation}
-$$...$$
 \begin{equation}\label{lstm_f}[h_M~c_M] = LSTM^{target}(t_1,h_{M-1},c_{M-1})\end{equation}
-
 \begin{equation}\label{lstm_f}[h^{→}_{1}~c^{→}_{1}] = LSTM^{→}(x_1,h_0,c_T)\end{equation}
-$$...$$
 \begin{equation}\label{lstm_f}[h^{→}_{N}~c^{→}_{N}] = LSTM^{→}(x_n,h^{→}_{N-1},c^{→}_{N-1})\end{equation}
-
 \begin{equation}\label{lstm_f}[h^{←}_{N}~c^{←}_{N}] = LSTM^{←}(x_n,h_0,c_T)\end{equation}
-$$...$$
 \begin{equation}\label{lstm_f}[h^{←}_{1}~c^{←}_{1}] = LSTM^{←}(x_1,h^{←}_{2},c^{←}_{2})\end{equation}
-
 \begin{equation}\label{lstm_f}c_i=Softmax(W[h^{→}_n~h^{←}_1])\end{equation}
 
 其中$M$为主题目标的文本长度，$N$为微博或Twiiter的文本长度。$LSTM$单向编码主题目标，$LSTM^{→}$为前向编码文本信息，$LSTM^{←}$为后向编码文本信息，$h_0$为LSTM的初始化向量，$C_T$为$LSTM$主题目标编码的最后一个Cell状态，$h^{←}_{1},h^{→}_{N}$分别为前向和后向编码的最后一个隐藏状态。
@@ -310,18 +288,90 @@ FN：正样例预测为负样例的个数。
 	\end{tabular}
 \end{table}
 
-在文本立场分析中，主题目标信息对文本立场分析有较大的影响。首先在文本立场分析的定义上，任何文本在其主题目标未定义清楚前，其文本立场是无法决策的。单独的文本其本身只有情感分析而无立场分析，因此本文以此为出发点，为论证在立场分析中，合理利用主题目标的信息能提高立场分析的性能，设计了以下模型。
+为了验证提出的条件编码LSTM模型的有效性和不足，以下通过实验结果对比其他研究人员在文本研究中模型。由于两个数据集来源于不同的评测任务，因此分别从SemEval2016英文数据集和NLPCC2016中文数据集挑选出较好系统和本章提出的条件编码LSTM进行比较。
+
+在SemEval数据集合上，引入以下模型是作为对比模型。
+
+（1）MITRE \citeup{zarrella2016mitre}， SemEval2016 Twitter立场分析评测任务第一名，收集大量的无标注数据。通过分析筛选出多个\#话题标签，建立LSTM模型去预测文本的标签。先训练预测标签的模型，而后在预训练好的模型上做立场分析的任务上的微调，此模型基于大量无标注样本的迁移学习，需要大量无标注任务和手工筛选特别话题标签。
+
+（2）TakeLab \citeup{tutek2016takelab}  SemEval2016 Twitter立场分析评测参赛模型，融合了随机森林，逻辑回归，支持向量机等多种机器学习的集成学习方法，各模型利用大量人工构造的特征。
+
+（3）ECNU\citeup{zhang2016ecnu}  SemEval2016 Twitter立场分析评测华东师范大学参赛模型，采用了传统语义特征、主题目标特征、相似性特征、情感字典特征、主题模型特征和词向量特征的特征工程的传统机器学习方法。
+
+（4） BiText-On-Target本章出的基于主题目标的条件的双向LSTM文本编码模型。
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width = 1.0\textwidth]{chart_semeval_best_model.png}
+	\caption[rnn_vanish]{模型在SemeEval2016各主题目标平均F1值分布}
+	\label{chart_semeval_best_model}
+\end{figure}
+四个模型在SemeEval2016的各主题目标下单个平均F1值如图~\ref{chart_semeval_best_model}~所示。所以模型在”Climate Change is a Real Concern“主题目标上的性能都较差，没有一个模型的性能超过了0.43的平均F1值。数据类标分布极度不平均，训练集与测试集分布差异大的问题的问题影响了所有模型，4个模型都没克服这个缺陷。基于特征工程的TakeLab和ECNU模型对“Legal of Abortion”主题目标的性能相对较好，基于深度学习的MITRE模型和BiText-On-Target模型相对较差，在此主题目标下，基于统计的特征具有更好的立场分析区分度。TakeLab在“Atheism”和“Hillary Clinton”主题目标的效果远高于其他模型，原因是其运用了集成随机森林，逻辑回归，支持向量机等多种分类器，模型相对强健。BiText-On-Target模型在所有的主题目标下都拥有相对稳定的效果，虽然没在任意主题目标取得最好的立场分析效果，但所有主题目标的效果都不是很差，相对于其他三个模型更加稳定和强健。
+
+上述模型在SemEval数据集下的综合”支持“和”反对“的F1值和总体微平均F1值的性能如下表~\ref{semeval_res}~所示
+
+评测最好的模型MITRE的的微平均F1值为0.678，本章提出的模型BiText-On-Target取得了0.671的平均F1值，此模型在评测中取得3（20）的成绩。虽然模型的性能比MITRE的相比低了0.007，但MITRE需要大量的无标注数据，TakeLab模型虽然在某些主题目标下取得较好的F1平均值，但是对于总体的“支持”和“反对”立场微平均F1值的效果不如BiText-On-Target模型。
+
+\begin{table}[htbp]
+	\caption[table123]{各模型在立场分析测试集中的性能表现（SemEval 数据集）}
+	\vspace{0.5em}\centering\wuhao
+	\label{semeval_res}
+	\begin{tabular}{cccccccc}
+		\toprule[1.5pt]
+		主题目标& $F_{favor}$&$F_{against}$&$F_{average}$ \\
+		\midrule[1pt]
+		MITRE\citeup{zarrella2016mitre}&0.5932&0.7633&0.6782\\
+		TakeLab\citeup{tutek2016takelab} &0.6093&0.7273&0.6683\\
+		ECNU\citeup{zhang2016ecnu}&0.6055&0.7054&0.6555\\
+		BiText-On-Target&0.6112&0.7314&0.6713\\
+		\bottomrule[1.5pt]
+	\end{tabular}
+\end{table}
+
+
+
+上述统计说明模型在SemEval英文数据的性能，以下将在NLPCC2016中文数据集对比评测中的模型，对比的模型如下所示
+
+（1）RUC-MMC \citeup{xu2016overview}NLPCC2016 立场分析评测任务第一名，提取同义词，TF-IDF，n-gram等作为特征结合支持向量机和随机森林分类器。
+
+（2）Top-Team \citeup{xu2016overview}NLPCC2016立场分析评测任务参赛模型，为每个主题目标抽取分类关键词字典。
+
+（3） BiText-On-Target 本章提出的基于主题目标的条件的双向LSTM文本编码模型。
+
+三个模型在SemeEval2016的各主题目标下单个平均F1值如图~\ref{chart_nlpcc_best_model}~所示。本章节提出的BiText-On-Target模型在“春节放鞭炮”主题目标下取得了最好的0.75的平均F1值，RUC-MCC模型春节放鞭炮以外在其他主题模型上均有不错的性能，基于提取每个主题目标的关键字典的Top-Team在“深圳禁摩限电”主题目标上取得最好的0.794平均F1值。三个模型都有自己擅长的分析的主题目标，没有哪个模型能在所有主题目标中取得最好的指标。
+
+上述模型在NLPCC数据集下的综合“支持”和“反对”的F1值和总体微平均F1值的性能如下表~\ref{nlpcc_res}~所示。
+\begin{table}[htbp]
+	\caption[table123]{对比模型在立场分析测试集中的性能表现（NLPCC 数据集）}
+	\label{nlpcc_res}
+	\vspace{0.5em}\centering\wuhao
+	\begin{tabular}{cccccccc}
+		\toprule[1.5pt]
+		主题目标& $F_{favor}$&$F_{against}$&$F_{average}$ \\
+		\midrule[1pt]
+		RUC-MMC\citeup{xu2016overview}&0.6969&0.7243&0.7106\\
+		Top-Team\citeup{xu2016overview}&0.6601&0.7186&0.6894\\
+		BiText-On-Target&0.6761&0.7158&0.6984\\
+		\bottomrule[1.5pt]
+	\end{tabular}
+\end{table}
+
+本章提出的基于条件编码BiText-On-Target模型在NLPCC2016数据集上取得总微平均F1性能第二名，在不需要外部收集语料与手工设计特征的前提下，条件编码模型性能已经接近评测最佳系统，表明本章提出基于条件编码BiText-On-Target模型的有效性。但是其性能和基于特征工程的RUC-MMC还有少了0.012差距，因此模型在立场分析建模上还有些许的不足，后续也可在此模型的基础上，更深入研究文本立场分析的问题。
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width = 1.0\textwidth]{chart_nlpcc_best_model.png}
+	\caption[rnn_vanish]{对比模型在NLPCC2016各主题目标平均F1值分布}
+	\label{chart_nlpcc_best_model}
+\end{figure}
+
+在文本立场分析中，主题目标信息对文本立场分析有较大的影响。首先在文本立场分析的定义上，任何文本在其主题目标未定义前，其文本立场是无法决策的。因此本文以此为出发点，为表明基于条件编码是否能合适的引入主题目标信息来提高立场分析的效果，设计了以下模型进行论证。
 
 用单向LSTM直接编码文本Text信息，不引入主题目标信息，以下简称\textbf{Text-Only}。
 
 
 用两个不同LSTM模型分别编码主题目标Target和文本Text信息，两个LSTM独立编码各自的信息，最后拼接两者的编码向量作为最后参与分类的特征向量，以下简称\textbf{Text-Target}。
 
-用两个不同LSTM模型分别编码主题目标Target和文本Text信息，对主题目标Target最后LSTM模型的记忆单元（Cell）状态做为对文本编码LSTM模型的初始状态，构成以主题目标Target为条件的Text文本编码，取Text编码LSTM的最后一个隐状态作为最后的特征向量，以下简称\textbf{Text-on-Target}。
-
-针对立场分析数据的特点，主题目标所包含的信息相对有限，而文本包含绝大部分信息的特点。改进了条件编码的模型，与Text-on-Target相同用单向的LSTM编码主题目标信息，为了充分提取文本的信息，采用双向LSTM模型来提取文本的信息，类似于Text-on-Target的做法，编码文本的双向LSTM模型的记忆单元来自于对主题目标编码的LSTM的最后记忆单元状态，以下简称\textbf{BiText-on-Target}。
-
-首先为了初步验证主题目标的信息对立场分析是否具有提升作用，通过对比Text-Only和Text-Target模型的性能可以初步得出主题目标的信息对立场分析是否有促进作用，然后为了进一步说明条件编码LSTM模型是否能跟好的利用主题目标的消息参与对文本的编码，设计了Text-Target模型和Text-on-Target模型的对比实验。最后为了对比我们改进过了的条件编码BiText-on-Target模型是否能更好编码文本信息，设计了Text-on-Target模型和BiText-on-Target模型的对比实验。各模型的方式建立基础如表~\ref{model_list}~所示。
 \begin{table}[htbp]
 	\caption[table123]{模型比较}
 	\label{model_list}
@@ -337,11 +387,17 @@ FN：正样例预测为负样例的个数。
 		\bottomrule[1.5pt]
 	\end{tabular}
 \end{table}
+用两个不同LSTM模型分别编码主题目标Target和文本Text信息，对主题目标Target最后LSTM模型的记忆单元（Cell）状态做为对文本编码LSTM模型的初始状态，构成以主题目标Target为条件的Text文本编码，取Text编码LSTM的最后一个隐状态作为最后的特征向量，以下简称\textbf{Text-on-Target}。
+
+针对立场分析数据的特点，主题目标所包含的信息相对有限，而文本包含绝大部分信息的特点。改进了条件编码的模型，与Text-on-Target相同用单向的LSTM编码主题目标信息，为了充分提取文本的信息，采用双向LSTM模型来提取文本的信息，类似于Text-on-Target的做法，编码文本的双向LSTM模型的记忆单元来自于对主题目标编码的LSTM的最后记忆单元状态，以下简称\textbf{BiText-on-Target}。
+
+首先为了初步验证主题目标的信息对立场分析是否具有提升作用，通过对比Text-Only和Text-Target模型的性能可以初步得出主题目标的信息对立场分析是否有促进作用，然后为了进一步说明条件编码LSTM模型是否能跟好的利用主题目标的消息参与对文本的编码，设计了Text-Target模型和Text-on-Target模型的对比实验。最后为了对比我们改进过了的条件编码BiText-on-Target模型是否能更好编码文本信息，设计了Text-on-Target模型和BiText-on-Target模型的对比实验。各模型的方式建立基础如表~\ref{model_list}~所示。
+
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width = 1.0\textwidth]{chart_seme_condi.png}
-	\caption[rnn_vanish]{模型各主题目标性能分析}
+	\caption[rnn_vanish]{对比模型在各主题目标性能分析}
 	\label{semeval_model_char}
 \end{figure}
 
@@ -394,84 +450,8 @@ FN：正样例预测为负样例的个数。
 
 对比Text-On-Target模型和BiText-On-Target模型在各数据集上的表现， BiText-On-Target在英文数据集上取得0.6712的微平均F1值，Text-On-Target模型取得了0.668的的F1值。BiText-On-Target在英文数据集上比Text-On-Target高出0.003的微平均F1值，因此在英文数据上双向LSTM模型编码文本信息比单向LSTM模型更好，这点由于双向LSTM有更好的提取文体特征的能力。但在中文数据集合上，Bi-Text-On-Target比Text-On-Target模型高出0.002。双向的LSTM模型不管对中文还是英文的文本的建模能力更强。基于主题目标信息条件双向的LSTM编码模型在四个模型中的性能最高。
 
-上述实验论证以合适的方式引入主题目标信息可以提升文本立场分析的性能，为了验证提出的条件编码LSTM模型的有效性和不足，以下通过实验结果对比其他研究人员在文本研究中模型。由于两个数据集来源于不同的评测任务，因此分别从SemEval2016英文数据集和NLPCC2016中文数据集挑选出较好系统和本章提出的条件编码LSTM进行比较。
-
-在SemEval数据集合上，引入以下模型是作为对比模型。
-
-（1）MITRE \cite{zarrella2016mitre}， SemEval2016 Twitter立场分析评测任务第一名，收集大量的无标注数据。通过分析筛选出多个\#话题标签，建立LSTM模型去预测文本的标签。先训练预测标签的模型，而后在预训练好的模型上做立场分析的任务上的微调，此模型基于大量无标注样本的迁移学习，需要大量无标注任务和手工筛选特别话题标签。
-
-（2）TakeLab \cite{tutek2016takelab}  SemEval2016 Twitter立场分析评测参赛模型，融合了随机森林，逻辑回归，支持向量机等多种机器学习的集成学习方法，各模型利用大量人工构造的特征。
-
-（3）ECNU\cite{zhang2016ecnu}  SemEval2016 Twitter立场分析评测华东师范大学参赛模型，采用了传统语义特征、主题目标特征、相似性特征、情感字典特征、主题模型特征和词向量特征的特征工程的传统机器学习方法。
-
-（4） BiText-On-Target本章出的基于主题目标的条件的双向LSTM文本编码模型。
-
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width = 1.0\textwidth]{chart_semeval_best_model.png}
-	\caption[rnn_vanish]{模型在SemeEval2016各主题目标平均F1值分布}
-	\label{chart_semeval_best_model}
-\end{figure}
-四个模型在SemeEval2016的各主题目标下单个平均F1值如图~\ref{chart_semeval_best_model}~所示。所以模型在”Climate Change is a Real Concern“主题目标上的性能都较差，没有一个模型的性能超过了0.43的平均F1值。数据类标分布极度不平均，训练集与测试集分布差异大的问题的问题影响了所有模型，4个模型都没克服这个缺陷。基于特征工程的TakeLab和ECNU模型对“Legal of Abortion”主题目标的性能相对较好，基于深度学习的MITRE模型和BiText-On-Target模型相对较差，在此主题目标下，基于统计的特征具有更好的立场分析区分度。TakeLab在“Atheism”和“Hillary Clinton”主题目标的效果远高于其他模型，原因是其运用了集成随机森林，逻辑回归，支持向量机等多种分类器，模型相对强健。BiText-On-Target模型在所有的主题目标下都拥有相对稳定的效果，虽然没在任意主题目标取得最好的立场分析效果，但所有主题目标的效果都不是很差，相对于其他三个模型更加稳定和强健。
-
-上述模型在SemEval数据集下的综合”支持“和”反对“的F1值和总体微平均F1值的性能如下表~\ref{semeval_res}~所示
-
-评测最好的模型MITRE的的微平均F1值为0.678，本章提出的模型BiText-On-Target取得了0.671的平均F1值，此模型在评测中取得3（20）的成绩。虽然模型的性能比MITRE的相比低了0.007，但MITRE需要大量的无标注数据，TakeLab模型虽然在某些主题目标下取得较好的F1平均值，但是对于总体的“支持”和“反对”立场微平均F1值的效果不如BiText-On-Target模型。
-
-\begin{table}[htbp]
-	\caption[table123]{各模型在立场分析测试集中的性能表现（SemEval 数据集）}
-	\vspace{0.5em}\centering\wuhao
-	\label{semeval_res}
-	\begin{tabular}{cccccccc}
-		\toprule[1.5pt]
-		主题目标& $F_{favor}$&$F_{against}$&$F_{average}$ \\
-		\midrule[1pt]
-		MITRE\citeup{zarrella2016mitre}&0.5932&0.7633&0.6782\\
-		TakeLab\citeup{tutek2016takelab} &0.6093&0.7273&0.6683\\
-		ECNU\citeup{zhang2016ecnu}&0.6055&0.7054&0.6555\\
-		BiText-On-Target&0.6112&0.7314&0.6713\\
-		\bottomrule[1.5pt]
-	\end{tabular}
-\end{table}
-
-上述统计说明模型在SemEval英文数据的性能，以下将在NLPCC2016中文数据集对比评测中的模型，对比的模型如下所示
-
-（1）RUC-MMC \citeup{xu2016overview}NLPCC2016 立场分析评测任务第一名，提取同义词，TF-IDF，n-gram等作为特征结合支持向量机和随机森林分类器。
-
-（2）Top-Team \citeup{xu2016overview}NLPCC2016立场分析评测任务参赛模型，为每个主题目标抽取分类关键词字典。
-
-（3） BiText-On-Target 本章提出的基于主题目标的条件的双向LSTM文本编码模型。
-
-三个模型在SemeEval2016的各主题目标下单个平均F1值如图~\ref{chart_nlpcc_best_model}~所示。
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width = 1.0\textwidth]{chart_nlpcc_best_model.png}
-	\caption[rnn_vanish]{模型在NLPCC2016各主题目标平均F1值分布}
-	\label{chart_nlpcc_best_model}
-\end{figure}
-
-本章节提出的BiText-On-Target模型在“春节放鞭炮”主题目标下取得了最好的0.75的平均F1值，RUC-MCC模型春节放鞭炮以外在其他主题模型上均有不错的性能，基于提取每个主题目标的关键字典的Top-Team在“深圳禁摩限电”主题目标上取得最好的0.794平均F1值。三个模型都有自己擅长的分析的主题目标，没有哪个模型能在所有主题目标中取得最好的指标。
-
-上述模型在NLPCC数据集下的综合“支持”和“反对”的F1值和总体微平均F1值的性能如下表~\ref{nlpcc_res}~所示。
-\begin{table}[htbp]
-	\caption[table123]{各模型在立场分析测试集中的性能表现（NLPCC 数据集）}
-	\label{nlpcc_res}
-	\vspace{0.5em}\centering\wuhao
-	\begin{tabular}{cccccccc}
-		\toprule[1.5pt]
-		主题目标& $F_{favor}$&$F_{against}$&$F_{average}$ \\
-		\midrule[1pt]
-		RUC-MMC\citeup{xu2016overview}&0.6969&0.7243&0.7106\\
-		Top-Team\citeup{xu2016overview}&0.6601&0.7186&0.6894\\
-		BiText-On-Target&0.6761&0.7158&0.6984\\
-		\bottomrule[1.5pt]
-	\end{tabular}
-\end{table}
-
-本章提出的BiText-On-Target模型的性能可在NLPCC2016数据集上取得总微平均F1性能第二名，表明本章提出的BiText-On-Target模型是有效的，但是其性能和基于特征工程的RUC-MMC还有少了0.012差距，因此模型在立场分析建模上还有些许的不足，后续也可在此模型的基础上，更深入研究文本立场分析的问题。
-
-
+通过上述在中英文对比实验可知，相对于只对于只考虑文本信息,直接拼接主题目标信息与文本信息不能提高文本立场分析的性能。条件编码能更合理的引入主题目标信息来编码文本信息，提高文本立场分析的性能。根据立场分析语料特点，改进的条件编码方式能更一步提高文本立场分析的性能。
 
 \BiSection{本章小结}{}
-本章介绍了基于条件编码LSTM模型的文本立场分析上的工作，受条件编码在文本蕴含任务上性能突破，将条件编码模型引入到文本立场分析任务。本章也简介了下SemEval2016和NLPCC2016两个社交媒体数据集，且说明评测的指标。对于立场分析中主题目标信息是否能促进文本立场分析的性能进行了探究，在两个数据集上设计了多组对比实验，实验证明以独立编码融合主题目标信息和文本信息的模型和直接单独编码文本信息的模型性能差距不大，而以条件编码融合主题目标信息和文本信息能提高文本立场分析的性能，得出以合适的方式引入主题目标信息对文本立场分析有促进作用，结合文本立场分析的特点，改进了条件编码模型，在两个数据集上的性能都优于原有模型，最好在中英文数据集上取得微平均F1值分别为0.698和0.671。通过对比两个数据集其他模型，条件编码LSTM模型均有不错的效果，表明本章提出的模型的有效性。
+本章介绍了基于条件编码LSTM模型的文本立场分析上的工作，受条件编码在文本蕴含任务上性能突破，将条件编码模型引入到文本立场分析任务。本章也简介了下SemEval2016和NLPCC2016两个社交媒体数据集，且说明评测的指标。对于立场分析中主题目标信息是否能促进文本立场分析的性能进行了探究，在两个数据集上设计了多组对比实验，实验证明以独立编码融合主题目标信息和文本信息的模型和直接单独编码文本信息的模型性能差距不大，而以条件编码融合主题目标信息和文本信息能提高文本立场分析的性能，得出以合适的方式引入主题目标信息对文本立场分析有促进作用，结合文本立场分析的特点，改进了条件编码模型，在两个数据集上的性能都优于原有模型，最后在中英文数据集上取得微平均F1值分别为0.698和0.671。通过对比数据集其他模型，条件编码LSTM模型均有不错的效果，表明本章提出的基于条件编码LSTM模型的有效性。
 

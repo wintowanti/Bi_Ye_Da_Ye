@@ -50,33 +50,12 @@
   \bibvolume{37}\bibnumber{(2)}\thinspace{}\textnormal{:
   }\bibpages{267\thinspace{}\textnormal{--}\thinspace{}307}\@.
 
-\bibitem{agarwal2015sentiment}
-\bibauthor{Agarwal B\@, Mittal N\@, Bansal P, et~al}\@. \bibtitle{Sentiment
-  analysis using common-sense and context information}\bibmark{[J]}\@.
-  \bibjournal{Computational intelligence and neuroscience}\@, \bibyear{2015}\@,
-  \bibvolume{2015}\thinspace{}\textnormal{: }\bibpages{30}\@.
-
-\bibitem{tromp2015pattern}
-\bibauthor{Tromp E\@, Pechenizkiy M}\@. \bibtitle{Pattern-based emotion
-  classification on social media}\bibmark{[G]}
-  //\thinspace{}\bibbooktitle{Advances in Social Media Analysis}\@.
-  \bibaddress{[S.l.]}\thinspace{}\textnormal{: }\bibpublisher{Springer}\@,
-  \bibyear{2015}\thinspace{}\textnormal{:
-  }\bibpages{1\thinspace{}\textnormal{--}\thinspace{}20}\@.
-
 \bibitem{abbasi2008affect}
 \bibauthor{Abbasi A\@, Chen H\@, Thoms S, et~al}\@. \bibtitle{Affect analysis
   of web forums and blogs using correlation ensembles}\bibmark{[J]}\@.
   \bibjournal{IEEE Transactions on Knowledge and Data Engineering}\@,
   \bibyear{2008}\@, \bibvolume{20}\bibnumber{(9)}\thinspace{}\textnormal{:
   }\bibpages{1168\thinspace{}\textnormal{--}\thinspace{}1180}\@.
-
-\bibitem{keshtkar2012hierarchical}
-\bibauthor{Keshtkar F\@, Inkpen D}\@. \bibtitle{A hierarchical approach to mood
-  classification in blogs}\bibmark{[J]}\@. \bibjournal{Natural Language
-  Engineering}\@, \bibyear{2012}\@,
-  \bibvolume{18}\bibnumber{(1)}\thinspace{}\textnormal{:
-  }\bibpages{61\thinspace{}\textnormal{--}\thinspace{}81}\@.
 
 \bibitem{mohammad2012portable}
 \bibauthor{Mohammad S}\@. \bibtitle{Portable features for classifying emotional
@@ -113,22 +92,6 @@
 \bibauthor{Kim Y}\@. \bibtitle{Convolutional neural networks for sentence
   classification}\bibmark{[C]} //\thinspace{}\bibbooktitle{In EMNLP}\@.
   \bibyear{2014}\@.
-
-\bibitem{梁2015基于极性转移和}
-\bibauthor{梁军\@, 柴玉梅\@, 原慧斌, et~al}\@.
-  \bibtitle{基于极性转移和 LSTM
-  递归网络的情感分析}\bibmark{[J]}\@.
-  \bibjournal{中文信息学报}\@, \bibyear{2015}\@,
-  \bibvolume{29}\bibnumber{(5)}\thinspace{}\textnormal{:
-  }\bibpages{152\thinspace{}\textnormal{--}\thinspace{}160}\@.
-
-\bibitem{tang2015deep}
-\bibauthor{Tang D\@, Qin B\@, Liu T}\@. \bibtitle{Deep learning for sentiment
-  analysis: successful approaches and future challenges}\bibmark{[J]}\@.
-  \bibjournal{Wiley Interdisciplinary Reviews: Data Mining and Knowledge
-  Discovery}\@, \bibyear{2015}\@,
-  \bibvolume{5}\bibnumber{(6)}\thinspace{}\textnormal{:
-  }\bibpages{292\thinspace{}\textnormal{--}\thinspace{}303}\@.
 
 \bibitem{xu2015show}
 \bibauthor{Xu K\@, Ba J\@, Kiros R, et~al}\@. \bibtitle{Show, attend and tell:
@@ -281,6 +244,13 @@
   \bibyear{2012}\thinspace{}\textnormal{:
   }\bibpages{410\thinspace{}\textnormal{--}\thinspace{}419}\@.
 
+\bibitem{pang2004sentimental}
+\bibauthor{Pang B\@, Lee L}\@. \bibtitle{A sentimental education: Sentiment
+  analysis using subjectivity summarization based on minimum cuts}\bibmark{[C]}
+  //\thinspace{}\bibbooktitle{Proceedings of the 42nd annual meeting on
+  Association for Computational Linguistics}\@.
+  \bibyear{2004}\thinspace{}\textnormal{: }\bibpages{271}\@.
+
 \bibitem{wang2012baselines}
 \bibauthor{Wang S\@, Manning C~D}\@. \bibtitle{Baselines and bigrams: Simple,
   good sentiment and topic classification}\bibmark{[C]}
@@ -289,13 +259,6 @@
   \bibyear{2012}\thinspace{}\textnormal{:
   }\bibpages{90\thinspace{}\textnormal{--}\thinspace{}94}\@.
 
-\bibitem{pang2004sentimental}
-\bibauthor{Pang B\@, Lee L}\@. \bibtitle{A sentimental education: Sentiment
-  analysis using subjectivity summarization based on minimum cuts}\bibmark{[C]}
-  //\thinspace{}\bibbooktitle{Proceedings of the 42nd annual meeting on
-  Association for Computational Linguistics}\@.
-  \bibyear{2004}\thinspace{}\textnormal{: }\bibpages{271}\@.
-
 \bibitem{socher2010learning}
 \bibauthor{Socher R\@, Manning C~D\@, Ng A~Y}\@. \bibtitle{Learning continuous
   phrase representations and syntactic parsing with recursive neural
@@ -303,6 +266,20 @@
   NIPS-2010 Deep Learning and Unsupervised Feature Learning Workshop}\@.
   \bibyear{2010}\thinspace{}\textnormal{:
   }\bibpages{1\thinspace{}\textnormal{--}\thinspace{}9}\@.
+
+\bibitem{Tang2014Learning}
+\bibauthor{Tang D\@, Wei F\@, Yang N, et~al}\@. \bibtitle{Learning
+  Sentiment-Specific Word Embedding for Twitter Sentiment
+  Classification.}\bibmark{[C]} //\thinspace{}\bibbooktitle{ACL (1)}\@.
+  \bibyear{2014}\thinspace{}\textnormal{:
+  }\bibpages{1555\thinspace{}\textnormal{--}\thinspace{}1565}\@.
+
+\bibitem{Collobert2011Natural}
+\bibauthor{Collobert R\@, Weston J\@, Bottou L, et~al}\@. \bibtitle{Natural
+  language processing (almost) from scratch}\bibmark{[J]}\@.
+  \bibjournal{Journal of Machine Learning Research}\@, \bibyear{2011}\@,
+  \bibvolume{12}\bibnumber{(Aug)}\thinspace{}\textnormal{:
+  }\bibpages{2493\thinspace{}\textnormal{--}\thinspace{}2537}\@.
 
 \bibitem{anand2011cats}
 \bibauthor{Anand P\@, Walker M\@, Abbott R, et~al}\@. \bibtitle{Cats rule and
@@ -353,7 +330,7 @@
   }\bibpages{893\thinspace{}\textnormal{--}\thinspace{}900}\@.
 
 \bibitem{rocktaschel2015reasoning}
-\bibauthor{Rockt?schel T\@, Grefenstette E\@, Hermann K~M, et~al}\@.
+\bibauthor{Rocktschel T\@, Grefenstette E\@, Hermann K~M, et~al}\@.
   \bibtitle{Reasoning about Entailment with Neural Attention}\bibmark{[J]}\@,
   \bibyear{2015}\@.
 

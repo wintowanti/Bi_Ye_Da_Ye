@@ -35,17 +35,17 @@
 \BiAppendixChapter{摘~~~~要}{}
 \fi
 \cabstract{
-随着互联网与移动互联网的飞速发展和多样化网络交流软件的普及使用，越来越多的网络用户可随时随地浏览热点新闻报道，与此同时在微博、Twitter和知乎等平台上围绕各种新闻报道与热点社会事件等话题发表自己的观点和表达自己的立场与情绪。用户针对具体对象和事件的立场态度对商业机构与政府机关决策具有重大的价值。现有的文本情感分析只对文本本身做出正负极性分析，无法深入挖掘文本作者对特定主题目标的立场倾向，而在一些应用场景下，关注更多的是文本立场倾向而不是文本情感。因此，针对特定主题目标的社交媒体文本立场分析研究具有巨大的研究价值与商业价值。
+随着互联网与移动互联网的飞速发展和多样化网络交流软件的普及使用，越来越多的网络用户可随时随地浏览热点新闻报道，与此同时在微博、Twitter和知乎等平台上围绕各种新闻报道与热点社会事件等话题发表自己的观点和表达自己的立场与情绪。用户针对具体对象和事件的立场态度对商业机构与政府机关决策具有重大的价值。现有的文本情感分析通常只对文本本身做出正负极性分析，无法深入挖掘文本作者对特定主题目标的立场倾向，而在一些应用场景下，关注更多的是文本立场倾向而不是文本情感。因此，针对特定主题目标的社交媒体文本立场分析研究具有巨大的研究价值与商业价值。
 
-针对现有文本立场分析缺乏考虑主题目标信息的问题，本文提出一种以条件编码的方式结合主题目标信息与文本信息的文本立场分析方法。通过设计对比实验，表明以条件编码的方式引入主题目标信息能显著提高文本立场分析的性能，并结合文本立场分析的特点，改进了条件编码模型，SemEval2016英文数据集和NLPCC2016中文数据集的微平均F1值分别为0.671与0.698，在不需要外部收集语料与手工设计特征的前提下，条件编码模型性能已经接近最佳评测结果。
+针对现有文本立场分析缺乏考虑主题目标信息的问题，本文提出一种以条件编码的方式结合主题目标信息与文本信息的文本立场分析方法。用编码主题目标信息作为"先验知识"来指导立场分析中的文本信息的编码。结合文本立场分析语料的特点，改进了条件编码模型。通过设计对比实验，表明以条件编码的方式引入主题目标信息能显著提高文本立场分析的性能，改进后的模型在SemEval2016英文数据集和NLPCC2016中文数据集的微平均F1值分别为0.671与0.698，在不需要外部收集语料与手工设计特征的前提下，条件编码模型性能已经接近最佳评测结果。
 
-基于主题目标对文本信息内容有着不同的侧重点的特性，本文将文本立场分析中主题目标信息作为注意力机制的导向，给予文本信息不同权重的关注度，并在已授予不同关注度上文本信息中挖掘立场分析的模式。通过设计对比实验，表明条件编码与注意力机制方式在不同主题目标任务下各有优劣，因此本文提出融合两者的模型。融合后的模型在SemEval英文数据集和NLPCC中文数据的微平均F1值分别为0.689与0.716，对比两个数据集评测任务的最优系统，微平均F1值分别提高了1.08\%和0.61\%。实验表明融合条件编码与注意力机制的神经网络模型在社交媒体文本立场分析任务上的有效性。
+由于主题目标对文本信息内容有着不同的侧重点的特性，本文将文本立场分析中主题目标信息作为注意力机制的导向，给予文本信息不同权重的关注度，并在其中挖掘立场分析的模式。由于注意力机制与条件编码是从两种不同角度引入主题目标信息，本文提出一种基于融合注意力机制与条件编码神经网络的文本立场分析的方法。通过设计对比实验，表明条件编码与注意力机制方式在不同主题目标任务下各有优劣。融合后的模型在SemEval英文数据集和NLPCC中文数据的微平均F1值分别为0.689与0.716，对比两个数据集评测任务的最优系统，微平均F1值分别提高了1.08\%和0.61\%。实验表明融合注意力机制与条件编码神经网络模型在社交媒体文本立场分析任务上的有效性。
 }
 
 \ckeywords{立场分析；深度学习；条件编码；注意力机制}
 
 \eabstract{
-With the rapid development of the Internet and mobile Internet and the popularity of  network communication software, people express their views and stance about hot social events and other topics. These massive review data has important research value on business intelligence, public opinion analysis, government decision-making field. The existing text sentiment analysis only classify the texts into positive sentiment or negative sentiment, and can not dig deep into the stance of people on specific target. In some applications, more attention is placed on the textual stance rather than textual sentiment Therefore, the research of social media text stance detection on specific target have great social and commercial value.
+With the rapid development of the Internet and mobile Internet and the popularity of  network communication software, people express their views and stance about hot social events and other topics. These massive review data has important research value on business intelligence, public opinion analysis, government decisioen-making field. The existing text sentiment analysis only classify the texts into positive sentiment or negative sentiment, and can not dig deep into the stance of people on specific target. In some applications, more attention is placed on the textual stance rather than textual sentiment Therefore, the research of social media text stance detection on specific target have great social and commercial value.
 
 Aiming at the lack of consideration of the target information in the existing stance detection research, this paper studies a text stance detection method which combines the topic target information and the text information by conditional encoding. Through the design of comparative experiments, it is shown that the combining of  target information and text information by conditional encoding can significantly improve the performance of stance detection. Due to the characteristics of stance detection task, improving the conditional encoding model. In the case of SemEval2016 English dataset and NLPCC2016 Chinese dataset, The average micro F1 values ​​are 0.671 and 0.698, respectively. Conditional coding model performance is close to the best system for evaluation without the need of external corpus collection and manual design features.
 
