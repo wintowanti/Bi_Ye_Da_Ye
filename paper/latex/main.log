@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.10.16)  27 NOV 2017 22:55
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.10.16)  1 DEC 2017 11:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2219,8 +2219,12 @@ LaTeX Font Warning: Font shape `TU/KaiTi(0)/bx/n' undefined
 
 
 ]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\\' on input line 57.
+
 LaTeX Font Info:    Try loading font information for U+msa on input line 57.
- (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 57.
@@ -2400,10 +2404,10 @@ LaTeX Warning: There were multiply-defined labels.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 32798 strings out of 493005
- 619766 string characters out of 6134595
- 690611 words of memory out of 5000000
- 36303 multiletter control sequences out of 15000+600000
+ 32799 strings out of 493005
+ 619771 string characters out of 6134595
+ 690691 words of memory out of 5000000
+ 36304 multiletter control sequences out of 15000+600000
  17570 words of font info for 122 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  57i,13n,78p,10442b,4011s stack positions out of 5000i,500n,10000p,200000b,80000s
