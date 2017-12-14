@@ -61,9 +61,10 @@ class Attention_Bi_LSTM_Condition(torch.nn.Module):
         s = torch.sum((output * Ai), dim=1)
         s = dropout(s)
         output1 = self.fc_target(s)
+        attention_metrix = softmax(ei).view(batch_size, -1, 1)
         output2 = None
         #output1 = self.fc_target1(hn)
-        return output1, output2
+        return output1, attention_metrix
 
 
 

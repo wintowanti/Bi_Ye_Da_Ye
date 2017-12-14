@@ -1,0 +1,61 @@
+% !Mode:: "TeX:UTF-8" 
+%\iffalse
+\newcommand{\chinesethesistitle}{重叠场景下多阶段目标检测后处理算法研究} %授权书用，无需断行
+\newcommand{\englishthesistitle}{\uppercase{Multi-Stage Based Obejct Detection Post Processing Method In Overlapping Scene}} %\uppercase作用：将英文标题字母全部大写；
+\newcommand{\chinesethesistime}{2017 年~12 月}  %封面底部的日期中文形式
+\newcommand{\englishthesistime}{December, 2017}    %封面底部的日期英文形式
+
+\ctitle{重叠场景下多阶段目标检测后处理算法研究}  %封面用论文标题，自己可手动断行
+\cdegree{\cxueke\cxuewei}
+\csubject{计算机科学与技术}                 %(~按二级学科填写~)
+\caffil{计算机科学与技术学院} %（在校生填所在系名称，同等学力人员填工作单位）
+\cauthor{陈晟}
+\csupervisor{丁宇新副教授} %导师名字
+%\cassosupervisor{副导名}%若没有，请屏蔽掉此句。
+%\ccosupervisor{联导名}%若没有，请屏蔽掉此句。
+
+
+\cdate{\chinesethesistime}
+
+\etitle{\englishthesistitle}
+\edegree{\exuewei \ of \exueke}
+\esubject{\emultiline[t]{Computer Science}}  %英文二级学科名
+\eaffil{School of Computer Science}
+\eauthor{Sheng Chen}                   %作者姓名 （英文）
+\esupervisor{Associate Prof. Yuxin Ding}       % 导师姓名 （英文）
+%\eassosupervisor{Prof. Assosuper}%若没有，请屏蔽掉此句。
+%\ecosupervisor{Prof. Cosuper}%若没有，请屏蔽掉此句。
+\edate{\englishthesistime}
+
+\natclassifiedindex{TP399}  %国内图书分类号
+\internatclassifiedindex{004.93}  %国际图书分类号
+\statesecrets{公开} %秘密
+%\fi
+
+
+\iffalse
+\BiAppendixChapter{摘~~~~要}{}
+\fi
+
+\cabstract{
+随着互联网与移动互联网的飞速发展和多样化网络交流软件的普及使用，越来越多的网络用户可随时随地浏览热点新闻报道，与此同时在微博、Twitter和知乎等平台上围绕各种新闻报道与热点社会事件等话题发表自己的观点和表达自己的立场与情绪。用户针对具体对象和事件的立场态度对商业机构与政府机关决策具有重大的价值。现有的文本情感分析通常只对文本本身做出正负极性分析，无法深入挖掘文本作者对特定主题目标的立场倾向，而在一些应用场景下，关注更多的是文本立场倾向而不是文本情感。因此，针对特定主题目标的社交媒体文本立场分析研究具有巨大的研究价值与商业价值。
+
+针对现有文本立场分析缺乏考虑主题目标信息的问题，本文提出一种以条件编码的方式结合主题目标信息与文本信息的文本立场分析方法。用编码主题目标信息作为"先验知识"来指导立场分析中的文本信息的编码。结合文本立场分析语料的特点，改进了条件编码模型。通过设计对比实验，表明以条件编码的方式引入主题目标信息能显著提高文本立场分析的性能，改进后的模型在SemEval2016英文数据集和NLPCC2016中文数据集的微平均F1值分别为0.671与0.698，在不需要外部收集语料与手工设计特征的前提下，条件编码模型性能已经接近最佳评测结果。
+
+由于主题目标对文本信息内容有着不同的侧重点的特性，本文将文本立场分析中主题目标信息作为注意力机制的导向，给予文本信息不同权重的关注度，并在其中挖掘立场分析的模式。由于注意力机制与条件编码是从两种不同角度引入主题目标信息，本文提出一种基于融合注意力机制与条件编码神经网络的文本立场分析的方法。通过设计对比实验，表明条件编码与注意力机制方式在不同主题目标任务下各有优劣。融合后的模型在SemEval英文数据集和NLPCC中文数据的微平均F1值分别为0.689与0.716，对比两个数据集评测任务的最优系统，微平均F1值分别提高了1.08\%和0.61\%。实验表明融合注意力机制与条件编码神经网络模型在社交媒体文本立场分析任务上的有效性。
+}
+
+\ckeywords{立场分析；深度学习；条件编码；注意力机制}
+
+\eabstract{
+With the rapid development of the Internet and mobile Internet and the popularity of  network communication software, people express their views and stance about hot social events and other topics. These massive review data has important research value on business intelligence, public opinion analysis, government decisioen-making field. The existing text sentiment analysis only classify the texts into positive sentiment or negative sentiment, and can not dig deep into the stance of people on specific target. In some applications, more attention is placed on the textual stance rather than textual sentiment Therefore, the research of social media text stance detection on specific target have great social and commercial value.
+
+Aiming at the lack of consideration of the target information in the existing stance detection research, this thesis studies a text stance detection method which combines the topic target information and the text information by conditional encoding. Through the design of comparative experiments, it is shown that the combining of  target information and text information by conditional encoding can significantly improve the performance of stance detection. Due to the characteristics of stance detection task, improving the conditional encoding model. In the case of SemEval2016 English dataset and NLPCC2016 Chinese dataset, The average micro F1 values ​​are 0.671 and 0.698, respectively. Conditional coding model performance is close to the best system for evaluation without the need of external corpus collection and manual design features.
+
+Based on the different target have different emphasis on the content of text information, this thesis will make target information as a focus of attention mechanism to give text information of different weights of attention, and then use weighed text information to extract the pattern of stance detection. this thesis combine that two method into a model. The combined model get micro F1 values ​​of SemEval2016 dataset and NLPCC dataset were 0.689 and 0.716 respectively, which were respectively 1.08\% and 0.61\% higher than the top system in those of the two datasets. These results indicate that the proposed method is effective in stance detection.
+}
+
+\ekeywords{Object Detection, Post-Processing, Non-Maximum Suppression, Mulit-Stage Post-Processing, Overlapping Scene}
+
+\makecover
+\clearpage 

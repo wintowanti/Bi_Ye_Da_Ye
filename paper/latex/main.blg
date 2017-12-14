@@ -13,75 +13,58 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Database file #1: reference.bib
-Repeated entry---line 1025 of file reference.bib
+Repeated entry---line 1019 of file reference.bib
  : @article{taboada2011lexicon
  :                            ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 1447 of file reference.bib
- : @inproceedings{augenstein2016usfd
- :                                  ,
-I'm skipping whatever remains of this entry
-"}" immediately follows an entry type---line 1453 of file reference.bib
- :  booktitle={SemEval@ NAACL-HLT
- :                               },
-I'm skipping whatever remains of this entry
-Repeated entry---line 1589 of file reference.bib
- : @inproceedings{wei2016pkudblab
- :                               ,
-I'm skipping whatever remains of this entry
-"}" immediately follows an entry type---line 1595 of file reference.bib
- :  booktitle={SemEval@ NAACL-HLT
- :                               },
-I'm skipping whatever remains of this entry
-Repeated entry---line 1639 of file reference.bib
+Repeated entry---line 1605 of file reference.bib
  : @inproceedings{Tang2014Learning
  :                                ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 1655 of file reference.bib
- : @article{Collobert2011Natural
- :                              ,
+Repeated entry---line 1641 of file reference.bib
+ : @inproceedings{Xiang2014Improving
+ :                                  ,
 I'm skipping whatever remains of this entry
-Warning--Require journal: zarrella2016mitre
 Warning--Require journal: rocktaschel2015reasoning
-You've used 48 entries,
+You've used 50 entries,
             3103 wiz_defined-function locations,
-            977 strings with 16495 characters,
-and the built_in function-call counts, 92893 in all, are:
-= -- 10351
-> -- 176
-< -- 400
-+ -- 8249
-- -- 626
-* -- 2285
-:= -- 10383
+            993 strings with 17150 characters,
+and the built_in function-call counts, 94796 in all, are:
+= -- 10492
+> -- 181
+< -- 412
++ -- 8244
+- -- 653
+* -- 2362
+:= -- 10449
 add.period$ -- 0
-call.type$ -- 48
+call.type$ -- 50
 change.case$ -- 0
 chr.to.int$ -- 0
-cite$ -- 50
-duplicate$ -- 13332
-empty$ -- 3610
-format.name$ -- 512
-if$ -- 25046
+cite$ -- 51
+duplicate$ -- 13665
+empty$ -- 3826
+format.name$ -- 524
+if$ -- 25521
 int.to.chr$ -- 0
-int.to.str$ -- 48
+int.to.str$ -- 50
 missing$ -- 0
-newline$ -- 171
-num.names$ -- 48
-pop$ -- 1339
+newline$ -- 177
+num.names$ -- 50
+pop$ -- 1401
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 819
+skip$ -- 857
 stack$ -- 0
-substring$ -- 11216
-swap$ -- 2262
+substring$ -- 11462
+swap$ -- 2363
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 2
-while$ -- 1239
-width$ -- 50
-write$ -- 630
-(There were 7 error messages)
+warning$ -- 1
+while$ -- 1295
+width$ -- 52
+write$ -- 657
+(There were 3 error messages)

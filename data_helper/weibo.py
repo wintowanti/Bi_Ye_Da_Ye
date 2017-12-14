@@ -13,4 +13,4 @@ class WeiBo(Social_Text):
     def __init__(self, raw_text, raw_target, stance, flag):
         self.tokenize_f = weibo_tokenize
         super(WeiBo, self).__init__(raw_text.decode("UTF-8"), raw_target.decode("UTF-8"), stance, flag)
-        self.add_filter_word()
+        #self.add_filter_word()

@@ -31,35 +31,37 @@
 
 \bibitem{godbole2007large}
 \bibauthor{Godbole N\@, Srinivasaiah M\@, Skiena S}\@. \bibtitle{Large-Scale
-  Sentiment Analysis for News and Blogs.}\bibmark{[J]}\@. \bibjournal{ICWSM}\@,
-  \bibyear{2007}\@, \bibvolume{7}\bibnumber{(21)}\thinspace{}\textnormal{:
+  Sentiment Analysis for News and Blogs}\bibmark{[C]}
+  //\thinspace{}\bibbooktitle{Proceedings of International Conference on
+  Weblogs and Social Media\thinspace{}\textnormal{: }Vol~7}\@.
+  \bibyear{2007}\thinspace{}\textnormal{:
   }\bibpages{219\thinspace{}\textnormal{--}\thinspace{}222}\@.
 
 \bibitem{balahur2011detecting}
 \bibauthor{Balahur A\@, Hermida J~M\@, Montoyo A}\@. \bibtitle{Detecting
-  implicit expressions of sentiment in text based on commonsense
-  knowledge}\bibmark{[C]} //\thinspace{}\bibbooktitle{Proceedings of the 2nd
+  Implicit Expressions of Sentiment in Text Based on Commonsense
+  Knowledge}\bibmark{[C]} //\thinspace{}\bibbooktitle{Proceedings of the 2nd
   Workshop on Computational Approaches to Subjectivity and Sentiment
   Analysis}\@. \bibyear{2011}\thinspace{}\textnormal{:
   }\bibpages{53\thinspace{}\textnormal{--}\thinspace{}60}\@.
 
 \bibitem{taboada2011lexicon}
 \bibauthor{Taboada M\@, Brooke J\@, Tofiloski M, et~al}\@.
-  \bibtitle{Lexicon-based methods for sentiment analysis}\bibmark{[J]}\@.
+  \bibtitle{Lexicon-based Methods for Sentiment Analysis}\bibmark{[J]}\@.
   \bibjournal{Computational linguistics}\@, \bibyear{2011}\@,
   \bibvolume{37}\bibnumber{(2)}\thinspace{}\textnormal{:
   }\bibpages{267\thinspace{}\textnormal{--}\thinspace{}307}\@.
 
 \bibitem{abbasi2008affect}
-\bibauthor{Abbasi A\@, Chen H\@, Thoms S, et~al}\@. \bibtitle{Affect analysis
-  of web forums and blogs using correlation ensembles}\bibmark{[J]}\@.
+\bibauthor{Abbasi A\@, Chen H\@, Thoms S, et~al}\@. \bibtitle{Affect Analysis
+  of Web Forums and Blogs Using Correlation Ensembles}\bibmark{[J]}\@.
   \bibjournal{IEEE Transactions on Knowledge and Data Engineering}\@,
   \bibyear{2008}\@, \bibvolume{20}\bibnumber{(9)}\thinspace{}\textnormal{:
   }\bibpages{1168\thinspace{}\textnormal{--}\thinspace{}1180}\@.
 
 \bibitem{mohammad2012portable}
-\bibauthor{Mohammad S}\@. \bibtitle{Portable features for classifying emotional
-  text}\bibmark{[C]} //\thinspace{}\bibbooktitle{Proceedings of the 2012
+\bibauthor{Mohammad S}\@. \bibtitle{Portable Features for Classifying Emotional
+  Text}\bibmark{[C]} //\thinspace{}\bibbooktitle{Proceedings of the 2012
   Conference of the North American Chapter of the Association for Computational
   Linguistics: Human Language Technologies}\@.
   \bibyear{2012}\thinspace{}\textnormal{:
@@ -73,71 +75,65 @@
   }\bibpages{1326\thinspace{}\textnormal{--}\thinspace{}1336}\@.
 
 \bibitem{gui2015novel}
-\bibauthor{Gui L\@, Lu Q\@, Xu R, et~al}\@. \bibtitle{A novel class noise
-  estimation method and application in classification}\bibmark{[C]}
+\bibauthor{Gui L\@, Lu Q\@, Xu R, et~al}\@. \bibtitle{A Novel Class Noise
+  Estimation Method and Application in Classification}\bibmark{[C]}
   //\thinspace{}\bibbooktitle{Proceedings of the 24th ACM International on
   Conference on Information and Knowledge Management}\@.
   \bibyear{2015}\thinspace{}\textnormal{:
   }\bibpages{1081\thinspace{}\textnormal{--}\thinspace{}1090}\@.
 
 \bibitem{socher2013recursive}
-\bibauthor{Socher R\@, Perelygin A\@, Wu J, et~al}\@. \bibtitle{Recursive deep
-  models for semantic compositionality over a sentiment treebank}\bibmark{[C]}
-  //\thinspace{}\bibbooktitle{Proceedings of the 2013 conference on empirical
-  methods in natural language processing}\@.
+\bibauthor{Socher R\@, Perelygin A\@, Wu J, et~al}\@. \bibtitle{Recursive Deep
+  Models for Semantic Compositionality Over a Sentiment Treebank}\bibmark{[C]}
+  //\thinspace{}\bibbooktitle{Proceedings of the 2013 Conference on Empirical
+  Methods in Natural Lan- guage Processing}\@.
   \bibyear{2013}\thinspace{}\textnormal{:
   }\bibpages{1631\thinspace{}\textnormal{--}\thinspace{}1642}\@.
 
 \bibitem{kim2014convolutional}
-\bibauthor{Kim Y}\@. \bibtitle{Convolutional neural networks for sentence
-  classification}\bibmark{[C]} //\thinspace{}\bibbooktitle{In EMNLP}\@.
+\bibauthor{Kim Y}\@. \bibtitle{Convolutional Neural Networks for Sentence
+  Classification}\bibmark{[C]} //\thinspace{}\bibbooktitle{Proceedings of the
+  2014 Conference on Empirical Methods in Natural Language Processing}\@.
   \bibyear{2014}\@.
 
 \bibitem{xu2015show}
-\bibauthor{Xu K\@, Ba J\@, Kiros R, et~al}\@. \bibtitle{Show, attend and tell:
-  Neural image caption generation with visual attention}\bibmark{[C]}
-  //\thinspace{}\bibbooktitle{International Conference on Machine Learning}\@.
-  \bibyear{2015}\thinspace{}\textnormal{:
+\bibauthor{Xu K\@, Ba J\@, Kiros R, et~al}\@. \bibtitle{Show, Attend and Tell:
+  Neural Image Caption Generation with Visual Attention}\bibmark{[C]}
+  //\thinspace{}\bibbooktitle{Proceedings of International Conference on
+  Machine Learning}\@. \bibyear{2015}\thinspace{}\textnormal{:
   }\bibpages{2048\thinspace{}\textnormal{--}\thinspace{}2057}\@.
 
 \bibitem{potthast2012information}
 \bibauthor{Potthast M\@, Stein B\@, Loose F, et~al}\@. \bibtitle{Information
-  retrieval in the commentsphere}\bibmark{[J]}\@. \bibjournal{ACM Transactions
-  on Intelligent Systems and Technology (TIST)}\@, \bibyear{2012}\@,
+  Retrieval in the Commentsphere}\bibmark{[J]}\@. \bibjournal{ACM Transactions
+  on Intelligent Systems and Technology}\@, \bibyear{2012}\@,
   \bibvolume{3}\bibnumber{(4)}\thinspace{}\textnormal{: }\bibpages{68}\@.
 
 \bibitem{zhou2010research}
-\bibauthor{Zhou J\@, Lin C\@, Li B-c}\@. \bibtitle{Research of sentiment
-  classification for net news comments by machine learning}\bibmark{[J]}\@.
+\bibauthor{Zhou J\@, Lin C\@, Li B-c}\@. \bibtitle{Research of Sentiment
+  Classification for Net News Comments by Machine Learning}\bibmark{[J]}\@.
   \bibjournal{Journal of Computer Applications}\@, \bibyear{2010}\@,
   \bibvolume{30}\bibnumber{(4)}\thinspace{}\textnormal{:
   }\bibpages{1011\thinspace{}\textnormal{--}\thinspace{}1014}\@.
 
-\bibitem{chardon2013measuring}
-\bibauthor{Chardon B\@, Benamara F\@, Mathieu Y, et~al}\@. \bibtitle{Measuring
-  the effect of discourse structure on sentiment analysis}\bibmark{[C]}
-  //\thinspace{}\bibbooktitle{International Conference on Intelligent Text
-  Processing and Computational Linguistics}\@.
-  \bibyear{2013}\thinspace{}\textnormal{:
-  }\bibpages{25\thinspace{}\textnormal{--}\thinspace{}37}\@.
-
 \bibitem{zhang2016ecnu}
-\bibauthor{Zhang Z\@, Lan M}\@. \bibtitle{ECNU at SemEval 2016 Task 6: Relevant
+\bibauthor{Zhang Z\@, Lan M}\@. \bibtitle{ECNU at SemEval-2016 Task 6: Relevant
   or Not? Supportive or Not? A Two-step Learning System for Automatic Detecting
-  Stance in Tweets.}\bibmark{[C]} //\thinspace{}\bibbooktitle{SemEval@
-  NAACL-HLT}\@. \bibyear{2016}\thinspace{}\textnormal{:
+  Stance in Tweets}\bibmark{[C]} //\thinspace{}\bibbooktitle{Proceedings of
+  International Workshop on Semantic Evaluation}\@.
+  \bibyear{2016}\thinspace{}\textnormal{:
   }\bibpages{451\thinspace{}\textnormal{--}\thinspace{}457}\@.
 
 \bibitem{moreo2012lexicon}
-\bibauthor{Moreo A\@, Romero M\@, Castro J, et~al}\@. \bibtitle{Lexicon-based
-  comments-oriented news sentiment analyzer system}\bibmark{[J]}\@.
+\bibauthor{Moreo A\@, Romero M\@, Castro J, et~al}\@. \bibtitle{Lexicon-Based
+  Comments-oriented News Sentiment Analyzer System}\bibmark{[J]}\@.
   \bibjournal{Expert Systems with Applications}\@, \bibyear{2012}\@,
   \bibvolume{39}\bibnumber{(10)}\thinspace{}\textnormal{:
   }\bibpages{9166\thinspace{}\textnormal{--}\thinspace{}9180}\@.
 
 \bibitem{zhao2010jointly}
-\bibauthor{Zhao W~X\@, Jiang J\@, Yan H, et~al}\@. \bibtitle{Jointly modeling
-  aspects and opinions with a MaxEnt-LDA hybrid}\bibmark{[C]}
+\bibauthor{Zhao W~X\@, Jiang J\@, Yan H, et~al}\@. \bibtitle{Jointly Modeling
+  Aspects and Opinions with a MaxEnt-LDA Hybrid}\bibmark{[C]}
   //\thinspace{}\bibbooktitle{Proceedings of the 2010 Conference on Empirical
   Methods in Natural Language Processing}\@.
   \bibyear{2010}\thinspace{}\textnormal{:
@@ -145,21 +141,14 @@
 
 \bibitem{kiritchenko2014sentiment}
 \bibauthor{Kiritchenko S\@, Zhu X\@, Mohammad S~M}\@. \bibtitle{Sentiment
-  analysis of short informal texts}\bibmark{[J]}\@. \bibjournal{Journal of
+  Analysis of Short Informal Texts}\bibmark{[J]}\@. \bibjournal{Journal of
   Artificial Intelligence Research}\@, \bibyear{2014}\@,
   \bibvolume{50}\thinspace{}\textnormal{:
   }\bibpages{723\thinspace{}\textnormal{--}\thinspace{}762}\@.
 
-\bibitem{mohammad2015sentiment}
-\bibauthor{Mohammad S~M\@, Zhu X\@, Kiritchenko S, et~al}\@.
-  \bibtitle{Sentiment, emotion, purpose, and style in electoral
-  tweets}\bibmark{[J]}\@. \bibjournal{Information Processing \& Management}\@,
-  \bibyear{2015}\@, \bibvolume{51}\bibnumber{(4)}\thinspace{}\textnormal{:
-  }\bibpages{480\thinspace{}\textnormal{--}\thinspace{}499}\@.
-
 \bibitem{somasundaran2009recognizing}
-\bibauthor{Somasundaran S\@, Wiebe J}\@. \bibtitle{Recognizing stances in
-  online debates}\bibmark{[C]} //\thinspace{}\bibbooktitle{Proceedings of the
+\bibauthor{Somasundaran S\@, Wiebe J}\@. \bibtitle{Recognizing Stances in
+  Online Debates}\bibmark{[C]} //\thinspace{}\bibbooktitle{Proceedings of the
   Joint Conference of the 47th Annual Meeting of the ACL and the 4th
   International Joint Conference on Natural Language Processing of the AFNLP:
   Volume 1-Volume 1}\@. \bibyear{2009}\thinspace{}\textnormal{:
@@ -168,29 +157,29 @@
 \bibitem{hasan2013stance}
 \bibauthor{Hasan K~S\@, Ng V}\@. \bibtitle{Stance Classification of Ideological
   Debates: Data, Models, Features, and Constraints.}\bibmark{[C]}
-  //\thinspace{}\bibbooktitle{IJCNLP}\@.
-  \bibyear{2013}\thinspace{}\textnormal{:
+  //\thinspace{}\bibbooktitle{Proccedings of International Joint Conference on
+  Natural Language Processing}\@. \bibyear{2013}\thinspace{}\textnormal{:
   }\bibpages{1348\thinspace{}\textnormal{--}\thinspace{}1356}\@.
 
 \bibitem{faulkner2014automated}
-\bibauthor{Faulkner A}\@. \bibtitle{Automated classification of stance in
-  student essays: An approach using stance target information and the Wikipedia
-  link-based measure}\bibmark{[J]}\@. \bibjournal{Science}\@, \bibyear{2014}\@,
+\bibauthor{Faulkner A}\@. \bibtitle{Automated Classification of Stance in
+  Student Essays: An Approach Using Stance Target Information and the Wikipedia
+  Link-based Measure}\bibmark{[J]}\@. \bibjournal{Science}\@, \bibyear{2014}\@,
   \bibvolume{376}\bibnumber{(12)}\thinspace{}\textnormal{: }\bibpages{86}\@.
 
 \bibitem{ahmed2010staying}
-\bibauthor{Ahmed A\@, Xing E~P}\@. \bibtitle{Staying informed: supervised and
-  semi-supervised multi-view topical analysis of ideological
-  perspective}\bibmark{[C]} //\thinspace{}\bibbooktitle{Proceedings of the 2010
+\bibauthor{Ahmed A\@, Xing E~P}\@. \bibtitle{Staying Informed: Supervised and
+  Semi-supervised Multi-view Topical Analysis of Ideological
+  Perspective}\bibmark{[C]} //\thinspace{}\bibbooktitle{Proceedings of the 2010
   Conference on Empirical Methods in Natural Language Processing}\@.
   \bibyear{2010}\thinspace{}\textnormal{:
   }\bibpages{1140\thinspace{}\textnormal{--}\thinspace{}1150}\@.
 
 \bibitem{rajadesingan2014identifying}
-\bibauthor{Rajadesingan A\@, Liu H}\@. \bibtitle{Identifying users with
-  opposing opinions in twitter debates}\bibmark{[C]}
-  //\thinspace{}\bibbooktitle{International Conference on Social Computing,
-  Behavioral-Cultural Modeling, and Prediction}\@.
+\bibauthor{Rajadesingan A\@, Liu H}\@. \bibtitle{Identifying Users with
+  Opposing Opinions in Twitter Debates}\bibmark{[C]}
+  //\thinspace{}\bibbooktitle{Proceedings of International Conference on Social
+  Computing, Behavioral-cultural Modeling, and Prediction}\@.
   \bibyear{2014}\thinspace{}\textnormal{:
   }\bibpages{153\thinspace{}\textnormal{--}\thinspace{}160}\@.
 
@@ -198,28 +187,39 @@
 \bibauthor{Wei W\@, Zhang X\@, Liu X, et~al}\@. \bibtitle{pkudblab at
   SemEval-2016 Task 6: A Specific Convolutional Neural Network System for
   Effective Stance Detection.}\bibmark{[C]}
-  //\thinspace{}\bibbooktitle{SemEval@ NAACL-HLT}\@.
-  \bibyear{2016}\thinspace{}\textnormal{:
+  //\thinspace{}\bibbooktitle{Proceedings of International Workshop on Semantic
+  Evaluation}\@. \bibyear{2016}\thinspace{}\textnormal{:
   }\bibpages{384\thinspace{}\textnormal{--}\thinspace{}388}\@.
 
 \bibitem{zarrella2016mitre}
 \bibauthor{Zarrella G\@, Marsh A}\@. \bibtitle{MITRE at SemEval-2016 Task 6:
-  Transfer Learning for Stance Detection}\bibmark{[J]}\@, \bibyear{2016}\@.
+  Transfer Learning for Stance Detection}\bibmark{[J]}\@.
+  \bibjournal{Proceedings of International Workshop on Semantic Evaluation}\@,
+  \bibyear{2016}\thinspace{}\textnormal{:
+  }\bibpages{458\thinspace{}\textnormal{--}\thinspace{}463}\@.
 
 \bibitem{johnson2016all}
 \bibauthor{Johnson K\@, Goldwasser D}\@. \bibtitle{" All I know about politics
   is what I read in Twitter": Weakly Supervised Models for Extracting
   Politicians' Stances From Twitter.}\bibmark{[C]}
-  //\thinspace{}\bibbooktitle{COLING}\@.
-  \bibyear{2016}\thinspace{}\textnormal{:
+  //\thinspace{}\bibbooktitle{Proceedings of the 25th International Conference
+  on Computational Linguistics}\@. \bibyear{2016}\thinspace{}\textnormal{:
   }\bibpages{2966\thinspace{}\textnormal{--}\thinspace{}2977}\@.
 
 \bibitem{augenstein2016usfd}
 \bibauthor{Augenstein I\@, Vlachos A\@, Bontcheva K}\@. \bibtitle{USFD at
-  SemEval-2016 Task 6: Any-Target Stance Detection on Twitter with
-  Autoencoders.}\bibmark{[C]} //\thinspace{}\bibbooktitle{SemEval@
-  NAACL-HLT}\@. \bibyear{2016}\thinspace{}\textnormal{:
+  SemEval-2016 Task 6: Any-target Stance Detection on Twitter with
+  Autoencoders.}\bibmark{[C]} //\thinspace{}\bibbooktitle{Proceedings of
+  International Workshop on Semantic Evaluation}\@.
+  \bibyear{2016}\thinspace{}\textnormal{:
   }\bibpages{389\thinspace{}\textnormal{--}\thinspace{}393}\@.
+
+\bibitem{yao2017}
+\bibauthor{姚天昉\@, 娄德成}\@.
+  \bibtitle{汉语语句主题语义倾向分析方法的研究}\bibmark{[C]}
+  //\thinspace{}\bibbooktitle{全国计算语言学学术会议}\@.
+  \bibyear{2007}\thinspace{}\textnormal{:
+  }\bibpages{73\thinspace{}\textnormal{--}\thinspace{}79}\@.
 
 \bibitem{孙建旺2014基于词典与机器学习的中文微博情感分析研究}
 \bibauthor{孙建旺\@, 吕学强\@, 张雷瀚}\@.
@@ -230,64 +230,81 @@
 
 \bibitem{bollegala2013cross}
 \bibauthor{Bollegala D\@, Weir D\@, Carroll J}\@. \bibtitle{Cross-domain
-  sentiment classification using a sentiment sensitive
-  thesaurus}\bibmark{[J]}\@. \bibjournal{IEEE transactions on knowledge and
+  Sentiment Classification Using a Sentiment Sensitive
+  Thesaurus}\bibmark{[J]}\@. \bibjournal{IEEE transactions on knowledge and
   data engineering}\@, \bibyear{2013}\@,
   \bibvolume{25}\bibnumber{(8)}\thinspace{}\textnormal{:
   }\bibpages{1719\thinspace{}\textnormal{--}\thinspace{}1731}\@.
 
 \bibitem{li2012cross}
 \bibauthor{Li F\@, Pan S~J\@, Jin O, et~al}\@. \bibtitle{Cross-domain
-  co-extraction of sentiment and topic lexicons}\bibmark{[C]}
+  Co-extraction of Sentiment and Topic Lexicons}\bibmark{[C]}
   //\thinspace{}\bibbooktitle{Proceedings of the 50th Annual Meeting of the
   Association for Computational Linguistics: Long Papers-Volume 1}\@.
   \bibyear{2012}\thinspace{}\textnormal{:
   }\bibpages{410\thinspace{}\textnormal{--}\thinspace{}419}\@.
 
 \bibitem{pang2004sentimental}
-\bibauthor{Pang B\@, Lee L}\@. \bibtitle{A sentimental education: Sentiment
-  analysis using subjectivity summarization based on minimum cuts}\bibmark{[C]}
+\bibauthor{Pang B\@, Lee L}\@. \bibtitle{A Sentimental Education: Sentiment
+  Analysis Using Subjectivity Summarization Based on Minimum Cuts}\bibmark{[C]}
   //\thinspace{}\bibbooktitle{Proceedings of the 42nd annual meeting on
   Association for Computational Linguistics}\@.
   \bibyear{2004}\thinspace{}\textnormal{: }\bibpages{271}\@.
 
-\bibitem{wang2012baselines}
-\bibauthor{Wang S\@, Manning C~D}\@. \bibtitle{Baselines and bigrams: Simple,
-  good sentiment and topic classification}\bibmark{[C]}
-  //\thinspace{}\bibbooktitle{Proceedings of the 50th Annual Meeting of the
-  Association for Computational Linguistics: Short Papers-Volume 2}\@.
-  \bibyear{2012}\thinspace{}\textnormal{:
-  }\bibpages{90\thinspace{}\textnormal{--}\thinspace{}94}\@.
+\bibitem{Xiang2014Improving}
+\bibauthor{Xiang B\@, Zhou L}\@. \bibtitle{Improving Twitter Sentiment Analysis
+  with Topic-based Mixture Modeling and Semi-Supervised Training}\bibmark{[C]}
+  //\thinspace{}\bibbooktitle{Proceedings of the 52nd Annual Meeting of the
+  Association for Computational Linguistics (Volume 2: Short
+  Papers)\thinspace{}\textnormal{: }Vol~2}\@.
+  \bibyear{2014}\thinspace{}\textnormal{:
+  }\bibpages{434\thinspace{}\textnormal{--}\thinspace{}439}\@.
 
 \bibitem{socher2010learning}
-\bibauthor{Socher R\@, Manning C~D\@, Ng A~Y}\@. \bibtitle{Learning continuous
-  phrase representations and syntactic parsing with recursive neural
-  networks}\bibmark{[C]} //\thinspace{}\bibbooktitle{Proceedings of the
+\bibauthor{Socher R\@, Manning C~D\@, Ng A~Y}\@. \bibtitle{Learning Continuous
+  Phrase Representations and Syntactic Parsing with Recursive Neural
+  Networks}\bibmark{[C]} //\thinspace{}\bibbooktitle{Proceedings of the
   NIPS-2010 Deep Learning and Unsupervised Feature Learning Workshop}\@.
   \bibyear{2010}\thinspace{}\textnormal{:
   }\bibpages{1\thinspace{}\textnormal{--}\thinspace{}9}\@.
 
 \bibitem{Tang2014Learning}
 \bibauthor{Tang D\@, Wei F\@, Yang N, et~al}\@. \bibtitle{Learning
-  Sentiment-Specific Word Embedding for Twitter Sentiment
-  Classification.}\bibmark{[C]} //\thinspace{}\bibbooktitle{ACL (1)}\@.
+  Sentiment-specific Word Embedding for Twitter Sentiment
+  Classification}\bibmark{[C]} //\thinspace{}\bibbooktitle{Meeting of the
+  Association for Computational Linguistics}\@.
   \bibyear{2014}\thinspace{}\textnormal{:
   }\bibpages{1555\thinspace{}\textnormal{--}\thinspace{}1565}\@.
 
-\bibitem{Collobert2011Natural}
-\bibauthor{Collobert R\@, Weston J\@, Bottou L, et~al}\@. \bibtitle{Natural
-  language processing (almost) from scratch}\bibmark{[J]}\@.
-  \bibjournal{Journal of Machine Learning Research}\@, \bibyear{2011}\@,
-  \bibvolume{12}\bibnumber{(Aug)}\thinspace{}\textnormal{:
-  }\bibpages{2493\thinspace{}\textnormal{--}\thinspace{}2537}\@.
+\bibitem{Cao2015Combining}
+\bibauthor{Cao Y\@, Xu R\@, Chen T}\@. \bibtitle{Combining Convolutional Neural
+  Network and Support Vector Machine for Sentiment Classification}\bibmark{[C]}
+  //\thinspace{}\bibbooktitle{Chinese National Conference on Social Media
+  Processing}\@. \bibyear{2015}\thinspace{}\textnormal{:
+  }\bibpages{144\thinspace{}\textnormal{--}\thinspace{}155}\@.
+
+\bibitem{Somasundaran2010Recognizing}
+\bibauthor{Somasundaran S\@, Wiebe J}\@. \bibtitle{Recognizing Stances in
+  Ideological Online Debates}\bibmark{[C]} //\thinspace{}\bibbooktitle{NAACL
+  Hlt 2010 Workshop on Computational Approaches To Analysis and Generation of
+  Emotion in Text}\@. \bibyear{2010}\thinspace{}\textnormal{:
+  }\bibpages{116\thinspace{}\textnormal{--}\thinspace{}124}\@.
 
 \bibitem{anand2011cats}
-\bibauthor{Anand P\@, Walker M\@, Abbott R, et~al}\@. \bibtitle{Cats rule and
-  dogs drool!: Classifying stance in online debate}\bibmark{[C]}
+\bibauthor{Anand P\@, Walker M\@, Abbott R, et~al}\@. \bibtitle{Cats Rule and
+  Dogs Drool!: Classifying Stance In Online Debate}\bibmark{[C]}
   //\thinspace{}\bibbooktitle{Proceedings of the 2nd workshop on computational
   approaches to subjectivity and sentiment analysis}\@.
   \bibyear{2011}\thinspace{}\textnormal{:
   }\bibpages{1\thinspace{}\textnormal{--}\thinspace{}9}\@.
+
+\bibitem{Walker2013Stance}
+\bibauthor{Walker M~A\@, Anand P\@, Abbott R, et~al}\@. \bibtitle{Stance
+  Classification Using Dialogic Properties of Persuasion}\bibmark{[C]}
+  //\thinspace{}\bibbooktitle{Conference of the North American Chapter of the
+  Association for Computational Linguistics: Human Language Technologies}\@.
+  \bibyear{2013}\thinspace{}\textnormal{:
+  }\bibpages{592\thinspace{}\textnormal{--}\thinspace{}596}\@.
 
 \bibitem{xu2016ensemble}
 \bibauthor{Xu J\@, Zheng S\@, Shi J, et~al}\@. \bibtitle{Ensemble of Feature
@@ -298,29 +315,24 @@
 
 \bibitem{ebrahimi2016weakly}
 \bibauthor{Ebrahimi J\@, Dou D\@, Lowd D}\@. \bibtitle{Weakly Supervised Tweet
-  Stance Classification by Relational Bootstrapping.}\bibmark{[C]}
-  //\thinspace{}\bibbooktitle{EMNLP}\@. \bibyear{2016}\thinspace{}\textnormal{:
+  Stance Classification by Relational Bootstrapping}\bibmark{[C]}
+  //\thinspace{}\bibbooktitle{Proceedings of Conference on Empirical Methods in
+  Natural Language Processing}\@. \bibyear{2016}\thinspace{}\textnormal{:
   }\bibpages{1012\thinspace{}\textnormal{--}\thinspace{}1017}\@.
 
 \bibitem{dias2016heuristics}
 \bibauthor{Dias M\@, Becker K}\@. \bibtitle{An Heuristics-based,
-  Weakly-Supervised Approach for Classification of Stance in
+  Weakly-supervised Approach for Classification of Stance in
   Tweets}\bibmark{[C]} //\thinspace{}\bibbooktitle{Web Intelligence (WI), 2016
   IEEE/WIC/ACM International Conference on}\@.
   \bibyear{2016}\thinspace{}\textnormal{:
   }\bibpages{73\thinspace{}\textnormal{--}\thinspace{}80}\@.
 
-\bibitem{mikolov2010recurrent}
-\bibauthor{Mikolov T\@, Karafi{\'a}t M\@, Burget L, et~al}\@.
-  \bibtitle{Recurrent neural network based language model.}\bibmark{[C]}
-  //\thinspace{}\bibbooktitle{Interspeech\thinspace{}\textnormal{: }Vol~2}\@.
-  \bibyear{2010}\thinspace{}\textnormal{: }\bibpages{3}\@.
-
-\bibitem{sundermeyer2012lstm}
-\bibauthor{Sundermeyer M\@, Schl{\"u}ter R\@, Ney H}\@. \bibtitle{LSTM neural
-  networks for language modeling}\bibmark{[C]}
-  //\thinspace{}\bibbooktitle{Thirteenth Annual Conference of the International
-  Speech Communication Association}\@. \bibyear{2012}\@.
+\bibitem{mohammadstance}
+\bibauthor{Mohammad S~M\@, Sobhani P\@, Kiritchenko S}\@. \bibtitle{Stance and
+  Sentiment in Tweets}\bibmark{[J]}\@. \bibjournal{ACM Transactions on Internet
+  Technology}\@, \bibyear{2017}\@,
+  \bibvolume{17}\bibnumber{(3)}\thinspace{}\textnormal{: }\bibpages{26}\@.
 
 \bibitem{yu2016stance}
 \bibauthor{Yu N\@, Pan D\@, Zhang M, et~al}\@. \bibtitle{Stance Detection in
@@ -329,28 +341,31 @@
   of Oriental Languages}\@. \bibyear{2016}\thinspace{}\textnormal{:
   }\bibpages{893\thinspace{}\textnormal{--}\thinspace{}900}\@.
 
+\bibitem{Sobhani2017A}
+\bibauthor{Sobhani P\@, Inkpen D\@, Zhu X}\@. \bibtitle{A Dataset for
+  Multi-Target Stance Detection}\bibmark{[C]}
+  //\thinspace{}\bibbooktitle{Conference of the European Chapter of the
+  Association for Computational Linguistics: Volume 2, Short Papers}\@.
+  \bibyear{2017}\thinspace{}\textnormal{:
+  }\bibpages{551\thinspace{}\textnormal{--}\thinspace{}557}\@.
+
 \bibitem{rocktaschel2015reasoning}
 \bibauthor{Rocktschel T\@, Grefenstette E\@, Hermann K~M, et~al}\@.
   \bibtitle{Reasoning about Entailment with Neural Attention}\bibmark{[J]}\@,
   \bibyear{2015}\@.
 
-\bibitem{gimpel2011part}
-\bibauthor{Gimpel K\@, Schneider N\@, O'Connor B, et~al}\@.
-  \bibtitle{Part-of-speech tagging for twitter: Annotation, features, and
-  experiments}\bibmark{[C]} //\thinspace{}\bibbooktitle{Proceedings of the 49th
-  Annual Meeting of the Association for Computational Linguistics: Human
-  Language Technologies: short papers-Volume 2}\@.
-  \bibyear{2011}\thinspace{}\textnormal{:
-  }\bibpages{42\thinspace{}\textnormal{--}\thinspace{}47}\@.
+\bibitem{hochreiter1997long}
+\bibauthor{Hochreiter S\@, Schmidhuber J}\@. \bibtitle{Long Short-term
+  Memory}\bibmark{[J]}\@. \bibjournal{Neural computation}\@, \bibyear{1997}\@,
+  \bibvolume{9}\bibnumber{(8)}\thinspace{}\textnormal{:
+  }\bibpages{1735\thinspace{}\textnormal{--}\thinspace{}1780}\@.
 
-\bibitem{tutek2016takelab}
-\bibauthor{Tutek M\@, Sekulic I\@, Gombar P, et~al}\@. \bibtitle{TakeLab at
-  SemEval-2016 task 6: stance classification in tweets using a genetic
-  algorithm based ensemble}\bibmark{[C]}
-  //\thinspace{}\bibbooktitle{Proceedings of the 10th International Workshop on
-  Semantic Evaluation (SemEval-2016)}\@.
-  \bibyear{2016}\thinspace{}\textnormal{:
-  }\bibpages{464\thinspace{}\textnormal{--}\thinspace{}468}\@.
+\bibitem{Gers2000Learning}
+\bibauthor{Gers F~A\@, Schmidhuber J\@, Cummins F}\@. \bibtitle{Learning to
+  Forget: Continual Prediction with LSTM}\bibmark{[J]}\@. \bibjournal{Neural
+  Computation}\@, \bibyear{2000}\@,
+  \bibvolume{12}\bibnumber{(10)}\thinspace{}\textnormal{:
+  }\bibpages{2451\thinspace{}\textnormal{--}\thinspace{}2471}\@.
 
 \bibitem{xu2016overview}
 \bibauthor{Xu R\@, Zhou Y\@, Wu D, et~al}\@. \bibtitle{Overview of NLPCC Shared
@@ -359,10 +374,21 @@
   of Oriental Languages}\@. \bibyear{2016}\thinspace{}\textnormal{:
   }\bibpages{907\thinspace{}\textnormal{--}\thinspace{}916}\@.
 
-\bibitem{mohammadstance}
-\bibauthor{Mohammad S~M\@, Sobhani P\@, Kiritchenko S}\@. \bibtitle{Stance and
-  sentiment in tweets}\bibmark{[J]}\@. \bibjournal{ACM Transactions on Internet
-  Technology (TOIT)}\@, \bibyear{2017}\@,
-  \bibvolume{17}\bibnumber{(3)}\thinspace{}\textnormal{: }\bibpages{26}\@.
+\bibitem{gimpel2011part}
+\bibauthor{Gimpel K\@, Schneider N\@, O'Connor B, et~al}\@.
+  \bibtitle{Part-of-speech Tagging for Twitter: Annotation, Features, and
+  Experiments}\bibmark{[C]} //\thinspace{}\bibbooktitle{Proceedings of the 49th
+  Annual Meeting of the Association for Computational Linguistics: Human
+  Language Technologies: short papers-Volume 2}\@.
+  \bibyear{2011}\thinspace{}\textnormal{:
+  }\bibpages{42\thinspace{}\textnormal{--}\thinspace{}47}\@.
+
+\bibitem{tutek2016takelab}
+\bibauthor{Tutek M\@, Sekulic I\@, Gombar P, et~al}\@. \bibtitle{TakeLab at
+  SemEval-2016 Task 6: Stance Classification in Tweets Using a Genetic
+  Algorithm Based Ensemble}\bibmark{[C]}
+  //\thinspace{}\bibbooktitle{Proceedings of International Workshop on Semantic
+  Evaluation}\@. \bibyear{2016}\thinspace{}\textnormal{:
+  }\bibpages{464\thinspace{}\textnormal{--}\thinspace{}468}\@.
 
 \end{thebibliography}

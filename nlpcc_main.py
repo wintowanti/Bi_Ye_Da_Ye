@@ -40,7 +40,7 @@ def train(model, config, loss_fun, optim, target_idx):
     print("-----------train mean loss: ", all_loss/sample_len)
     return model.state_dict()
 
-def test(model, config, loss_fun, flag, target_idx):
+def test(model, config, loss_fun, flag, target_idx, print_attention=False):
     model.eval()
     corpus = config.corpus
     all_loss = 0.0
@@ -56,15 +56,28 @@ def test(model, config, loss_fun, flag, target_idx):
         y_true_stances = np.append(y_true_stances, stance2idx(stances))
 
         var_s1 = Variable(torch.from_numpy(stance2idx(stances)))
-        output1, output2 = model(np_idx_tweets, np_idx_targets, target_idx)
+        output1, attention_matrix = model(np_idx_tweets, np_idx_targets, target_idx)
 
         y_pred_stances = np.append(y_pred_stances, torch.max(output1, dim=1, keepdim=False)[1].data.numpy())
         loss = loss_fun(output1, var_s1)
         all_loss += loss.data.sum()
+        if print_attention:
+            print_attention_fun(config, idx_tweets, stances, y_pred_stances, attention_matrix.data.numpy())
     f1_target1 = metric(y_true=y_true_stances, y_pred=y_pred_stances, name="target1")
     print(flag+" mean loss: ", all_loss/sample_len)
     print("f1: %f"%f1_target1)
     return f1_target1, y_true_stances, y_pred_stances
+
+
+def print_attention_fun(config, id_tweets, stance, p_stance, attention_matrix):
+    idx2word = config.corpus.dictionary.idx2word
+    for id_tweet, s, ps, attention_weight in zip(id_tweets, stance, p_stance, attention_matrix):
+        str1 = u"|".join([idx2word[id] for id in id_tweet])
+        print(str1.encode("UTF-8"))
+        print(u"|".join([ ('{:.3f}'.format(float(a))) for a in attention_weight]))
+        print(s)
+        print(ps)
+    pass
 
 def get_model(config):
     #model = LSTM_Condition_Bi_Encoder(config)
@@ -81,8 +94,8 @@ def get_model(config):
     #model = LSTM_Text_Target_Concat(config)
     #model = LSTM_Condition_Bi_Encoder(config)
     #model = LSTM_Condition_Encoder(config)
-    #model = Attention_Bi_LSTM_Condition(config)
-    model = Attention_Bi_LSTM(config)
+    model = Attention_Bi_LSTM_Condition(config)
+    #model = Attention_Bi_LSTM(config)
 
     return model
 
@@ -107,11 +120,11 @@ def test_all_target(Config):
             print("micro: %f  best dev : %f" % (micro_F1, best_micro_F1))
             print("----------------epoch: %d--------------------\n" % e_i)
         model.load_state_dict(best_model_dict)
-        file_name = "output/" + "nlpcc_" + model.__class__.__name__ + ".res"
+        file_name = "output/" + "visual_attention_nlpcc_" + model.__class__.__name__ + ".res"
         with open(file_name, "a+") as f:
             with RedirectStdout(f):
                 print("\n------target: %s----------" % (Config.corpus.targets[target_idx].encode("UTF-8")))
-                micro_F1, true_stances, pred_stances, = test(model, Config, loss_fun, "Test", target_idx)
+                micro_F1, true_stances, pred_stances, = test(model, Config, loss_fun, "Test", target_idx, print_attention=True)
         y_true_stances = np.append(y_true_stances, true_stances)
         y_pred_stances = np.append(y_pred_stances, pred_stances)
     with open(file_name, "a+") as f:

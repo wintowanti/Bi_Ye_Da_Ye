@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.10.16)  1 DEC 2017 11:28
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.10.16)  14 DEC 2017 22:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1851,14 +1851,7 @@ Package: xeCJK-listings 2017/05/15 v3.4.8 xeCJK patch file for listings
 \l__xeCJK_listings_max_char_int=\count282
 \l__xeCJK_listings_flag_int=\count283
 )
-(./main.aux (./body/chapter1.aux) (./body/chapter2.aux
-
-LaTeX Warning: Label `f1favor' multiply defined.
-
-
-LaTeX Warning: Label `f1favor' multiply defined.
-
-) (./body/chapter3.aux
+(./main.aux (./body/chapter1.aux) (./body/chapter2.aux) (./body/chapter3.aux
 
 LaTeX Warning: Label `lstm_f' multiply defined.
 
@@ -1908,7 +1901,7 @@ LaTeX Warning: Label `lstm_f' multiply defined.
 LaTeX Warning: Label `lstm_f' multiply defined.
 
 
-LaTeX Warning: Label `f1favor' multiply defined.
+LaTeX Warning: Label `chart_nlpcc_best_model' multiply defined.
 
 
 LaTeX Warning: Label `semeval_all_model' multiply defined.
@@ -2152,7 +2145,7 @@ LaTeX Info: Redefining \nameref on input line 11.
 ) (./cover.tex
 
 LaTeX Font Warning: Font shape `TU/SimSun(0)/bx/n' undefined
-(Font)              using `TU/SimSun(0)/m/n' instead on input line 57.
+(Font)              using `TU/SimSun(0)/m/n' instead on input line 62.
 
 \g__fontspec_family_SimHei_int=\count316
 .................................................
@@ -2212,7 +2205,7 @@ LaTeX Font Warning: Font shape `TU/SimSun(0)/bx/n' undefined
 .................................................
 
 LaTeX Font Warning: Font shape `TU/KaiTi(0)/bx/n' undefined
-(Font)              using `TU/KaiTi(0)/m/n' instead on input line 57.
+(Font)              using `TU/KaiTi(0)/m/n' instead on input line 62.
 
 [1
 
@@ -2221,32 +2214,32 @@ LaTeX Font Warning: Font shape `TU/KaiTi(0)/bx/n' undefined
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\\' on input line 57.
+(hyperref)                removing `\\' on input line 62.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 57.
+LaTeX Font Info:    Try loading font information for U+msa on input line 62.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 57.
+LaTeX Font Info:    Try loading font information for U+msb on input line 62.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Calculating math sizes for size <14> on input line 57.
+LaTeX Font Info:    Calculating math sizes for size <14> on input line 62.
  [2]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\uppercase' on input line 57.
+(hyperref)                removing `\uppercase' on input line 62.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\uppercase' on input line 57.
+(hyperref)                removing `\uppercase' on input line 62.
 
 [3]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 12.045pt
-(hyperref)                replaced by space on input line 57.
+(hyperref)                replaced by space on input line 62.
 
 [1
 
@@ -2282,7 +2275,10 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 
 
-] [9] [10] [11] [12] [13]) [14] [15]
+] [9] [10] [11] [12]
+File: figures/transfer_learning.png Graphic file (type QTm)
+ <use  "figures/transfer_learning.png" > [13] [14])
+[15]
 \openout2 = `body/chapter3.aux'.
 
  (./body/chapter3.tex
@@ -2291,29 +2287,35 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 
 
-]
-File: figures/rnn_gradient_vanish.png Graphic file (type QTm)
- <use  "figures/rnn_gradient_vanish.png" >
+] [17]
+File: figures/rnn_vanish.pdf Graphic file (type QTm)
+ <use  "figures/rnn_vanish.pdf" >
 File: figures/lstm_unit.png Graphic file (type QTm)
  <use  "figures/lstm_unit.png" >
-[17]
+LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 58.
+
+[18]
 File: figures/conditional_encoding.png Graphic file (type QTm)
- <use  "figures/conditional_encoding.png" > [18] [19] [20]
+ <use  "figures/conditional_encoding.png" > [19] [20]
 File: figures/conditional.pdf Graphic file (type QTm)
 
 <use  "figures/conditional.pdf" > [21] [22]
-LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 146.
- [23]
-Overfull \hbox (3.56657pt too wide) in paragraph at lines 171--186
+Overfull \hbox (3.56657pt too wide) in paragraph at lines 156--171
  [][] 
  []
 
-[24] [25] [26] [27] [28]
+[23] [24] [25] [26] [27]
 File: figures/chart_semeval_best_model.png Graphic file (type QTm)
  <use  "figures/chart_semeval_best_model.png" >
+[28]
+Underfull \hbox (badness 1708) in paragraph at lines 336--337
+[]\TU/SimSun(0)/m/n/12 上 述 统 计 说 明 模 型 在 \TU/TimesNewRoman(0)/m/n/12 SemEval \T
+U/SimSun(0)/m/n/12 英 文 立 场 分 析 数 据 集 的 性 能，|  以 下 将 在
+ []
+
 [29]
-File: figures/chart_nlpcc_best_model.png Graphic file (type QTm)
- <use  "figures/chart_nlpcc_best_model.png" > [30] [31]
+File: figures/chart_nlpcc_best_model.jpg Graphic file (type QTm)
+ <use  "figures/chart_nlpcc_best_model.jpg" > [30] [31]
 File: figures/chart_seme_condi.png Graphic file (type QTm)
 
 <use  "figures/chart_seme_condi.png" > [32] [33] [34]) [35]
@@ -2327,43 +2329,61 @@ File: figures/chart_seme_condi.png Graphic file (type QTm)
 
 
 ]
+File: figures/liuchengtu.pdf Graphic file (type QTm)
+ <use  "figures/liuchengtu.pdf" >
 File: figures/attention.pdf Graphic file (type QTm)
- <use  "figures/attention.pdf" > [37] [38] [39] [40] [41]
+ <use  "figures/attention.pdf" > [37]
+[38] [39] [40] [41] [42]
 File: figures/chart_semeval_best_model_attention.png Graphic file (type QTm)
 
-<use  "figures/chart_semeval_best_model_attention.png" > [42] [43]
-File: figures/chart_nlpcc_best_model_attention.png Graphic file (type QTm)
+<use  "figures/chart_semeval_best_model_attention.png" > [43]
+Underfull \hbox (badness 1708) in paragraph at lines 195--196
+[]\TU/SimSun(0)/m/n/12 上 述 统 计 说 明 模 型 在 \TU/TimesNewRoman(0)/m/n/12 SemEval \T
+U/SimSun(0)/m/n/12 英 文 立 场 分 析 数 据 集 的 性 能，|  以 下 将 在
+ []
 
+File: figures/chart_nlpcc_best_model_attention.png Graphic file (type QTm)
 <use  "figures/chart_nlpcc_best_model_attention.png" > [44] [45]
 File: figures/chart_attention_condition_semeval.png Graphic file (type QTm)
 
-<use  "figures/chart_attention_condition_semeval.png" > [46] [47]) [48]
+<use  "figures/chart_attention_condition_semeval.png" > [46] [47]
+File: figures/semEval-attention-weight.pdf Graphic file (type QTm)
+
+<use  "figures/semEval-attention-weight.pdf" >
+File: figures/nlpcc-attention-weight.pdf Graphic file (type QTm)
+
+<use  "figures/nlpcc-attention-weight.pdf" > [48]) [49]
 \openout2 = `body/conclusion.aux'.
 
-
-(./body/conclusion.tex
+ (./body/conclusion.tex
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 12.0pt
 (hyperref)                replaced by space on input line 3.
 
-) [49
+) [50
 
 
 
-] (./main.bbl [50
-
-
-] [51]
-Underfull \hbox (badness 1270) in paragraph at lines 190--196
-\TU/TimesNewRoman(0)/m/n/12 bates[C] //International Conference on Social Compu
-ting, Behavioral-Cultural
+] (./main.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 94--98
+[]\TU/TimesNewRoman(0)/m/n/12 Kim Y. Convolutional Neural Networks for Sentence
+ Classification[C]
  []
 
-[52] [53]) [54]
+[51
+
+
+]
+Underfull \hbox (badness 1546) in paragraph at lines 179--185
+[]\TU/TimesNewRoman(0)/m/n/12 Rajadesingan A, Liu H. Identifying Users with Opp
+osing Opinions in Twit-
+ []
+
+[52] [53] [54]) [55]
 \openout2 = `appendix/Authorization.aux'.
 
- (./appendix/Authorization.tex) [55
+ (./appendix/Authorization.tex) [56
 
 
 ]
@@ -2376,7 +2396,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 12.0pt
 (hyperref)                replaced by space on input line 3.
 
-) [56
+) [57
 
 
 
@@ -2404,12 +2424,12 @@ LaTeX Warning: There were multiply-defined labels.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 32799 strings out of 493005
- 619771 string characters out of 6134595
- 690691 words of memory out of 5000000
- 36304 multiletter control sequences out of 15000+600000
- 17570 words of font info for 122 fonts, out of 8000000 for 9000
+ 32801 strings out of 493005
+ 619320 string characters out of 6134595
+ 691789 words of memory out of 5000000
+ 36300 multiletter control sequences out of 15000+600000
+ 17578 words of font info for 123 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 57i,13n,78p,10442b,4011s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 57i,13n,78p,10442b,4005s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (65 pages).
+Output written on main.pdf (66 pages).

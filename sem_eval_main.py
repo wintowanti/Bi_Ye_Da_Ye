@@ -47,7 +47,7 @@ def train(model, config, loss_fun, optim, target_idx):
     print("-----------train mean loss: ", all_loss/sample_len)
     return model.state_dict()
 
-def test(model, config, loss_fun, flag, target_idx):
+def test(model, config, loss_fun, flag, target_idx, print_attention=False):
     model.eval()
     corpus = config.corpus
     all_loss = 0.0
@@ -68,17 +68,29 @@ def test(model, config, loss_fun, flag, target_idx):
 
         var_s1 = Variable(torch.from_numpy(stance2idx(stances)))
         #var_s2 = Variable(torch.from_numpy(stance2idx(sentiments)))
-        output1, output2 = model(np_idx_tweets, np_idx_targets, target_idx)
+        output1, attention_matrix = model(np_idx_tweets, np_idx_targets, target_idx)
 
         y_pred_stances = np.append(y_pred_stances, torch.max(output1, dim=1, keepdim=False)[1].data.numpy())
         #y_pred_sentiments = np.append(y_pred_sentiments, torch.max(output2, dim=1, keepdim=False)[1].data.numpy())
         loss = loss_fun(output1, var_s1)
         all_loss += loss.data.sum()
+
+        if print_attention == True:
+            print_attention_fun(config, idx_tweets, stances, y_pred_stances, attention_matrix.data.numpy())
     f1_target1 = metric(y_true=y_true_stances, y_pred=y_pred_stances, name="target1")
     #f1_target2 = metric(y_true=y_true_sentiments, y_pred=y_pred_sentiments, name="target2")
     print(flag+" mean loss: ", all_loss/sample_len)
     print("f1: %f"%f1_target1)
     return f1_target1, y_true_stances, y_pred_stances
+
+def print_attention_fun(config, id_tweets, stance, p_stance, attention_matrix):
+    idx2word = config.corpus.dictionary.idx2word
+    for id_tweet, s, ps, attention_weight in zip(id_tweets, stance, p_stance, attention_matrix):
+        print("|".join([idx2word[id] for id in id_tweet]))
+        print("|".join([ '{:.3f}'.format(float(a)) for a in attention_weight]))
+        print(s)
+        print(ps)
+    pass
 
 def get_model(config):
     #model = LSTM_Condition_Bi_Encoder(config)
@@ -95,15 +107,15 @@ def get_model(config):
     #model = LSTM_Text_Only(config)
     #model = LSTM_Text_Target_Concat(config)
     #model = Attention_Bi_LSTM(config)
-    #model = Attention_Bi_LSTM_Condition(config)
-    model = AT
+    model = Attention_Bi_LSTM_Condition(config)
+    #model = AT
     return model
 
 def test_all_target(Config):
     y_true_stances = np.array([])
     y_pred_stances = np.array([])
     for target_idx in range(5):
-        target_idx = 4
+        target_idx = 3
         model = get_model(Config)
         optim = torch.optim.Adam(filter(lambda p: p.requires_grad, model.parameters()), lr=0.001, weight_decay=1e-6)
         loss_fun = CrossEntropyLoss(size_average=False)
@@ -119,11 +131,11 @@ def test_all_target(Config):
             print("micro: %f  best dev : %f"%(micro_F1, best_micro_F1))
             print("----------------epoch: %d--------------------\n"%e_i)
         model.load_state_dict(best_model_dict)
-        file_name = "output/"+"sem_eval_"+model.__class__.__name__+".res"
+        file_name = "output/"+"visual_attention_sem_eval_"+model.__class__.__name__+".res"
         with open(file_name, "a+") as f:
             with RedirectStdout(f):
                 print("\n------target: %s----------"%(Config.corpus.targets[target_idx]))
-                micro_F1, true_stances, pred_stances, = test(model, Config, loss_fun, "Test", target_idx)
+                micro_F1, true_stances, pred_stances, = test(model, Config, loss_fun, "Test", target_idx, print_attention=True)
         y_true_stances = np.append(y_true_stances, true_stances)
         y_pred_stances = np.append(y_pred_stances, pred_stances)
         with open(file_name, "a+") as f:
